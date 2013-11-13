@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring", "ElectionMonitoring\ElectionMonitoring.csproj", "{B3F11DCA-F02E-4A94-8809-D58AF3FCDB72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.Data", "ElectionMonitoring.Data\ElectionMonitoring.Data.csproj", "{C75D8E60-C293-4059-A273-F3D914A871BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.Models", "ElectionMonitoring.Models\ElectionMonitoring.Models.csproj", "{4293D631-57C7-4996-AE52-73A4585B2EE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.Business", "ElectionMonitoring.Business\ElectionMonitoring.Business.csproj", "{E174D299-2B9A-403E-844E-2C049A179E17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3F11DCA-F02E-4A94-8809-D58AF3FCDB72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3F11DCA-F02E-4A94-8809-D58AF3FCDB72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3F11DCA-F02E-4A94-8809-D58AF3FCDB72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3F11DCA-F02E-4A94-8809-D58AF3FCDB72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C75D8E60-C293-4059-A273-F3D914A871BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C75D8E60-C293-4059-A273-F3D914A871BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C75D8E60-C293-4059-A273-F3D914A871BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C75D8E60-C293-4059-A273-F3D914A871BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4293D631-57C7-4996-AE52-73A4585B2EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4293D631-57C7-4996-AE52-73A4585B2EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4293D631-57C7-4996-AE52-73A4585B2EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4293D631-57C7-4996-AE52-73A4585B2EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E174D299-2B9A-403E-844E-2C049A179E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E174D299-2B9A-403E-844E-2C049A179E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E174D299-2B9A-403E-844E-2C049A179E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E174D299-2B9A-403E-844E-2C049A179E17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

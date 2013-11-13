@@ -1,0 +1,5 @@
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.dll.config
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.pdb
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.pdb

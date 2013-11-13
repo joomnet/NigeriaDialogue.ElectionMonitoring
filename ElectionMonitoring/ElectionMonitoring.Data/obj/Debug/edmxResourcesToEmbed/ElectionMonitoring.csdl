@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ElectionMonitoring" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ElectionMonitoringEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="GetAggregatedRaceResult" ReturnType="Collection(ElectionMonitoring.AggregatedRaceResult)">
+      <Parameter Name="RaceID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAggregatedRaceResultByRegion" ReturnType="Collection(ElectionMonitoring.AggregatedRaceResult)">
+      <Parameter Name="RaceID" Mode="In" Type="Int32" />
+      <Parameter Name="RegionCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Candidates" EntityType="ElectionMonitoring.Candidate" />
+    <EntitySet Name="Categories" EntityType="ElectionMonitoring.Category" />
+    <EntitySet Name="CategoryTypes" EntityType="ElectionMonitoring.CategoryType" />
+    <EntitySet Name="Parties" EntityType="ElectionMonitoring.Party" />
+    <EntitySet Name="Races" EntityType="ElectionMonitoring.Race" />
+    <EntitySet Name="RaceResults" EntityType="ElectionMonitoring.RaceResult" />
+    <EntitySet Name="RaceTypes" EntityType="ElectionMonitoring.RaceType" />
+    <EntitySet Name="Regions" EntityType="ElectionMonitoring.Region" />
+    <EntitySet Name="RegionTypes" EntityType="ElectionMonitoring.RegionType" />
+    <EntitySet Name="sysdiagrams" EntityType="ElectionMonitoring.sysdiagram" />
+    <EntitySet Name="Years" EntityType="ElectionMonitoring.Year" />
+    <AssociationSet Name="FK_Candidate_Party" Association="ElectionMonitoring.FK_Candidate_Party">
+      <End Role="Party" EntitySet="Parties" />
+      <End Role="Candidate" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RaceResult_Candidate" Association="ElectionMonitoring.FK_RaceResult_Candidate">
+      <End Role="Candidate" EntitySet="Candidates" />
+      <End Role="RaceResult" EntitySet="RaceResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_CategoryType" Association="ElectionMonitoring.FK_Category_CategoryType">
+      <End Role="CategoryType" EntitySet="CategoryTypes" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Race_RaceType" Association="ElectionMonitoring.FK_Race_RaceType">
+      <End Role="RaceType" EntitySet="RaceTypes" />
+      <End Role="Race" EntitySet="Races" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RaceResult_Race" Association="ElectionMonitoring.FK_RaceResult_Race">
+      <End Role="Race" EntitySet="Races" />
+      <End Role="RaceResult" EntitySet="RaceResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RaceResult_Region" Association="ElectionMonitoring.FK_RaceResult_Region">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="RaceResult" EntitySet="RaceResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Region_RegionType" Association="ElectionMonitoring.FK_Region_RegionType">
+      <End Role="RegionType" EntitySet="RegionTypes" />
+      <End Role="Region" EntitySet="Regions" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="ElectionRaceResult">
+    <Property Type="Int32" Name="RaceID" Nullable="true" />
+    <Property Type="Int32" Name="CandidateId" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="PartyName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="PartyAcronym" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="TotalVotes" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AggregatedRaceResult">
+    <Property Type="Int32" Name="RaceID" Nullable="true" />
+    <Property Type="Int32" Name="CandidateId" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="PartyName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="PartyAcronym" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="TotalVotes" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Candidate">
+    <Key>
+      <PropertyRef Name="CandidateID" />
+    </Key>
+    <Property Type="Int32" Name="CandidateID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FirstName" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MiddleName" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="PartyID" Nullable="false" />
+    <Property Type="Int32" Name="RaceID" />
+    <Property Type="Int32" Name="CategoryID" />
+    <Property Type="String" Name="Gender" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Party" Relationship="ElectionMonitoring.FK_Candidate_Party" FromRole="Candidate" ToRole="Party" />
+    <NavigationProperty Name="RaceResults" Relationship="ElectionMonitoring.FK_RaceResult_Candidate" FromRole="Candidate" ToRole="RaceResult" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Type="Int32" Name="CategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Boolean" Name="TopLevel" />
+    <Property Type="Int32" Name="ParentCategoryID" />
+    <Property Type="Int32" Name="SortOrder" />
+    <Property Type="Int32" Name="StatusID" />
+    <Property Type="Int32" Name="CategoryTypeID" />
+    <NavigationProperty Name="CategoryType" Relationship="ElectionMonitoring.FK_Category_CategoryType" FromRole="Category" ToRole="CategoryType" />
+  </EntityType>
+  <EntityType Name="CategoryType">
+    <Key>
+      <PropertyRef Name="CategoryTypeID" />
+    </Key>
+    <Property Type="Int32" Name="CategoryTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Categories" Relationship="ElectionMonitoring.FK_Category_CategoryType" FromRole="CategoryType" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="Party">
+    <Key>
+      <PropertyRef Name="PartyID" />
+    </Key>
+    <Property Type="Int32" Name="PartyID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Acronym" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LogoFile" MaxLength="225" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Candidates" Relationship="ElectionMonitoring.FK_Candidate_Party" FromRole="Party" ToRole="Candidate" />
+  </EntityType>
+  <EntityType Name="Race">
+    <Key>
+      <PropertyRef Name="RaceID" />
+    </Key>
+    <Property Type="Int32" Name="RaceID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="RaceTypeID" />
+    <Property Type="Int32" Name="Year" />
+    <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RaceType" Relationship="ElectionMonitoring.FK_Race_RaceType" FromRole="Race" ToRole="RaceType" />
+    <NavigationProperty Name="RaceResults" Relationship="ElectionMonitoring.FK_RaceResult_Race" FromRole="Race" ToRole="RaceResult" />
+  </EntityType>
+  <EntityType Name="RaceResult">
+    <Key>
+      <PropertyRef Name="RaceResultID" />
+    </Key>
+    <Property Type="Int32" Name="RaceResultID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="RaceID" />
+    <Property Type="Int32" Name="CandidateID" />
+    <Property Type="Int32" Name="RegionID" />
+    <Property Type="Int32" Name="NoOfVotes" />
+    <Property Type="Int32" Name="SubmittedBy" />
+    <Property Type="DateTime" Name="SubmittedOn" />
+    <Property Type="Int32" Name="ModifiedBy" />
+    <Property Type="DateTime" Name="ModifiedOn" />
+    <Property Type="Int32" Name="ApprovedBy" />
+    <Property Type="DateTime" Name="ApprovedOn" />
+    <NavigationProperty Name="Candidate" Relationship="ElectionMonitoring.FK_RaceResult_Candidate" FromRole="RaceResult" ToRole="Candidate" />
+    <NavigationProperty Name="Race" Relationship="ElectionMonitoring.FK_RaceResult_Race" FromRole="RaceResult" ToRole="Race" />
+    <NavigationProperty Name="Region" Relationship="ElectionMonitoring.FK_RaceResult_Region" FromRole="RaceResult" ToRole="Region" />
+  </EntityType>
+  <EntityType Name="RaceType">
+    <Key>
+      <PropertyRef Name="RaceTypeID" />
+    </Key>
+    <Property Type="Int32" Name="RaceTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Races" Relationship="ElectionMonitoring.FK_Race_RaceType" FromRole="RaceType" ToRole="Race" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="RegionID" />
+    </Key>
+    <Property Type="Int32" Name="RegionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Boolean" Name="TopLevel" />
+    <Property Type="Int32" Name="ParentRegionID" />
+    <Property Type="Int32" Name="StatusID" />
+    <Property Type="String" Name="Name" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="RegionTypeID" />
+    <Property Type="String" Name="RegionCode" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Coordinates" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RaceResults" Relationship="ElectionMonitoring.FK_RaceResult_Region" FromRole="Region" ToRole="RaceResult" />
+    <NavigationProperty Name="RegionType" Relationship="ElectionMonitoring.FK_Region_RegionType" FromRole="Region" ToRole="RegionType" />
+  </EntityType>
+  <EntityType Name="RegionType">
+    <Key>
+      <PropertyRef Name="RegionTypeID" />
+    </Key>
+    <Property Type="Int32" Name="RegionTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Regions" Relationship="ElectionMonitoring.FK_Region_RegionType" FromRole="RegionType" ToRole="Region" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="version" />
+    <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Year">
+    <Key>
+      <PropertyRef Name="YearID" />
+    </Key>
+    <Property Type="Int32" Name="YearID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Description" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Candidate_Party">
+    <End Type="ElectionMonitoring.Party" Role="Party" Multiplicity="1" />
+    <End Type="ElectionMonitoring.Candidate" Role="Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Party">
+        <PropertyRef Name="PartyID" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="PartyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RaceResult_Candidate">
+    <End Type="ElectionMonitoring.Candidate" Role="Candidate" Multiplicity="0..1" />
+    <End Type="ElectionMonitoring.RaceResult" Role="RaceResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="CandidateID" />
+      </Principal>
+      <Dependent Role="RaceResult">
+        <PropertyRef Name="CandidateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_CategoryType">
+    <End Type="ElectionMonitoring.CategoryType" Role="CategoryType" Multiplicity="0..1" />
+    <End Type="ElectionMonitoring.Category" Role="Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryType">
+        <PropertyRef Name="CategoryTypeID" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="CategoryTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Race_RaceType">
+    <End Type="ElectionMonitoring.RaceType" Role="RaceType" Multiplicity="0..1" />
+    <End Type="ElectionMonitoring.Race" Role="Race" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RaceType">
+        <PropertyRef Name="RaceTypeID" />
+      </Principal>
+      <Dependent Role="Race">
+        <PropertyRef Name="RaceTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RaceResult_Race">
+    <End Type="ElectionMonitoring.Race" Role="Race" Multiplicity="0..1" />
+    <End Type="ElectionMonitoring.RaceResult" Role="RaceResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Race">
+        <PropertyRef Name="RaceID" />
+      </Principal>
+      <Dependent Role="RaceResult">
+        <PropertyRef Name="RaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RaceResult_Region">
+    <End Type="ElectionMonitoring.Region" Role="Region" Multiplicity="0..1" />
+    <End Type="ElectionMonitoring.RaceResult" Role="RaceResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="RegionID" />
+      </Principal>
+      <Dependent Role="RaceResult">
+        <PropertyRef Name="RegionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Region_RegionType">
+    <End Type="ElectionMonitoring.RegionType" Role="RegionType" Multiplicity="0..1" />
+    <End Type="ElectionMonitoring.Region" Role="Region" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegionType">
+        <PropertyRef Name="RegionTypeID" />
+      </Principal>
+      <Dependent Role="Region">
+        <PropertyRef Name="RegionTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

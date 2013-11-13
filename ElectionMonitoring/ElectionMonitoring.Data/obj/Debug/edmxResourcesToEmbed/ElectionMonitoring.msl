@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ElectionMonitoringStoreContainer" CdmEntityContainer="ElectionMonitoringEntities">
+    <FunctionImportMapping FunctionImportName="GetAggregatedRaceResult" FunctionName="ElectionMonitoring.Store.GetRaceResult">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ElectionMonitoring.AggregatedRaceResult">
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+          <ScalarProperty Name="PartyAcronym" ColumnName="PartyAcronym" />
+          <ScalarProperty Name="TotalVotes" ColumnName="TotalVotes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAggregatedRaceResultByRegion" FunctionName="ElectionMonitoring.Store.GetRegionRaceResult">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ElectionMonitoring.AggregatedRaceResult">
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+          <ScalarProperty Name="PartyAcronym" ColumnName="PartyAcronym" />
+          <ScalarProperty Name="TotalVotes" ColumnName="TotalVotes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Candidates">
+      <EntityTypeMapping TypeName="ElectionMonitoring.Candidate">
+        <MappingFragment StoreEntitySet="Candidate">
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+          <ScalarProperty Name="PartyID" ColumnName="PartyID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="ElectionMonitoring.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryTypeID" ColumnName="CategoryTypeID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="ParentCategoryID" ColumnName="ParentCategoryID" />
+          <ScalarProperty Name="TopLevel" ColumnName="TopLevel" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryTypes">
+      <EntityTypeMapping TypeName="ElectionMonitoring.CategoryType">
+        <MappingFragment StoreEntitySet="CategoryType">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryTypeID" ColumnName="CategoryTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parties">
+      <EntityTypeMapping TypeName="ElectionMonitoring.Party">
+        <MappingFragment StoreEntitySet="Party">
+          <ScalarProperty Name="LogoFile" ColumnName="LogoFile" />
+          <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PartyID" ColumnName="PartyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races">
+      <EntityTypeMapping TypeName="ElectionMonitoring.Race">
+        <MappingFragment StoreEntitySet="Race">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="RaceTypeID" ColumnName="RaceTypeID" />
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RaceResults">
+      <EntityTypeMapping TypeName="ElectionMonitoring.RaceResult">
+        <MappingFragment StoreEntitySet="RaceResult">
+          <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="SubmittedOn" ColumnName="SubmittedOn" />
+          <ScalarProperty Name="SubmittedBy" ColumnName="SubmittedBy" />
+          <ScalarProperty Name="NoOfVotes" ColumnName="NoOfVotes" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+          <ScalarProperty Name="RaceResultID" ColumnName="RaceResultID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RaceTypes">
+      <EntityTypeMapping TypeName="ElectionMonitoring.RaceType">
+        <MappingFragment StoreEntitySet="RaceType">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RaceTypeID" ColumnName="RaceTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="ElectionMonitoring.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="Coordinates" ColumnName="Coordinates" />
+          <ScalarProperty Name="RegionCode" ColumnName="RegionCode" />
+          <ScalarProperty Name="RegionTypeID" ColumnName="RegionTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="ParentRegionID" ColumnName="ParentRegionID" />
+          <ScalarProperty Name="TopLevel" ColumnName="TopLevel" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegionTypes">
+      <EntityTypeMapping TypeName="ElectionMonitoring.RegionType">
+        <MappingFragment StoreEntitySet="RegionType">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RegionTypeID" ColumnName="RegionTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ElectionMonitoring.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Years">
+      <EntityTypeMapping TypeName="ElectionMonitoring.Year">
+        <MappingFragment StoreEntitySet="Year">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="YearID" ColumnName="YearID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

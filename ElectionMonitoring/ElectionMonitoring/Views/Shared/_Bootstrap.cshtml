@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+	<title>@ViewBag.Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="DealerBLESS." />
+	<meta name="author" content="Ford Credit Europe" />
+
+
+	<!-- The styles -->
+    <link id="bs-css" href="@Url.Content("~/Content/themes/bootstrap/css/bootstrap-main.css")" rel="stylesheet" />
+	<style type="text/css">
+	  body {
+		padding-bottom: 40px;
+	  }
+	  .sidebar-nav {
+		padding: 9px 0;
+	  }
+	</style>
+    
+	<link href='@Url.Content("~/Content/themes/bootstrap/css/bootstrap-responsive.css")' rel="stylesheet" />
+	<link href='@Url.Content("~/Content/themes/bootstrap/css/electionmonitoring.css")' rel="stylesheet" />
+	<link href='@Url.Content("~/Content/themes/bootstrap/css/jquery-ui-1.8.21.custom.css")' rel="stylesheet" />
+	<link href='@Url.Content("~/Content/themes/bootstrap/css/chosen.css")' rel='stylesheet' />
+	<link href='@Url.Content("~/Content/themes/bootstrap/css/uniform.default.css")' rel='stylesheet' />
+	<link href='@Url.Content("~/Content/themes/bootstrap/css/colorbox.css")' rel='stylesheet' />
+	<link href='@Url.Content("~/Content/themes/bootstrap/css/jquery.noty.css")' rel='stylesheet' />
+	<link href='@Url.Content("~/Content/themes/bootstrap/css/noty_theme_default.css")' rel='stylesheet' />
+	<link href='@Url.Content("~/Content/themes/bootstrap/css/opa-icons.css")' rel='stylesheet' />
+
+	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+
+    <!-- jQuery -->
+	<script type="text/javascript" src="@Url.Content("~/Content/themes/bootstrap/js/jquery-1.7.2.min.js")"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>*@
+	<!-- jQuery UI -->
+	<script type="text/javascript" src="@Url.Content("~/Content/themes/bootstrap/js/jquery-ui-1.8.21.custom.min.js")"></script>    
+    <!-- jQuery Ajax -->
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <!-- jQuery Validation -->
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+	<!-- transition / effect library -->
+	<script type="text/javascript" src="@Url.Content("~/Content/themes/bootstrap/js/bootstrap-transition.js")"></script>
+    <!-- select or dropdown enhancer -->
+	<script type="text/javascript" src="@Url.Content("~/Content/themes/bootstrap/js/jquery.chosen.min.js")"></script>
+	<!-- checkbox, radio, and file input styler -->
+	<script type="text/javascript" src="@Url.Content("~/Content/themes/bootstrap/js/jquery.uniform.min.js")"></script>
+	<!-- notification plugin -->
+	<script type="text/javascript" src="@Url.Content("~/Content/themes/bootstrap/js/jquery.noty.js")"></script>
+    
+    <!-- application script for electionmonitoring -->
+	<script type="text/javascript" src="@Url.Content("~/Content/themes/bootstrap/js/electionmonitoring.js")"></script>
+    
+	<!-- chart libraries start -->
+    <script src="@Url.Content("~/Scripts/highcharts/highcharts.js")"></script>
+    <script src="@Url.Content("~/Scripts/highcharts/modules/exporting.js")"></script>
+    <!-- chart libraries end -->
+
+    <!-- Google MAP API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
