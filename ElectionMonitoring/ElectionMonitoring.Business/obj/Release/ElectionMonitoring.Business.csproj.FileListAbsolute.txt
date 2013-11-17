@@ -1,0 +1,12 @@
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Business.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Business.pdb
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\AutoMapper.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\AutoMapper.Net4.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Data.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Models.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Data.pdb
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Models.pdb
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\AutoMapper.xml
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.csprojResolveAssemblyReference.cache
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.pdb

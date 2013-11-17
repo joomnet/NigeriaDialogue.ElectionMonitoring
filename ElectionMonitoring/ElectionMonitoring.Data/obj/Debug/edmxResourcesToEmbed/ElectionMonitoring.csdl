@@ -1,13 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ElectionMonitoring" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="ElectionMonitoringEntities" annotation:LazyLoadingEnabled="true">
-    <FunctionImport Name="GetAggregatedRaceResult" ReturnType="Collection(ElectionMonitoring.AggregatedRaceResult)">
-      <Parameter Name="RaceID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="GetAggregatedRaceResultByRegion" ReturnType="Collection(ElectionMonitoring.AggregatedRaceResult)">
-      <Parameter Name="RaceID" Mode="In" Type="Int32" />
-      <Parameter Name="RegionCode" Mode="In" Type="String" />
-    </FunctionImport>
     <EntitySet Name="Candidates" EntityType="ElectionMonitoring.Candidate" />
     <EntitySet Name="Categories" EntityType="ElectionMonitoring.Category" />
     <EntitySet Name="CategoryTypes" EntityType="ElectionMonitoring.CategoryType" />
@@ -47,17 +40,12 @@
       <End Role="RegionType" EntitySet="RegionTypes" />
       <End Role="Region" EntitySet="Regions" />
     </AssociationSet>
+    <FunctionImport Name="GetAggregatedRaceResult" ReturnType="Collection(ElectionMonitoring.AggregatedRaceResult)">
+      <Parameter Name="RaceID" Mode="In" Type="Int32" />
+      <Parameter Name="RegionCode" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="ElectionRaceResult">
-    <Property Type="Int32" Name="RaceID" Nullable="true" />
-    <Property Type="Int32" Name="CandidateId" Nullable="true" />
-    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="80" />
-    <Property Type="String" Name="LastName" Nullable="true" MaxLength="80" />
-    <Property Type="String" Name="PartyName" Nullable="true" MaxLength="80" />
-    <Property Type="String" Name="PartyAcronym" Nullable="true" MaxLength="10" />
-    <Property Type="Int32" Name="TotalVotes" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="AggregatedRaceResult">
     <Property Type="Int32" Name="RaceID" Nullable="true" />
     <Property Type="Int32" Name="CandidateId" Nullable="true" />
     <Property Type="String" Name="FirstName" Nullable="true" MaxLength="80" />
@@ -110,6 +98,7 @@
     <Property Type="String" Name="Acronym" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="LogoFile" MaxLength="225" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Candidates" Relationship="ElectionMonitoring.FK_Candidate_Party" FromRole="Party" ToRole="Candidate" />
+    <Property Type="String" Name="Color" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Race">
     <Key>
@@ -274,4 +263,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="AggregatedRaceResult">
+    <Property Type="Int32" Name="RaceID" Nullable="true" />
+    <Property Type="Int32" Name="CandidateId" Nullable="true" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="PartyName" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="PartyAcronym" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PartyColor" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="RegionID" Nullable="true" />
+    <Property Type="String" Name="RegionName" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="RegionCode" Nullable="true" MaxLength="32" />
+    <Property Type="Int32" Name="TotalVotes" Nullable="true" />
+  </ComplexType>
 </Schema>

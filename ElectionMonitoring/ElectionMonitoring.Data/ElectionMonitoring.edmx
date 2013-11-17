@@ -85,6 +85,7 @@
           <Property Name="Name" Type="varchar" MaxLength="80" />
           <Property Name="Acronym" Type="varchar" MaxLength="10" />
           <Property Name="LogoFile" Type="varchar" MaxLength="225" />
+          <Property Name="Color" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Race">
           <Key>
@@ -243,6 +244,7 @@
         <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetRaceResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RaceID" Type="int" Mode="In" />
+          <Parameter Name="RegionCode" Type="varchar" Mode="In" />
         </Function>
         <Function Name="GetRegionRaceResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RaceID" Type="int" Mode="In" />
@@ -283,13 +285,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ElectionMonitoring" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="ElectionMonitoringEntities" annotation:LazyLoadingEnabled="true">
-          <FunctionImport Name="GetAggregatedRaceResult" ReturnType="Collection(ElectionMonitoring.AggregatedRaceResult)">
-          <Parameter Name="RaceID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="GetAggregatedRaceResultByRegion" ReturnType="Collection(ElectionMonitoring.AggregatedRaceResult)">
-            <Parameter Name="RaceID" Mode="In" Type="Int32" />
-            <Parameter Name="RegionCode" Mode="In" Type="String" />
-          </FunctionImport>
           <EntitySet Name="Candidates" EntityType="ElectionMonitoring.Candidate" />
           <EntitySet Name="Categories" EntityType="ElectionMonitoring.Category" />
           <EntitySet Name="CategoryTypes" EntityType="ElectionMonitoring.CategoryType" />
@@ -329,17 +324,12 @@
             <End Role="RegionType" EntitySet="RegionTypes" />
             <End Role="Region" EntitySet="Regions" />
           </AssociationSet>
+          <FunctionImport Name="GetAggregatedRaceResult" ReturnType="Collection(ElectionMonitoring.AggregatedRaceResult)">
+            <Parameter Name="RaceID" Mode="In" Type="Int32" />
+            <Parameter Name="RegionCode" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="ElectionRaceResult">
-          <Property Type="Int32" Name="RaceID" Nullable="true" />
-          <Property Type="Int32" Name="CandidateId" Nullable="true" />
-          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="LastName" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="PartyName" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="PartyAcronym" Nullable="true" MaxLength="10" />
-          <Property Type="Int32" Name="TotalVotes" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="AggregatedRaceResult">
           <Property Type="Int32" Name="RaceID" Nullable="true" />
           <Property Type="Int32" Name="CandidateId" Nullable="true" />
           <Property Type="String" Name="FirstName" Nullable="true" MaxLength="80" />
@@ -392,6 +382,7 @@
           <Property Type="String" Name="Acronym" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="LogoFile" MaxLength="225" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Candidates" Relationship="ElectionMonitoring.FK_Candidate_Party" FromRole="Party" ToRole="Candidate" />
+          <Property Type="String" Name="Color" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Race">
           <Key>
@@ -556,38 +547,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="AggregatedRaceResult">
+          <Property Type="Int32" Name="RaceID" Nullable="true" />
+          <Property Type="Int32" Name="CandidateId" Nullable="true" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="PartyName" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="PartyAcronym" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PartyColor" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="RegionID" Nullable="true" />
+          <Property Type="String" Name="RegionName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="RegionCode" Nullable="true" MaxLength="32" />
+          <Property Type="Int32" Name="TotalVotes" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ElectionMonitoringStoreContainer" CdmEntityContainer="ElectionMonitoringEntities">
-          <FunctionImportMapping FunctionImportName="GetAggregatedRaceResult" FunctionName="ElectionMonitoring.Store.GetRaceResult">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ElectionMonitoring.AggregatedRaceResult">
-                <ScalarProperty Name="RaceID" ColumnName="RaceID" />
-                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
-                <ScalarProperty Name="PartyAcronym" ColumnName="PartyAcronym" />
-                <ScalarProperty Name="TotalVotes" ColumnName="TotalVotes" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAggregatedRaceResultByRegion" FunctionName="ElectionMonitoring.Store.GetRegionRaceResult">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ElectionMonitoring.AggregatedRaceResult">
-                <ScalarProperty Name="RaceID" ColumnName="RaceID" />
-                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
-                <ScalarProperty Name="PartyAcronym" ColumnName="PartyAcronym" />
-                <ScalarProperty Name="TotalVotes" ColumnName="TotalVotes" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <EntitySetMapping Name="Candidates">
             <EntityTypeMapping TypeName="ElectionMonitoring.Candidate">
               <MappingFragment StoreEntitySet="Candidate">
@@ -625,6 +604,7 @@
           <EntitySetMapping Name="Parties">
             <EntityTypeMapping TypeName="ElectionMonitoring.Party">
               <MappingFragment StoreEntitySet="Party">
+                <ScalarProperty Name="Color" ColumnName="Color" />
                 <ScalarProperty Name="LogoFile" ColumnName="LogoFile" />
                 <ScalarProperty Name="Acronym" ColumnName="Acronym" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -709,6 +689,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAggregatedRaceResult" FunctionName="ElectionMonitoring.Store.GetRaceResult">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ElectionMonitoring.AggregatedRaceResult">
+                <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+                <ScalarProperty Name="PartyAcronym" ColumnName="PartyAcronym" />
+                <ScalarProperty Name="PartyColor" ColumnName="PartyColor" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="RegionCode" ColumnName="RegionCode" />
+                <ScalarProperty Name="TotalVotes" ColumnName="TotalVotes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

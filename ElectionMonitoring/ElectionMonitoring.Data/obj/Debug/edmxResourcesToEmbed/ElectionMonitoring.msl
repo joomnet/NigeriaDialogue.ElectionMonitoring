@@ -1,32 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ElectionMonitoringStoreContainer" CdmEntityContainer="ElectionMonitoringEntities">
-    <FunctionImportMapping FunctionImportName="GetAggregatedRaceResult" FunctionName="ElectionMonitoring.Store.GetRaceResult">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="ElectionMonitoring.AggregatedRaceResult">
-          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
-          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="PartyName" ColumnName="PartyName" />
-          <ScalarProperty Name="PartyAcronym" ColumnName="PartyAcronym" />
-          <ScalarProperty Name="TotalVotes" ColumnName="TotalVotes" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetAggregatedRaceResultByRegion" FunctionName="ElectionMonitoring.Store.GetRegionRaceResult">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="ElectionMonitoring.AggregatedRaceResult">
-          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
-          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="PartyName" ColumnName="PartyName" />
-          <ScalarProperty Name="PartyAcronym" ColumnName="PartyAcronym" />
-          <ScalarProperty Name="TotalVotes" ColumnName="TotalVotes" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <EntitySetMapping Name="Candidates">
       <EntityTypeMapping TypeName="ElectionMonitoring.Candidate">
         <MappingFragment StoreEntitySet="Candidate">
@@ -64,6 +38,7 @@
     <EntitySetMapping Name="Parties">
       <EntityTypeMapping TypeName="ElectionMonitoring.Party">
         <MappingFragment StoreEntitySet="Party">
+          <ScalarProperty Name="Color" ColumnName="Color" />
           <ScalarProperty Name="LogoFile" ColumnName="LogoFile" />
           <ScalarProperty Name="Acronym" ColumnName="Acronym" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -148,5 +123,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAggregatedRaceResult" FunctionName="ElectionMonitoring.Store.GetRaceResult">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ElectionMonitoring.AggregatedRaceResult">
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+          <ScalarProperty Name="PartyAcronym" ColumnName="PartyAcronym" />
+          <ScalarProperty Name="PartyColor" ColumnName="PartyColor" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="RegionCode" ColumnName="RegionCode" />
+          <ScalarProperty Name="TotalVotes" ColumnName="TotalVotes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -4,9 +4,45 @@ using System.Linq;
 using System.Web;
 using System.Collections;
 using ElectionMonitoring.Business;
+using ElectionMonitoring.Models;
 
 namespace ElectionMonitoring.ViewModels
 {
+    public class RegionViewModel
+    {
+        public int RegionID { get; set; }
+        //public bool TopLevel { get; set; }
+        //public int ParentRegionID { get; set; }
+        //public int StatusID { get; set; }
+        public string Name { get; set; }
+        //public int RegionTypeID { get; set; }
+        public string RegionCode { get; set; }
+        public string Coordinates { get; set; }
+    }
+    public class AggregatedRaceResultViewModel
+    {
+        public int RaceID { get; set; }
+        public int CandidateID { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public string FullName { get { return FirstName + " " + MiddleName.Substring(0, 1) + ". " + LastName; } }
+        public string PartyName { get; set; }
+        public string PartyAcronym { get; set; }
+        public int RegionID { get; set; }
+        public string RegionName { get; set; }
+        public string RegionCode { get; set; }
+        public int TotalVotes { get; set; }
+        public string PartyColor { get; set; }
+    }
+
+    public class RegionResultViewModel
+    {
+        public RegionViewModel Region { get; set; }
+        public List<AggregatedRaceResultViewModel> Results { get; set; }
+        public AggregatedRaceResultViewModel Winner { get; set; }
+    }
+
     public class RaceResultsViewModel
     {
         public List<Models.Region> Regions {
@@ -15,12 +51,19 @@ namespace ElectionMonitoring.ViewModels
                 return new RaceResultService().GetRegions().Where(r => r.TopLevel == true).ToList();
             }
         }
-        public string Title { get; set; }
-        public string[] LineData { get; set; }
-        public string [][] PieData { get; set; }
+
+        public List<RegionResultViewModel> RegionalResults { get; set; }
+        public RegionResultViewModel SelectedRegionResults { get; set; }
+
 
 
         public int RaceID { get; set; }
+        public string RegionCode { get; set; }
+        //public string Color { get; set; }
+        //public List<AggregatedRaceResult> AllResults { get; set; }
+        //public List<AggregatedRaceResult> SelectedRegionResultss { get; set; }
+                
+
         public int CandidateID { get; set; }
         public int RegionID { get; set; }
         public int NoOfVotes { get; set; }
@@ -31,41 +74,10 @@ namespace ElectionMonitoring.ViewModels
         public int? ApprovedBy { get; set; }
         public DateTime? ApprovedOn { get; set; }
 
+        public string Title { get; set; }
+        public string[] LineData { get; set; }
+        public string [][] PieData { get; set; }
+        public string[][] ChartData { get; set; }
+
     }
-
-    //public class ChartData : IEnumerable
-    //{
-    //    public int Rows { get; set; }
-    //    public int Columns { get; set; }
-    //    public IEnumerator GetEnumerator()
-    //    {
-    //        for (int i = 0; i < Rows; i++)
-    //        {
-    //            string[] result = new string[Columns];
-    //            for (int j = 0; j < Columns; j++)
-    //            {
-    //                result[j] = this[i, j];
-    //            }
-    //            yield return result;
-    //        }
-    //    }
-
-    //    public string[][] ToJaggedArray()
-    //    {
-    //        var jaggedArray = new string[Rows][];
-
-    //        for (int i = 0; i < Rows; ++i)
-    //        {
-    //            jaggedArray[i] = new string[Columns];
-
-    //            for (int j = 0; j < Columns; j++)
-    //            {
-    //                jaggedArray[i][j] = this[i, j];
-    //            }
-    //        }
-
-    //        return jaggedArray;
-    //    }
-
-    //}
 }

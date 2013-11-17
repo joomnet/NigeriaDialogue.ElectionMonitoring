@@ -27,7 +27,7 @@ namespace ElectionMonitoring.Business
         {
             var results = new List<Models.RaceResult>();
 
-            //get region for gievn regionCode
+            //get region for given regionCode
             var region = entities.Regions.Where(r => r.RegionCode == regionCode ).FirstOrDefault();
             results = GetRaceResults().ToList().Where(rr => rr.RegionID == region.RegionID).ToList ();
             Mapper.CreateMap<Data.RaceResult, Models.RaceResult>();
@@ -76,19 +76,10 @@ namespace ElectionMonitoring.Business
             }
             return false;
         }
-
-
-        public IEnumerable<Models.AggregatedRaceResult> GetAggregatedRaceResults(int raceID)
-        {
-            var dataRaceResults = entities.GetAggregatedRaceResult(raceID);
-            Mapper.CreateMap<Data.AggregatedRaceResult, Models.AggregatedRaceResult>();
-            var modelRaceResults = Mapper.Map<IEnumerable<Data.AggregatedRaceResult>, IEnumerable<Models.AggregatedRaceResult>>(dataRaceResults);
-            return modelRaceResults;
-        }
-
+        
         public IEnumerable<Models.AggregatedRaceResult> GetAggregatedRaceResults(int raceID, string regionCode)
         {
-            var dataRaceResults = entities.GetAggregatedRaceResultByRegion(raceID, regionCode);
+            var dataRaceResults = entities.GetAggregatedRaceResult(raceID, regionCode);
             Mapper.CreateMap<Data.AggregatedRaceResult, Models.AggregatedRaceResult>();
             var modelRaceResults = Mapper.Map<IEnumerable<Data.AggregatedRaceResult>, IEnumerable<Models.AggregatedRaceResult>>(dataRaceResults);
             return modelRaceResults;

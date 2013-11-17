@@ -10,3 +10,15 @@ C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\De
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.csprojResolveAssemblyReference.cache
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.dll
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.pdb
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Business.dll
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Business.pdb
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\bin\Debug\AutoMapper.dll
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\bin\Debug\AutoMapper.Net4.dll
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Data.dll
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Models.dll
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Data.pdb
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Models.pdb
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\bin\Debug\AutoMapper.xml
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.csprojResolveAssemblyReference.cache
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.dll
+C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.pdb

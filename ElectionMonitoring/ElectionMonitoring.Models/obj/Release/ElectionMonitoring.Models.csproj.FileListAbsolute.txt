@@ -1,0 +1,4 @@
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\bin\Release\ElectionMonitoring.Models.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\bin\Release\ElectionMonitoring.Models.pdb
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\obj\Release\ElectionMonitoring.Models.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\obj\Release\ElectionMonitoring.Models.pdb

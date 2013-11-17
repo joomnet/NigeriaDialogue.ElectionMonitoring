@@ -204,6 +204,12 @@
     <Content Include="Content\themes\bootstrap\css\opa-icons.css" />
     <Content Include="Content\themes\bootstrap\css\uniform.default.css" />
     <Content Include="Content\themes\bootstrap\img\chosen-sprite.png" />
+    <Content Include="Content\themes\bootstrap\img\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\bootstrap\img\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\bootstrap\img\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\bootstrap\js\bootstrap-modal.js" />
+    <Content Include="Content\themes\bootstrap\js\bootstrap-scrollspy.js" />
+    <Content Include="Content\themes\bootstrap\js\bootstrap-tab.js" />
     <Content Include="Content\themes\bootstrap\js\excanvas.js" />
     <Content Include="Content\themes\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Content\themes\bootstrap\img\glyphicons-halflings.png" />
@@ -218,6 +224,8 @@
     <Content Include="Content\themes\bootstrap\js\electionmonitoring.js" />
     <Content Include="Content\themes\bootstrap\js\jquery.chosen.min.js" />
     <Content Include="Content\themes\bootstrap\js\jquery.colorbox.min.js" />
+    <Content Include="Content\themes\bootstrap\js\jquery.cookie.js" />
+    <Content Include="Content\themes\bootstrap\js\jquery.dataTables.min.js" />
     <Content Include="Content\themes\bootstrap\js\jquery.js" />
     <Content Include="Content\themes\bootstrap\js\jquery.noty.js" />
     <Content Include="Content\themes\bootstrap\js\jquery.uniform.min.js" />
@@ -328,6 +336,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\ElectionMonitoring.pubxml" />
+    <None Include="Properties\PublishProfiles\ElectionMonitoringTodbitaly.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

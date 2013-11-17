@@ -353,27 +353,8 @@ namespace ElectionMonitoring.Data
         /// No Metadata Documentation available.
         /// </summary>
         /// <param name="raceID">No Metadata Documentation available.</param>
-        public ObjectResult<AggregatedRaceResult> GetAggregatedRaceResult(Nullable<global::System.Int32> raceID)
-        {
-            ObjectParameter raceIDParameter;
-            if (raceID.HasValue)
-            {
-                raceIDParameter = new ObjectParameter("RaceID", raceID);
-            }
-            else
-            {
-                raceIDParameter = new ObjectParameter("RaceID", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<AggregatedRaceResult>("GetAggregatedRaceResult", raceIDParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="raceID">No Metadata Documentation available.</param>
         /// <param name="regionCode">No Metadata Documentation available.</param>
-        public ObjectResult<AggregatedRaceResult> GetAggregatedRaceResultByRegion(Nullable<global::System.Int32> raceID, global::System.String regionCode)
+        public ObjectResult<AggregatedRaceResult> GetAggregatedRaceResult(Nullable<global::System.Int32> raceID, global::System.String regionCode)
         {
             ObjectParameter raceIDParameter;
             if (raceID.HasValue)
@@ -395,7 +376,7 @@ namespace ElectionMonitoring.Data
                 regionCodeParameter = new ObjectParameter("RegionCode", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<AggregatedRaceResult>("GetAggregatedRaceResultByRegion", raceIDParameter, regionCodeParameter);
+            return base.ExecuteFunction<AggregatedRaceResult>("GetAggregatedRaceResult", raceIDParameter, regionCodeParameter);
         }
 
         #endregion
@@ -1146,6 +1127,30 @@ namespace ElectionMonitoring.Data
         private global::System.String _LogoFile;
         partial void OnLogoFileChanging(global::System.String value);
         partial void OnLogoFileChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Color
+        {
+            get
+            {
+                return _Color;
+            }
+            set
+            {
+                OnColorChanging(value);
+                ReportPropertyChanging("Color");
+                _Color = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Color");
+                OnColorChanged();
+            }
+        }
+        private global::System.String _Color;
+        partial void OnColorChanging(global::System.String value);
+        partial void OnColorChanged();
 
         #endregion
 
@@ -2642,6 +2647,30 @@ namespace ElectionMonitoring.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
+        public global::System.String MiddleName
+        {
+            get
+            {
+                return _MiddleName;
+            }
+            set
+            {
+                OnMiddleNameChanging(value);
+                ReportPropertyChanging("MiddleName");
+                _MiddleName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MiddleName");
+                OnMiddleNameChanged();
+            }
+        }
+        private global::System.String _MiddleName;
+        partial void OnMiddleNameChanging(global::System.String value);
+        partial void OnMiddleNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
         public global::System.String LastName
         {
             get
@@ -2708,6 +2737,102 @@ namespace ElectionMonitoring.Data
         private global::System.String _PartyAcronym;
         partial void OnPartyAcronymChanging(global::System.String value);
         partial void OnPartyAcronymChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PartyColor
+        {
+            get
+            {
+                return _PartyColor;
+            }
+            set
+            {
+                OnPartyColorChanging(value);
+                ReportPropertyChanging("PartyColor");
+                _PartyColor = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PartyColor");
+                OnPartyColorChanged();
+            }
+        }
+        private global::System.String _PartyColor;
+        partial void OnPartyColorChanging(global::System.String value);
+        partial void OnPartyColorChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> RegionID
+        {
+            get
+            {
+                return _RegionID;
+            }
+            set
+            {
+                OnRegionIDChanging(value);
+                ReportPropertyChanging("RegionID");
+                _RegionID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RegionID");
+                OnRegionIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _RegionID;
+        partial void OnRegionIDChanging(Nullable<global::System.Int32> value);
+        partial void OnRegionIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RegionName
+        {
+            get
+            {
+                return _RegionName;
+            }
+            set
+            {
+                OnRegionNameChanging(value);
+                ReportPropertyChanging("RegionName");
+                _RegionName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RegionName");
+                OnRegionNameChanged();
+            }
+        }
+        private global::System.String _RegionName;
+        partial void OnRegionNameChanging(global::System.String value);
+        partial void OnRegionNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RegionCode
+        {
+            get
+            {
+                return _RegionCode;
+            }
+            set
+            {
+                OnRegionCodeChanging(value);
+                ReportPropertyChanging("RegionCode");
+                _RegionCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RegionCode");
+                OnRegionCodeChanged();
+            }
+        }
+        private global::System.String _RegionCode;
+        partial void OnRegionCodeChanging(global::System.String value);
+        partial void OnRegionCodeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

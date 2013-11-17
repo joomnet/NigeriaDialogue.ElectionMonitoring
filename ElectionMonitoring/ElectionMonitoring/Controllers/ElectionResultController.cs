@@ -10,7 +10,7 @@ namespace ElectionMonitoring.Controllers
     using ElectionMonitoring.Business;
     using ElectionMonitoring.Models;
     using AutoMapper;
-
+    
     public class ElectionResultController : Controller
     {
         IRaceResultService service = new RaceResultService();
@@ -26,9 +26,83 @@ namespace ElectionMonitoring.Controllers
                 Title = "Presidential election results"
             });
         }
+        
+        [HttpPost]
+        public ActionResult RaceResults(RaceResultsViewModel viewModel)
+        {
+            var regionalResults = new List<RegionResultViewModel>();
+            var overallResults = new RegionResultViewModel();         
+
+            //get all results for the given race
+            var allRegionsResults = service.GetAggregatedRaceResults(viewModel.RaceID, null).ToList();
+            var regions = service.GetRegions().Where(r => r.TopLevel == true).ToList(); //get all toplevel regions
+            Mapper.CreateMap<Models.AggregatedRaceResult, ViewModels.AggregatedRaceResultViewModel>();
+            //get result per region
+            foreach (var region in regions)
+            {
+                var regionresult = new RegionResultViewModel();
+                regionresult.Region = new RegionViewModel { RegionID = region.RegionID, RegionCode = region.RegionCode, Name = region.Name };
+                regionresult.Results = Mapper.Map<List<Models.AggregatedRaceResult>, List<ViewModels.AggregatedRaceResultViewModel>>
+                    (allRegionsResults.Where(rr => rr.RegionCode.ToLower() == region.RegionCode.ToLower()).ToList ());
+                regionresult.Winner = regionresult.Results.OrderByDescending(rr => rr.TotalVotes).FirstOrDefault();
+                regionalResults.Add(regionresult);
+            }
+
+            // overall results
+            // aggregate for all regions
+            var aggResults = allRegionsResults.GroupBy(r => r.PartyAcronym)
+                                .Select(r =>
+                                    new
+                                    {
+                                        PartyAcronym = r.Key,
+                                        RegionID = r.FirstOrDefault().RegionID,
+                                        RegionCode = r.FirstOrDefault().RegionCode,
+                                        RegionName = r.FirstOrDefault().RegionName,
+                                        RaceID = r.FirstOrDefault().RaceID,
+                                        CandidateID = r.FirstOrDefault().CandidateID,
+                                        FirstName = r.FirstOrDefault().FirstName,
+                                        LastName = r.FirstOrDefault().LastName,
+                                        MiddleName = r.FirstOrDefault().MiddleName,
+                                        PartyName = r.FirstOrDefault().PartyName,
+                                        PartyColor = r.FirstOrDefault().PartyColor,
+                                        TotalVotes = r.Sum(p => p.TotalVotes),
+                                    }).ToList();
+
+            overallResults.Results = new List<AggregatedRaceResultViewModel>();
+            foreach (var aggResult in aggResults)
+            {
+                overallResults.Results.Add(new AggregatedRaceResultViewModel
+                {
+                    PartyAcronym = aggResult.PartyAcronym,
+                    RegionID = aggResult.RegionID,
+                    RegionCode = aggResult.RegionCode,
+                    RegionName = aggResult.RegionName,
+                    RaceID = aggResult.RaceID,
+                    CandidateID = aggResult.CandidateID,
+                    TotalVotes = aggResult.TotalVotes,
+                    FirstName = aggResult.FirstName,
+                    LastName = aggResult.LastName,
+                    MiddleName = aggResult.MiddleName,
+                    PartyName = aggResult.PartyName,
+                    PartyColor = aggResult.PartyColor,
+                });
+            }
+
+            var allResults = new RaceResultsViewModel
+            {
+                RegionalResults = regionalResults,
+                SelectedRegionResults = string.IsNullOrEmpty(viewModel.RegionCode) 
+                                        ? overallResults 
+                                        : regionalResults.Where(rr => rr.Region.RegionCode == viewModel.RegionCode).FirstOrDefault()
+            };
+
+
+            return Json(allResults, JsonRequestBehavior.AllowGet);
+        }
 
         [HttpPost]
-        public ActionResult RaceResults(string regioncode)
+        [Obsolete ("No Longer in use")]
+        public ActionResult ElectionMonitoringRaceResults(string regioncode)
         {
             var results = new List<Models.AggregatedRaceResult>();
             var title = "National results of Presidential Elections";
@@ -38,7 +112,7 @@ namespace ElectionMonitoring.Controllers
             if ((string.IsNullOrEmpty(regioncode)) || regioncode =="NGA")
             {
                 //get 
-                results = service.GetAggregatedRaceResults(1).ToList();
+                results = service.GetAggregatedRaceResults(1 , "").ToList();
                 title = "National results of Presidential Elections";
             }
             else

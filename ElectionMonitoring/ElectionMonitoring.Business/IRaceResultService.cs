@@ -15,7 +15,6 @@ namespace ElectionMonitoring.Business
         bool UpdateRaceResult(Models.RaceResult raceResult);
         bool DeleteRaceResult(int raceResultID);
 
-        IEnumerable<Models.AggregatedRaceResult> GetAggregatedRaceResults(int raceID);
         IEnumerable<Models.AggregatedRaceResult> GetAggregatedRaceResults(int raceID, string regionCode);
 
         IEnumerable<Models.Region> GetRegions();

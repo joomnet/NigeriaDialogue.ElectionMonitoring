@@ -16,7 +16,8 @@ namespace ElectionMonitoring.Models
         public string PartyAcronym { get; set; }
         public int RegionID { get; set; }
         public string RegionName { get; set; }
-        public string RegionCodme { get; set; }
+        public string RegionCode { get; set; }
         public int TotalVotes { get; set; }
+        public string PartyColor { get; set; }
     }
 }
