@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using ElectionMonitoring.ViewModels;
+using ElectionMonitoring.Business;
+using ElectionMonitoring.Models;
+using AutoMapper;
 
 namespace ElectionMonitoring.Controllers
 {
-    using ElectionMonitoring.ViewModels;
-    using ElectionMonitoring.Business;
-    using ElectionMonitoring.Models;
-    using AutoMapper;
     
     public class ElectionResultController : Controller
     {

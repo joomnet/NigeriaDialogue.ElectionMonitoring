@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ElectionMonitoring;
+using AutoMapper;
 
 namespace ElectionMonitoring.Business
 {
-    using ElectionMonitoring;
-    using AutoMapper;
+
 
     public class RaceResultService : IRaceResultService
     {
