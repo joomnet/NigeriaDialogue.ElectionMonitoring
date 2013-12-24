@@ -4,14 +4,15 @@
     <EntitySet Name="Candidate" EntityType="ElectionMonitoring.Store.Candidate" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Category" EntityType="ElectionMonitoring.Store.Category" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CategoryType" EntityType="ElectionMonitoring.Store.CategoryType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Donation" EntityType="ElectionMonitoring.Store.Donation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Donor" EntityType="ElectionMonitoring.Store.Donor" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Party" EntityType="ElectionMonitoring.Store.Party" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Project" EntityType="ElectionMonitoring.Store.Project" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Race" EntityType="ElectionMonitoring.Store.Race" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RaceResult" EntityType="ElectionMonitoring.Store.RaceResult" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RaceType" EntityType="ElectionMonitoring.Store.RaceType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Region" EntityType="ElectionMonitoring.Store.Region" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RegionType" EntityType="ElectionMonitoring.Store.RegionType" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="sysdiagrams" EntityType="ElectionMonitoring.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Year" EntityType="ElectionMonitoring.Store.Year" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_Candidate_Party" Association="ElectionMonitoring.Store.FK_Candidate_Party">
       <End Role="Party" EntitySet="Party" />
       <End Role="Candidate" EntitySet="Candidate" />
@@ -19,6 +20,10 @@
     <AssociationSet Name="FK_Category_CategoryType" Association="ElectionMonitoring.Store.FK_Category_CategoryType">
       <End Role="CategoryType" EntitySet="CategoryType" />
       <End Role="Category" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Donation_Donor" Association="ElectionMonitoring.Store.FK_Donation_Donor">
+      <End Role="Donor" EntitySet="Donor" />
+      <End Role="Donation" EntitySet="Donation" />
     </AssociationSet>
     <AssociationSet Name="FK_Race_RaceType" Association="ElectionMonitoring.Store.FK_Race_RaceType">
       <End Role="RaceType" EntitySet="RaceType" />
@@ -72,6 +77,25 @@
     <Property Name="CategoryTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="varchar" MaxLength="40" />
   </EntityType>
+  <EntityType Name="Donation">
+    <Key>
+      <PropertyRef Name="DonationID" />
+    </Key>
+    <Property Name="DonationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DonorID" Type="int" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="DonationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Donor">
+    <Key>
+      <PropertyRef Name="DonorID" />
+    </Key>
+    <Property Name="DonorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" MaxLength="80" />
+    <Property Name="LastName" Type="varchar" MaxLength="80" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="Party">
     <Key>
       <PropertyRef Name="PartyID" />
@@ -80,6 +104,16 @@
     <Property Name="Name" Type="varchar" MaxLength="80" />
     <Property Name="Acronym" Type="varchar" MaxLength="10" />
     <Property Name="LogoFile" Type="varchar" MaxLength="225" />
+    <Property Name="Color" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" MaxLength="250" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Budget" Type="money" />
   </EntityType>
   <EntityType Name="Race">
     <Key>
@@ -134,23 +168,6 @@
     <Property Name="RegionTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
-  <EntityType Name="Year">
-    <Key>
-      <PropertyRef Name="YearID" />
-    </Key>
-    <Property Name="YearID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="varchar" MaxLength="20" />
-  </EntityType>
   <Association Name="FK_Candidate_Party">
     <End Role="Party" Type="ElectionMonitoring.Store.Party" Multiplicity="1" />
     <End Role="Candidate" Type="ElectionMonitoring.Store.Candidate" Multiplicity="*" />
@@ -172,6 +189,18 @@
       </Principal>
       <Dependent Role="Category">
         <PropertyRef Name="CategoryTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Donation_Donor">
+    <End Role="Donor" Type="ElectionMonitoring.Store.Donor" Multiplicity="0..1" />
+    <End Role="Donation" Type="ElectionMonitoring.Store.Donation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Donor">
+        <PropertyRef Name="DonorID" />
+      </Principal>
+      <Dependent Role="Donation">
+        <PropertyRef Name="DonorID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -238,6 +267,7 @@
   <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetRaceResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="RaceID" Type="int" Mode="In" />
+    <Parameter Name="RegionCode" Type="varchar" Mode="In" />
   </Function>
   <Function Name="GetRegionRaceResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="RaceID" Type="int" Mode="In" />

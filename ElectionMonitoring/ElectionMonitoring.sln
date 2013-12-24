@@ -9,7 +9,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.Models",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.Business", "ElectionMonitoring.Business\ElectionMonitoring.Business.csproj", "{E174D299-2B9A-403E-844E-2C049A179E17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.Tests", "ElectionMonitoring.Tests\ElectionMonitoring.Tests.csproj", "{E5B9B26A-8976-4588-A1E3-A4BB8F55DA73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1DFC46B5-7543-4DDB-9B0B-D3A19E3F0E0B}"
+	ProjectSection(SolutionItems) = preProject
+		ElectionMonitoring.vsmdi = ElectionMonitoring.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ElectionMonitoring.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -31,8 +43,15 @@ Global
 		{E174D299-2B9A-403E-844E-2C049A179E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E174D299-2B9A-403E-844E-2C049A179E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E174D299-2B9A-403E-844E-2C049A179E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B9B26A-8976-4588-A1E3-A4BB8F55DA73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B9B26A-8976-4588-A1E3-A4BB8F55DA73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B9B26A-8976-4588-A1E3-A4BB8F55DA73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B9B26A-8976-4588-A1E3-A4BB8F55DA73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

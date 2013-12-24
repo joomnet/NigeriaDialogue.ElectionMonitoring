@@ -44,6 +44,9 @@
     <Compile Include="Category.cs" />
     <Compile Include="CategoryType.cs" />
     <Compile Include="AggregatedRaceResult.cs" />
+    <Compile Include="Donation.cs" />
+    <Compile Include="Donor.cs" />
+    <Compile Include="Project.cs" />
     <Compile Include="RegionType.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="RaceResult.cs" />

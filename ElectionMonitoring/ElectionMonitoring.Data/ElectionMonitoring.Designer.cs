@@ -22,6 +22,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_Candidate_Party", "Party", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ElectionMonitoring.Data.Party), "Candidate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.Candidate), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_RaceResult_Candidate", "Candidate", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.Candidate), "RaceResult", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.RaceResult), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_Category_CategoryType", "CategoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.CategoryType), "Category", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.Category), true)]
+[assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_Donation_Donor", "Donor", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.Donor), "Donation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.Donation), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_Race_RaceType", "RaceType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.RaceType), "Race", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.Race), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_RaceResult_Race", "Race", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.Race), "RaceResult", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.RaceResult), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_RaceResult_Region", "Region", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.Region), "RaceResult", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.RaceResult), true)]
@@ -128,6 +129,38 @@ namespace ElectionMonitoring.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Donation> Donations
+        {
+            get
+            {
+                if ((_Donations == null))
+                {
+                    _Donations = base.CreateObjectSet<Donation>("Donations");
+                }
+                return _Donations;
+            }
+        }
+        private ObjectSet<Donation> _Donations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Donor> Donors
+        {
+            get
+            {
+                if ((_Donors == null))
+                {
+                    _Donors = base.CreateObjectSet<Donor>("Donors");
+                }
+                return _Donors;
+            }
+        }
+        private ObjectSet<Donor> _Donors;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Party> Parties
         {
             get
@@ -140,6 +173,22 @@ namespace ElectionMonitoring.Data
             }
         }
         private ObjectSet<Party> _Parties;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Project> Projects
+        {
+            get
+            {
+                if ((_Projects == null))
+                {
+                    _Projects = base.CreateObjectSet<Project>("Projects");
+                }
+                return _Projects;
+            }
+        }
+        private ObjectSet<Project> _Projects;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -220,38 +269,6 @@ namespace ElectionMonitoring.Data
             }
         }
         private ObjectSet<RegionType> _RegionTypes;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<sysdiagram> sysdiagrams
-        {
-            get
-            {
-                if ((_sysdiagrams == null))
-                {
-                    _sysdiagrams = base.CreateObjectSet<sysdiagram>("sysdiagrams");
-                }
-                return _sysdiagrams;
-            }
-        }
-        private ObjectSet<sysdiagram> _sysdiagrams;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Year> Years
-        {
-            get
-            {
-                if ((_Years == null))
-                {
-                    _Years = base.CreateObjectSet<Year>("Years");
-                }
-                return _Years;
-            }
-        }
-        private ObjectSet<Year> _Years;
 
         #endregion
 
@@ -282,11 +299,35 @@ namespace ElectionMonitoring.Data
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Donations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDonations(Donation donation)
+        {
+            base.AddObject("Donations", donation);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Donors EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDonors(Donor donor)
+        {
+            base.AddObject("Donors", donor);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Parties EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToParties(Party party)
         {
             base.AddObject("Parties", party);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Projects EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToProjects(Project project)
+        {
+            base.AddObject("Projects", project);
         }
     
         /// <summary>
@@ -327,22 +368,6 @@ namespace ElectionMonitoring.Data
         public void AddToRegionTypes(RegionType regionType)
         {
             base.AddObject("RegionTypes", regionType);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTosysdiagrams(sysdiagram sysdiagram)
-        {
-            base.AddObject("sysdiagrams", sysdiagram);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Years EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToYears(Year year)
-        {
-            base.AddObject("Years", year);
         }
 
         #endregion
@@ -1007,6 +1032,356 @@ namespace ElectionMonitoring.Data
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ElectionMonitoring", Name="Donation")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Donation : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Donation object.
+        /// </summary>
+        /// <param name="donationID">Initial value of the DonationID property.</param>
+        public static Donation CreateDonation(global::System.Int32 donationID)
+        {
+            Donation donation = new Donation();
+            donation.DonationID = donationID;
+            return donation;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DonationID
+        {
+            get
+            {
+                return _DonationID;
+            }
+            set
+            {
+                if (_DonationID != value)
+                {
+                    OnDonationIDChanging(value);
+                    ReportPropertyChanging("DonationID");
+                    _DonationID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DonationID");
+                    OnDonationIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DonationID;
+        partial void OnDonationIDChanging(global::System.Int32 value);
+        partial void OnDonationIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DonorID
+        {
+            get
+            {
+                return _DonorID;
+            }
+            set
+            {
+                OnDonorIDChanging(value);
+                ReportPropertyChanging("DonorID");
+                _DonorID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DonorID");
+                OnDonorIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DonorID;
+        partial void OnDonorIDChanging(Nullable<global::System.Int32> value);
+        partial void OnDonorIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Amount;
+        partial void OnAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DonationDate
+        {
+            get
+            {
+                return _DonationDate;
+            }
+            set
+            {
+                OnDonationDateChanging(value);
+                ReportPropertyChanging("DonationDate");
+                _DonationDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DonationDate");
+                OnDonationDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DonationDate;
+        partial void OnDonationDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnDonationDateChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ElectionMonitoring", "FK_Donation_Donor", "Donor")]
+        public Donor Donor
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Donor>("ElectionMonitoring.FK_Donation_Donor", "Donor").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Donor>("ElectionMonitoring.FK_Donation_Donor", "Donor").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Donor> DonorReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Donor>("ElectionMonitoring.FK_Donation_Donor", "Donor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Donor>("ElectionMonitoring.FK_Donation_Donor", "Donor", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ElectionMonitoring", Name="Donor")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Donor : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Donor object.
+        /// </summary>
+        /// <param name="donorID">Initial value of the DonorID property.</param>
+        public static Donor CreateDonor(global::System.Int32 donorID)
+        {
+            Donor donor = new Donor();
+            donor.DonorID = donorID;
+            return donor;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DonorID
+        {
+            get
+            {
+                return _DonorID;
+            }
+            set
+            {
+                if (_DonorID != value)
+                {
+                    OnDonorIDChanging(value);
+                    ReportPropertyChanging("DonorID");
+                    _DonorID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DonorID");
+                    OnDonorIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DonorID;
+        partial void OnDonorIDChanging(global::System.Int32 value);
+        partial void OnDonorIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FirstName
+        {
+            get
+            {
+                return _FirstName;
+            }
+            set
+            {
+                OnFirstNameChanging(value);
+                ReportPropertyChanging("FirstName");
+                _FirstName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FirstName");
+                OnFirstNameChanged();
+            }
+        }
+        private global::System.String _FirstName;
+        partial void OnFirstNameChanging(global::System.String value);
+        partial void OnFirstNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LastName
+        {
+            get
+            {
+                return _LastName;
+            }
+            set
+            {
+                OnLastNameChanging(value);
+                ReportPropertyChanging("LastName");
+                _LastName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LastName");
+                OnLastNameChanged();
+            }
+        }
+        private global::System.String _LastName;
+        partial void OnLastNameChanging(global::System.String value);
+        partial void OnLastNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Gender
+        {
+            get
+            {
+                return _Gender;
+            }
+            set
+            {
+                OnGenderChanging(value);
+                ReportPropertyChanging("Gender");
+                _Gender = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Gender");
+                OnGenderChanged();
+            }
+        }
+        private global::System.String _Gender;
+        partial void OnGenderChanging(global::System.String value);
+        partial void OnGenderChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ElectionMonitoring", "FK_Donation_Donor", "Donation")]
+        public EntityCollection<Donation> Donations
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Donation>("ElectionMonitoring.FK_Donation_Donor", "Donation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Donation>("ElectionMonitoring.FK_Donation_Donor", "Donation", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="ElectionMonitoring", Name="Party")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1181,6 +1556,135 @@ namespace ElectionMonitoring.Data
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ElectionMonitoring", Name="Project")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Project : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Project object.
+        /// </summary>
+        /// <param name="projectID">Initial value of the ProjectID property.</param>
+        public static Project CreateProject(global::System.Int32 projectID)
+        {
+            Project project = new Project();
+            project.ProjectID = projectID;
+            return project;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ProjectID
+        {
+            get
+            {
+                return _ProjectID;
+            }
+            set
+            {
+                if (_ProjectID != value)
+                {
+                    OnProjectIDChanging(value);
+                    ReportPropertyChanging("ProjectID");
+                    _ProjectID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ProjectID");
+                    OnProjectIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ProjectID;
+        partial void OnProjectIDChanging(global::System.Int32 value);
+        partial void OnProjectIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Budget
+        {
+            get
+            {
+                return _Budget;
+            }
+            set
+            {
+                OnBudgetChanging(value);
+                ReportPropertyChanging("Budget");
+                _Budget = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Budget");
+                OnBudgetChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Budget;
+        partial void OnBudgetChanging(Nullable<global::System.Decimal> value);
+        partial void OnBudgetChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>
@@ -2316,244 +2820,6 @@ namespace ElectionMonitoring.Data
 
         #endregion
 
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ElectionMonitoring", Name="sysdiagram")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class sysdiagram : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new sysdiagram object.
-        /// </summary>
-        /// <param name="name">Initial value of the name property.</param>
-        /// <param name="principal_id">Initial value of the principal_id property.</param>
-        /// <param name="diagram_id">Initial value of the diagram_id property.</param>
-        public static sysdiagram Createsysdiagram(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
-        {
-            sysdiagram sysdiagram = new sysdiagram();
-            sysdiagram.name = name;
-            sysdiagram.principal_id = principal_id;
-            sysdiagram.diagram_id = diagram_id;
-            return sysdiagram;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                OnnameChanging(value);
-                ReportPropertyChanging("name");
-                _name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("name");
-                OnnameChanged();
-            }
-        }
-        private global::System.String _name;
-        partial void OnnameChanging(global::System.String value);
-        partial void OnnameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 principal_id
-        {
-            get
-            {
-                return _principal_id;
-            }
-            set
-            {
-                Onprincipal_idChanging(value);
-                ReportPropertyChanging("principal_id");
-                _principal_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("principal_id");
-                Onprincipal_idChanged();
-            }
-        }
-        private global::System.Int32 _principal_id;
-        partial void Onprincipal_idChanging(global::System.Int32 value);
-        partial void Onprincipal_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 diagram_id
-        {
-            get
-            {
-                return _diagram_id;
-            }
-            set
-            {
-                if (_diagram_id != value)
-                {
-                    Ondiagram_idChanging(value);
-                    ReportPropertyChanging("diagram_id");
-                    _diagram_id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("diagram_id");
-                    Ondiagram_idChanged();
-                }
-            }
-        }
-        private global::System.Int32 _diagram_id;
-        partial void Ondiagram_idChanging(global::System.Int32 value);
-        partial void Ondiagram_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> version
-        {
-            get
-            {
-                return _version;
-            }
-            set
-            {
-                OnversionChanging(value);
-                ReportPropertyChanging("version");
-                _version = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("version");
-                OnversionChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _version;
-        partial void OnversionChanging(Nullable<global::System.Int32> value);
-        partial void OnversionChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.Byte[] definition
-        {
-            get
-            {
-                return StructuralObject.GetValidValue(_definition);
-            }
-            set
-            {
-                OndefinitionChanging(value);
-                ReportPropertyChanging("definition");
-                _definition = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("definition");
-                OndefinitionChanged();
-            }
-        }
-        private global::System.Byte[] _definition;
-        partial void OndefinitionChanging(global::System.Byte[] value);
-        partial void OndefinitionChanged();
-
-        #endregion
-
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ElectionMonitoring", Name="Year")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Year : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Year object.
-        /// </summary>
-        /// <param name="yearID">Initial value of the YearID property.</param>
-        public static Year CreateYear(global::System.Int32 yearID)
-        {
-            Year year = new Year();
-            year.YearID = yearID;
-            return year;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 YearID
-        {
-            get
-            {
-                return _YearID;
-            }
-            set
-            {
-                if (_YearID != value)
-                {
-                    OnYearIDChanging(value);
-                    ReportPropertyChanging("YearID");
-                    _YearID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("YearID");
-                    OnYearIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _YearID;
-        partial void OnYearIDChanging(global::System.Int32 value);
-        partial void OnYearIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Description
-        {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                OnDescriptionChanging(value);
-                ReportPropertyChanging("Description");
-                _Description = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Description");
-                OnDescriptionChanged();
-            }
-        }
-        private global::System.String _Description;
-        partial void OnDescriptionChanging(global::System.String value);
-        partial void OnDescriptionChanged();
-
-        #endregion
-
-    
     }
 
     #endregion

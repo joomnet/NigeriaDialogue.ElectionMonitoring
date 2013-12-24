@@ -10,3 +10,6 @@ C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Re
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.csprojResolveAssemblyReference.cache
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.dll
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.pdb
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\Omu.ValueInjecter.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\Omu.ValueInjecter.pdb
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\Omu.ValueInjecter.xml
