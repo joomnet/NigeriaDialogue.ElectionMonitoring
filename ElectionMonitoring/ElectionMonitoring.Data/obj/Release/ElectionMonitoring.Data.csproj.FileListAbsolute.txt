@@ -3,9 +3,3 @@ C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Releas
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Release\ElectionMonitoring.Data.pdb
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\obj\Release\ElectionMonitoring.Data.dll
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\obj\Release\ElectionMonitoring.Data.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Release\ElectionMonitoring.Data.dll.config
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Release\ElectionMonitoring.Data.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Release\ElectionMonitoring.Data.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\obj\Release\ElectionMonitoring.Data.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\obj\Release\ElectionMonitoring.Data.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\obj\Release\ElectionMonitoring.Data.csprojResolveAssemblyReference.cache

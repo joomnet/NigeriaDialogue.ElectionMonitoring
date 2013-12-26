@@ -11,6 +11,5 @@ C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\Electio
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.dll.config
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.csprojResolveAssemblyReference.cache
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.pdb

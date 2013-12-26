@@ -2,8 +2,3 @@ C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\bin\Rele
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\bin\Release\ElectionMonitoring.Models.pdb
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\obj\Release\ElectionMonitoring.Models.dll
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\obj\Release\ElectionMonitoring.Models.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Models\bin\Release\ElectionMonitoring.Models.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Models\bin\Release\ElectionMonitoring.Models.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Models\obj\Release\ElectionMonitoring.Models.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Models\obj\Release\ElectionMonitoring.Models.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Models\obj\Release\ElectionMonitoring.Models.csprojResolveAssemblyReference.cache

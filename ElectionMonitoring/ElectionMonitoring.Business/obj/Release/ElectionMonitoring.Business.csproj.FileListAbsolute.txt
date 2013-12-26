@@ -10,15 +10,3 @@ C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Re
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.csprojResolveAssemblyReference.cache
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.dll
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Business.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Business.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\AutoMapper.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\AutoMapper.Net4.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Data.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Models.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Data.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\ElectionMonitoring.Models.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Release\AutoMapper.xml
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.csprojResolveAssemblyReference.cache
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\obj\Release\ElectionMonitoring.Business.pdb
