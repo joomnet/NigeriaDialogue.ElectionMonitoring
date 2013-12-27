@@ -16,7 +16,6 @@ C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonito
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\ElectionMonitoring.Business.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\ElectionMonitoring.Models.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Unity.Mvc4.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\AutoMapper.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\System.Web.Http.WebHost.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\WebGrease.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\System.Net.Http.Formatting.dll
@@ -34,7 +33,6 @@ C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonito
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\System.Web.Http.xml
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\ElectionMonitoring.Business.pdb
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\ElectionMonitoring.Models.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\AutoMapper.xml
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\System.Web.Http.WebHost.xml
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\System.Net.Http.Formatting.xml
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Newtonsoft.Json.xml
@@ -42,3 +40,5 @@ C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonito
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\obj\Debug\ElectionMonitoring.UnitTests.csprojResolveAssemblyReference.cache
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\obj\Debug\ElectionMonitoring.UnitTests.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\obj\Debug\ElectionMonitoring.UnitTests.pdb
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\AutoMapper.dll
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\AutoMapper.xml

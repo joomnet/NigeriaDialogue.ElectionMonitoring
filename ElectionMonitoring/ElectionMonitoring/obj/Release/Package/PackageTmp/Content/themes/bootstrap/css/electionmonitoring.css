@@ -499,3 +499,12 @@ box-shadow: 0 0 10px #BDBDBD;
 .box-content.buttons{
 min-height:297px;
 }
+
+.blink {
+    color: #FFF !important;
+    background: #088A29;
+    !important;
+}
+
+
+

@@ -1,6 +1,8 @@
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Unity.Mvc4;
+using ElectionMonitoring.Business;
+using ElectionMonitoring.Controllers.Api;
 
 namespace ElectionMonitoring
 {
@@ -30,7 +32,10 @@ namespace ElectionMonitoring
 
     public static void RegisterTypes(IUnityContainer container)
     {
-    
+        container.RegisterType<ElectionMonitoringController>();
+        container.RegisterType<IRaceRepository, RaceRepository>();
+        container.RegisterType<IRaceResultService, RaceResultService>();
+        container.RegisterType<IRegionRepository, RegionRepository>();
     }
   }
 }

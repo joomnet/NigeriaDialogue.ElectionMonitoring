@@ -1,8 +1,3 @@
-C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.dll.config
-C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.dll
-C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.pdb
-C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.dll
-C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.pdb
 C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.dll.config
 C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.dll
 C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.pdb
@@ -13,3 +8,8 @@ C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonito
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.pdb
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.pdb
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.dll.config
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.pdb
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.dll
+C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.pdb

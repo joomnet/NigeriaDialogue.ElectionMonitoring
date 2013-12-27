@@ -9,6 +9,8 @@ $(document).ready(function () {
             UpdateScreen();
         });
 
+        blink("#candidatename", -1, 500); //blink a div with the ID of myDiv
+        /*
         // Radialize the colors
         Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
             return {
@@ -18,7 +20,7 @@ $(document).ready(function () {
 		                [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
 		            ]
             };
-        });
+        });*/
     } else {
         
         $('#save-result').click(function (e) {
@@ -44,11 +46,16 @@ $(document).ready(function () {
         
         $('#candidate').change(function () {
             $.ajax ({
+                type: 'POST',
                 url: window.location.origin + '/ElectionResult/GetParty',
                 data: {'partyid' : $('#candidate').val()},
                 success: function (party) {
                     console.log(party);
                    $('#partyname').html(party.Name +  ' (' + party.Acronym + ')');
+                    $('#party').val(party.Name +  ' (' + party.Acronym + ')');
+                },
+                error : function () {
+                    Announce('Error submitting result', 'center', 'error', true, false);
                 },
                 dataType: 'json'
             });
@@ -57,6 +64,7 @@ $(document).ready(function () {
 
         $('#region').change(function () {
             $.ajax({
+                type: 'POST',
                 url: window.location.origin + '/ElectionResult/GetSubRegions',
                 data: { 'regioncode': $('#region').val() },
                 success: function (result) {
@@ -70,6 +78,9 @@ $(document).ready(function () {
                         });
                     }
                 },
+                error : function () {
+                    Announce('Error submitting result', 'center', 'error', true, false);
+                },
                 dataType: 'json'
             });
         });
@@ -78,36 +89,88 @@ $(document).ready(function () {
 });
 
 function initializeLists() {
-    $.get(window.location.origin + '/ElectionResult/GetLists', function (lists) {
-        if ($('#region').length) {
-            $.each(lists.Regions, function (index, region) {
-                $("#region").append('<option value="' + region.RegionCode + '">' + region.Name + '</option>');
-                $("#region").trigger('liszt:updated');
-            });
-        }
-        if ($('#raceType').length) {
-            $.each(lists.RaceTypes, function (index, raceType) {
-                $("#raceType").append('<option value="' + raceType.RaceTypeID + '" >' + raceType.Name + '</option>');
-                $("#raceType").trigger('liszt:updated');
-            });
-        }
-        if ($('#candidate').length) {
-            $.each(lists.Candidates, function (index, candidate) {
-                var text = candidate.FirstName + ' ' + candidate.LastName ;
-                $("#candidate").append('<option  value="' + candidate.CandidateID + '" >' + text + '</option>');
-                $("#candidate").trigger('liszt:updated');
-            });
-        }
-        if ($('#party').length) {
-            console.log(lists.Parties);
-            $.each(lists.Parties, function (index, party) {
-                var partyname = ' (' + party.Acronym + ') ' + party.Name ;
-                $("#party").append('<option  value="' + party.PartyID + '" >' + partyname + '</option>');
-                $("#party").trigger('liszt:updated');
-            });
-        }
+    $.ajax({
+        type: 'POST',
+        url: window.location.origin + '/ElectionResult/GetLists',
+        //data: vm,
+        success: function (lists) {
+            //console.log(lists);
+            if ( lists.Message >0 )
+            {
+                msg = "ERROR!!!";
+                msg += "<br/>Message: " + lists.Message;
+                msg += "<br/>StackTrace: " + lists.StackTrace;
+                msg += "<br/>InnerException: " + lists.InnerException;
+                 Announce(msg, 'center', 'error', true, false);
+            }else 
+            {
+                if ($('#region').length) {
+                    $.each(lists.Regions, function (index, region) {
+                        $("#region").append('<option value="' + region.RegionCode + '">' + region.Name + '</option>');
+                        $("#region").trigger('liszt:updated');
+                    });
+                }
+                if ($('#raceType').length) {
+                    $.each(lists.RaceTypes, function (index, raceType) {
+                        $("#raceType").append('<option value="' + raceType.RaceTypeID + '" >' + raceType.Name + '</option>');
+                        $("#raceType").trigger('liszt:updated');
+                    });
+                }
+                if ($('#candidate').length) {
+                    $.each(lists.Candidates, function (index, candidate) {
+                        var text = candidate.FirstName + ' ' + candidate.LastName ;
+                        $("#candidate").append('<option  value="' + candidate.CandidateID + '" >' + text + '</option>');
+                        $("#candidate").trigger('liszt:updated');
+                    });
+                }
+                if ($('#party').length) {
+                    console.log(lists.Parties);
+                    $.each(lists.Parties, function (index, party) {
+                        var partyname = ' (' + party.Acronym + ') ' + party.Name ;
+                        $("#party").append('<option  value="' + party.PartyID + '" >' + partyname + '</option>');
+                        $("#party").trigger('liszt:updated');
+                    });
+                }
+            }
+        },
+        error : function () {
+            Announce('Error getting data', 'center', 'error', true, false);
+        },
+        dataType: 'json'
     });
 }
+
+function UpdateScreen() {
+    // Get data
+    var selectedregion = $('#region option:selected');
+    Announce('Retrieving data for ' + selectedregion.text() + " state(s) ...", 'center', 'information', false);
+    var vm = { "RaceID": 1, "RegionCode": selectedregion.val() };
+    $.ajax({
+        type: 'POST',
+        url: window.location.origin + '/ElectionResult/RaceResults',
+        data: vm,
+        success: function (result) {
+            //console.log('printing result');
+            //console.log(result);
+            initializeMap(result.RegionalResults);
+            populateResultTable(result.SelectedRegionResults.Results);
+            getResultAnalysis(result.SelectedRegionResults.Results, selectedregion);
+            drawCharts(result.SelectedRegionResults.Results);
+        }
+    });
+    
+//    regionItem = {};
+//    regionItem['name'] = $('#region option:selected').text();
+//    regionItem['regioncode'] = $('#region').val();
+//    Announce('Retrieving data for ' + regionItem.name + " state(s) ...", 'center', 'information', false);
+//    drawCharts(regionItem);
+//    var timeStr = getDateTime();
+//    htmlStr = "<center>This page refreshes automatically every 2 minutes ";
+//    htmlStr += " (Last refresh at " + timeStr + ")";
+//    htmlStr += "</center>";
+//    $('#refreshnotice').html(htmlStr);
+}
+
 
 function UpdateScreen() {
     // Get data
@@ -141,8 +204,11 @@ function UpdateScreen() {
 }
 
 
+
+
 function initializeMap(regionalResults) {
-    console.log('Map is getting reintialise');
+    //console.log('Map is getting reintialise');
+
     var center = new google.maps.LatLng(9.568251, 8.644524);
     map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: center,
@@ -165,9 +231,11 @@ function initializeMap(regionalResults) {
         var color = winner.PartyColor;
         var regionPoly = new google.maps.Polygon({
             paths: polyPaths,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 1,
+
+            strokeColor: '#000000',
+            strokeOpacity: 1,
+            strokeWeight: 1.5,
+
             fillColor: getColor(winner), //getColor(i),
             fillOpacity: 0.5,
             map: map,
@@ -181,7 +249,9 @@ function initializeMap(regionalResults) {
         });
 
         google.maps.event.addListener(regionPoly, "mouseout", function (e) {
-            var polyOptions = { strokeWeight: 2.0, fillOpacity: 0.5, fillColor: getColor(winner) };
+
+            var polyOptions = { strokeWeight: 1.5, fillOpacity: 0.5, fillColor: getColor(winner) };
+
             regionPoly.setOptions(polyOptions);
             toggleInfobox(regionItem, event, false);
         });
@@ -224,6 +294,25 @@ function drawCharts(selectedRegionResult) {
         columnitem['data'] = [{ y: (resultItem.TotalVotes) / 1000, color: resultItem.PartyColor}];        
         columndata.push(columnitem);
 
+    var piedata = []; // holds series for piechart
+    var categories = [];
+    var coldata = []; //holds series for column chart
+    var colcolor = [];
+    for (var index in selectedRegionResult) {
+        var resultItem = selectedRegionResult[index];
+        totVotes += resultItem.TotalVotes;        
+        
+
+        coldata.push((resultItem.TotalVotes) / 1000);
+        categories.push(resultItem.PartyAcronym);
+        colcolor.push({
+                        linearGradient:{ cx: 0.5, cy: 0.3, r: 0.7 },
+                        stops: [
+                            [0, resultItem.PartyColor],
+                            [1, '#000']
+                        ]});
+
+
         var pieitem = {};
         pieitem['name'] = resultItem.PartyAcronym;
         pieitem['y'] = parseFloat(resultItem.TotalVotes);
@@ -231,6 +320,17 @@ function drawCharts(selectedRegionResult) {
         piedata.push(pieitem);
     }
     console.log(columndata);
+
+        pieitem['color'] = {
+                            radialGradient:{ cx: 0.5, cy: 0.3, r: 0.7 },
+                            stops: [
+                                [0, resultItem.PartyColor],
+                                [1, Highcharts.Color(resultItem.PartyColor).brighten(-0.3).get('rgb')]
+                            ]},
+        piedata.push(pieitem);
+    }
+    //console.log(columndata);
+
     var title = getTitle();
     // Draw column chart
     chartsubtitle = "Correct as at " + getDateTime();
@@ -244,16 +344,18 @@ function drawCharts(selectedRegionResult) {
         subtitle: {
             text: 'Real time data'
         },
-        series: columndata,
+
+        series: [{ data : coldata }], //columndata,
         xAxis: {
-            title: { text: 'Candidates/Parties' },
-            categories: ['']
+            title: { text: 'Parties' },
+            categories: categories //['']
         },
         yAxis: {
             min: 0,
             title: { text: 'Votes (thousands)' }
         },
         tooltip: {
+
             formatter: function () {
                 var s;
                 if (this.point.name) {
@@ -262,24 +364,51 @@ function drawCharts(selectedRegionResult) {
                     return '' + (this.y * 1000).toLocaleString() + ' votes';
                 }
                 //return s;
+
+            backgroundColor: {
+                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                stops: [
+                [0, 'rgba(96, 96, 96, .8)'],
+                [1, 'rgba(16, 16, 16, .8)']
+                ]
+            },
+            borderWidth: 1,
+            style: {
+                color: '#FFF'
+            },
+            formatter: function () {
+                return 'Party : <b>'+ this.x +'</b><br/>'+
+                        'Votes : '+ (this.y * 1000).toLocaleString();
+
             }
         },
         plotOptions: {
             column: {
                 pointPadding: 0.2,
+
                 borderWidth: 0
             }
         },
         legend: {
             itemStyle: {
-                color: '#000'
-            },
-            itemHoverStyle: {
-                color: '#CCC'
-            },
-            itemHiddenStyle: {
-                color: '#333'
+
+                borderWidth: 0,
+                colorByPoint: true
             }
+        },
+        colors: colcolor,
+        dataLabels: {
+            enabled: true,
+            rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    x: 4,
+                    y: 10
+            },
+        legend: {
+             enabled: false
+
+
         }
     });
 
@@ -304,6 +433,7 @@ function drawCharts(selectedRegionResult) {
             shadow: true,
             data: piedata
         }],
+
         //                yAxis: {
         //                    title: { text: 'Votes in thousands' }
         //                },
@@ -317,6 +447,9 @@ function drawCharts(selectedRegionResult) {
             //useHTML: true,
             //headerFormat:'<b>{point.key}</b><hr/>'
             
+
+        tooltip: {            
+
             backgroundColor: {
                 linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
                 stops: [
@@ -334,6 +467,14 @@ function drawCharts(selectedRegionResult) {
                 } else {
                     return '' + (this.y * 1000).toLocaleString() + ' votes';
                 }
+                /*if (this.point.name) { // the pie chart
+                    return '' + this.point.name + ': ' + (this.y).toLocaleString() + ' votes';
+                } else {
+                    return '' + (this.y * 1000).toLocaleString() + ' votes';
+                }*/
+                return 'Party : <b>'+ this.point.name +'</b><br/>'+
+                        'Votes : '+ (this.y).toLocaleString();
+
             }
         },
         plotOptions: {
@@ -341,7 +482,13 @@ function drawCharts(selectedRegionResult) {
                 allowPointSelect: true,
                 cursor: 'pointer',
                 dataLabels: {
-                    enabled: false
+
+                    enabled: false,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    formatter: function() {
+                        return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(2) +' %';
+                    }
                 },
                 showInLegend: true
             }
@@ -353,11 +500,21 @@ function drawCharts(selectedRegionResult) {
             itemHoverStyle: {
                 color: '#CCC'
             }
+        },
+        color: {
+            linearGradient: { x1: 0, x2: 0, y1: 0, y1: 1 },
+            stops: [
+                [0, '#003399'],
+                [1, '#3366AA']
+            ]
         }
     });
 }
 
-function getResultAnalysis(selectedRegionResult) {    
+   
+
+function getResultAnalysis(selectedRegionResult, selectedregion) {    
+
     var totVotes = 0;
     for (var index in selectedRegionResult) {
         totVotes += selectedRegionResult[index].TotalVotes;
@@ -369,9 +526,9 @@ function getResultAnalysis(selectedRegionResult) {
     $('#result-analysis-header').html(title);
 
     if (selectedRegionResult.length > 0) {
-        $('#result-analysis-comments').html("<br/>With <strong>" + winner.TotalVotes.toLocaleString() + "</strong> votes <strong>" + winner.FirstName + ' ' + winner.LastName + "</strong> of <strong>" + winner.PartyAcronym + "</strong> has a <strong>" + ((winner.TotalVotes / totVotes) * 100).toFixed(2) + "%</strong> majority of a total of <strong>" + totVotes.toLocaleString() + " votes</strong>. More gibberish can be added here.. something like '... There were a total of x registered voters...  ");
+        $('#result-analysis-comments').html("<br/>With <strong>" + winner.TotalVotes.toLocaleString() + "</strong> votes <strong> <span id='candidatename'>" + winner.FirstName + ' ' + winner.LastName + "<span></strong> of <strong>" + winner.PartyAcronym + "</strong> has a <strong>" + ((winner.TotalVotes / totVotes) * 100).toFixed(2) + "%</strong> majority of a total of <strong>" + totVotes.toLocaleString() + " votes</strong>. More gibberish can be added here.. something like '... There were a total of x registered voters...  ");
     } else {
-        $('#result-analysis-comments').html("<br/><br/><br/><strong>Data currently not available for " + selectedRegion.text() + "</strong>");
+        $('#result-analysis-comments').html("<br/><br/><br/><strong>Data currently not available for " + selectedregion.text() + "</strong>");
     }
 }
 
@@ -388,7 +545,8 @@ function populateResultTable(selectedRegionResult)
             { "sTitle": "Votes", "mDataProp": "TotalVotes", "sClass": "alignRight"},
 //            { "sTitle": "Remarks" }
         ],
-        "aaSorting": [[2, "desc"]],
+
+        "aaSorting": [[2, "desc"]], 
         "bRetrieve": true, 
         "bProcessing": true,
         "bDestroy": true,
@@ -398,7 +556,8 @@ function populateResultTable(selectedRegionResult)
         "sSortAsc": "header headerSortDown",
         "sSortDesc": "header headerSortUp",
         "sSortable": "header",
-        "sDom": "<'row-fluid'<'span6'l><'span6'f><'span12 center'>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
+        //"sDom": "<'row-fluid'<'span6'l><'span6'f><'span12 center'>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
+        "bPaginate": false,
         "iDisplayLength": '5'
     });
 }
@@ -435,7 +594,7 @@ function getWinner(result) {
 }
 
 function getColor(contestant) {
-    var color = (typeof contestant.PartyColor == 'undefined') ? '#00ff00' : contestant.PartyColor;
+    var color = (typeof contestant.PartyColor == 'undefined') ? '#088A29' : contestant.PartyColor;
     return color;
 }
 
@@ -462,7 +621,7 @@ function toggleInfobox(region, event, show) {
     //infoContent += "State Code: " + region.regioncode + "<br />";
     if (show) {
         $('#infobox').html(infoContent);
-        $('#infobox').css({ left: (event.pageX +2) + 'px', top: (event.pageY+2) + 'px', opacity: 0.9, background: '#555555', border: '2px solid #ffffff', color: '#ffffff' }).show();
+        $('#infobox').css({ left: (event.pageX +2) + 'px', top: (event.pageY+2) + 'px', opacity: 0.9, background: '#555555', border: '2px solid #000', color: '#ffffff' }).show();
         //$('#infobox').show();
     } else {
         $('#infobox').hide();
@@ -476,6 +635,19 @@ function docReady() {
 	$('a[href="#"][data-top!=true]').click(function(e){
 		e.preventDefault();
 	});
+
+    //datepicker
+	$('.datepicker').datepicker({
+	    showOn: "button",
+	    buttonImage:  "/Content/themes/bootstrap/img/calendar.gif", 
+	});
+	//$.datepicker.setDefaults($.datepicker.regional['en-GB']);
+	$.datepicker.setDefaults(
+      $.extend(
+        { 'dateFormat': 'dd-mm-yy' },
+        $.datepicker.regional['en']
+      )
+    );
     	
 	//notifications
 	$('.noty').click(function(e){
@@ -493,11 +665,49 @@ function docReady() {
 
 	
 	//tooltip
-//	$('[rel="tooltip"],[data-rel="tooltip"]').tooltip({"placement":"bottom",delay: { show: 400, hide: 200 }});
+	$('[rel="tooltip"],[data-rel="tooltip"]').tooltip({"placement":"bottom",delay: { show: 400, hide: 200 }});
 
 
 	//popover
 	//$('[rel="popover"],[data-rel="popover"]').popover();
+
+
+    //tabs
+	$('#myTab a:first').tab('show');
+	$('#myTab a').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	});
+
+    //donation
+	$('#donate-button').click(function (e) {
+	    e.preventDefault();
+         var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        //alert('hre');
+        var url =  window.location.origin + '/api/donationmanagement/donations';
+        Announce('Processing request', 'center', 'information',  false);
+        var yyyy = today.getFullYear();
+        if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = yyyy+'-'+mm+'-'+dd;
+        var donation = {
+            Donor: {'FirstName' : $('#firstname').val(), 'LastName' : $('#lastname').val(), 'Gender' : $('#gender').val(), 'Email' : $('#email').val()  },
+            'Amount' : $('#amount').val(), 'DonationDate' : today
+            };
+	    $.ajax ({
+            type: 'POST',
+            url: url,
+            data: donation,
+            success: function (response) {
+                console.log(response);
+                 Announce('Request processed successfully', 'center', 'success', false);
+            },
+            error : function () {
+                Announce('Error processing request result', 'center', 'error', false);
+            },
+            dataType: 'json'
+        });
+	});
 
 
 	$('.btn-close').click(function(e){
@@ -516,10 +726,34 @@ function docReady() {
 	    }
 	    $target.slideToggle();
 	});
-
+    $('.btn-refresh').click( function(e){
+        e.preventDefault();
+        window.location = location.href;
+    });
+   
+   
 }
 
+function blink(elem, times, speed) {
+    console.log('I am blinking');
+    if (times > 0 || times < 0) {
+        if ($(elem).hasClass("blink")) 
+            $(elem).removeClass("blink");
+        else
+            $(elem).addClass("blink");
+    }
 
+    clearTimeout(function () {
+        blink(elem, times, speed);
+    });
+
+    if (times > 0 || times < 0) {
+        setTimeout(function () {
+            blink(elem, times, speed);
+        }, speed);
+        times -= .5;
+    }
+}
 function Announce(text, layout, type, modal, timeout) {
     var noty_id = noty({
         text: text,

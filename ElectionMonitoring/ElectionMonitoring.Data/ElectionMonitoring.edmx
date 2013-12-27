@@ -9,14 +9,15 @@
           <EntitySet Name="Candidate" EntityType="ElectionMonitoring.Store.Candidate" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Category" EntityType="ElectionMonitoring.Store.Category" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CategoryType" EntityType="ElectionMonitoring.Store.CategoryType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Donation" EntityType="ElectionMonitoring.Store.Donation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Donor" EntityType="ElectionMonitoring.Store.Donor" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Party" EntityType="ElectionMonitoring.Store.Party" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Project" EntityType="ElectionMonitoring.Store.Project" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Race" EntityType="ElectionMonitoring.Store.Race" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RaceResult" EntityType="ElectionMonitoring.Store.RaceResult" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RaceType" EntityType="ElectionMonitoring.Store.RaceType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Region" EntityType="ElectionMonitoring.Store.Region" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RegionType" EntityType="ElectionMonitoring.Store.RegionType" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="ElectionMonitoring.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Year" EntityType="ElectionMonitoring.Store.Year" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_Candidate_Party" Association="ElectionMonitoring.Store.FK_Candidate_Party">
             <End Role="Party" EntitySet="Party" />
             <End Role="Candidate" EntitySet="Candidate" />
@@ -24,6 +25,10 @@
           <AssociationSet Name="FK_Category_CategoryType" Association="ElectionMonitoring.Store.FK_Category_CategoryType">
             <End Role="CategoryType" EntitySet="CategoryType" />
             <End Role="Category" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donation_Donor" Association="ElectionMonitoring.Store.FK_Donation_Donor">
+            <End Role="Donor" EntitySet="Donor" />
+            <End Role="Donation" EntitySet="Donation" />
           </AssociationSet>
           <AssociationSet Name="FK_Race_RaceType" Association="ElectionMonitoring.Store.FK_Race_RaceType">
             <End Role="RaceType" EntitySet="RaceType" />
@@ -77,6 +82,25 @@
           <Property Name="CategoryTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar" MaxLength="40" />
         </EntityType>
+        <EntityType Name="Donation">
+          <Key>
+            <PropertyRef Name="DonationID" />
+          </Key>
+          <Property Name="DonationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DonorID" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="DonationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Donor">
+          <Key>
+            <PropertyRef Name="DonorID" />
+          </Key>
+          <Property Name="DonorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" MaxLength="80" />
+          <Property Name="LastName" Type="varchar" MaxLength="80" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Party">
           <Key>
             <PropertyRef Name="PartyID" />
@@ -86,6 +110,15 @@
           <Property Name="Acronym" Type="varchar" MaxLength="10" />
           <Property Name="LogoFile" Type="varchar" MaxLength="225" />
           <Property Name="Color" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" MaxLength="250" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Budget" Type="money" />
         </EntityType>
         <EntityType Name="Race">
           <Key>
@@ -140,23 +173,6 @@
           <Property Name="RegionTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="Year">
-          <Key>
-            <PropertyRef Name="YearID" />
-          </Key>
-          <Property Name="YearID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="varchar" MaxLength="20" />
-        </EntityType>
         <Association Name="FK_Candidate_Party">
           <End Role="Party" Type="ElectionMonitoring.Store.Party" Multiplicity="1" />
           <End Role="Candidate" Type="ElectionMonitoring.Store.Candidate" Multiplicity="*" />
@@ -178,6 +194,18 @@
             </Principal>
             <Dependent Role="Category">
               <PropertyRef Name="CategoryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donation_Donor">
+          <End Role="Donor" Type="ElectionMonitoring.Store.Donor" Multiplicity="0..1" />
+          <End Role="Donation" Type="ElectionMonitoring.Store.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donor">
+              <PropertyRef Name="DonorID" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="DonorID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -285,17 +313,22 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ElectionMonitoring" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="ElectionMonitoringEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="GetAggregatedRaceResult" ReturnType="Collection(ElectionMonitoring.AggregatedRaceResult)">
+            <Parameter Name="RaceID" Mode="In" Type="Int32" />
+            <Parameter Name="RegionCode" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="Candidates" EntityType="ElectionMonitoring.Candidate" />
           <EntitySet Name="Categories" EntityType="ElectionMonitoring.Category" />
           <EntitySet Name="CategoryTypes" EntityType="ElectionMonitoring.CategoryType" />
+          <EntitySet Name="Donations" EntityType="ElectionMonitoring.Donation" />
+          <EntitySet Name="Donors" EntityType="ElectionMonitoring.Donor" />
           <EntitySet Name="Parties" EntityType="ElectionMonitoring.Party" />
+          <EntitySet Name="Projects" EntityType="ElectionMonitoring.Project" />
           <EntitySet Name="Races" EntityType="ElectionMonitoring.Race" />
           <EntitySet Name="RaceResults" EntityType="ElectionMonitoring.RaceResult" />
           <EntitySet Name="RaceTypes" EntityType="ElectionMonitoring.RaceType" />
           <EntitySet Name="Regions" EntityType="ElectionMonitoring.Region" />
           <EntitySet Name="RegionTypes" EntityType="ElectionMonitoring.RegionType" />
-          <EntitySet Name="sysdiagrams" EntityType="ElectionMonitoring.sysdiagram" />
-          <EntitySet Name="Years" EntityType="ElectionMonitoring.Year" />
           <AssociationSet Name="FK_Candidate_Party" Association="ElectionMonitoring.FK_Candidate_Party">
             <End Role="Party" EntitySet="Parties" />
             <End Role="Candidate" EntitySet="Candidates" />
@@ -307,6 +340,10 @@
           <AssociationSet Name="FK_Category_CategoryType" Association="ElectionMonitoring.FK_Category_CategoryType">
             <End Role="CategoryType" EntitySet="CategoryTypes" />
             <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donation_Donor" Association="ElectionMonitoring.FK_Donation_Donor">
+            <End Role="Donor" EntitySet="Donors" />
+            <End Role="Donation" EntitySet="Donations" />
           </AssociationSet>
           <AssociationSet Name="FK_Race_RaceType" Association="ElectionMonitoring.FK_Race_RaceType">
             <End Role="RaceType" EntitySet="RaceTypes" />
@@ -324,10 +361,6 @@
             <End Role="RegionType" EntitySet="RegionTypes" />
             <End Role="Region" EntitySet="Regions" />
           </AssociationSet>
-          <FunctionImport Name="GetAggregatedRaceResult" ReturnType="Collection(ElectionMonitoring.AggregatedRaceResult)">
-            <Parameter Name="RaceID" Mode="In" Type="Int32" />
-            <Parameter Name="RegionCode" Mode="In" Type="String" />
-          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="ElectionRaceResult">
           <Property Type="Int32" Name="RaceID" Nullable="true" />
@@ -336,6 +369,20 @@
           <Property Type="String" Name="LastName" Nullable="true" MaxLength="80" />
           <Property Type="String" Name="PartyName" Nullable="true" MaxLength="80" />
           <Property Type="String" Name="PartyAcronym" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="TotalVotes" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="AggregatedRaceResult">
+          <Property Type="Int32" Name="RaceID" Nullable="true" />
+          <Property Type="Int32" Name="CandidateId" Nullable="true" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="PartyName" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="PartyAcronym" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PartyColor" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="RegionID" Nullable="true" />
+          <Property Type="String" Name="RegionName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="RegionCode" Nullable="true" MaxLength="32" />
           <Property Type="Int32" Name="TotalVotes" Nullable="true" />
         </ComplexType>
         <EntityType Name="Candidate">
@@ -373,6 +420,27 @@
           <Property Type="String" Name="Name" MaxLength="40" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Categories" Relationship="ElectionMonitoring.FK_Category_CategoryType" FromRole="CategoryType" ToRole="Category" />
         </EntityType>
+        <EntityType Name="Donation">
+          <Key>
+            <PropertyRef Name="DonationID" />
+          </Key>
+          <Property Type="Int32" Name="DonationID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DonorID" />
+          <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
+          <Property Type="DateTime" Name="DonationDate" />
+          <NavigationProperty Name="Donor" Relationship="ElectionMonitoring.FK_Donation_Donor" FromRole="Donation" ToRole="Donor" />
+        </EntityType>
+        <EntityType Name="Donor">
+          <Key>
+            <PropertyRef Name="DonorID" />
+          </Key>
+          <Property Type="Int32" Name="DonorID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Gender" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Donations" Relationship="ElectionMonitoring.FK_Donation_Donor" FromRole="Donor" ToRole="Donation" />
+        </EntityType>
         <EntityType Name="Party">
           <Key>
             <PropertyRef Name="PartyID" />
@@ -381,8 +449,17 @@
           <Property Type="String" Name="Name" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Acronym" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="LogoFile" MaxLength="225" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Candidates" Relationship="ElectionMonitoring.FK_Candidate_Party" FromRole="Party" ToRole="Candidate" />
           <Property Type="String" Name="Color" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Candidates" Relationship="ElectionMonitoring.FK_Candidate_Party" FromRole="Party" ToRole="Candidate" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Type="Int32" Name="ProjectID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Budget" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="Race">
           <Key>
@@ -446,23 +523,6 @@
           <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Regions" Relationship="ElectionMonitoring.FK_Region_RegionType" FromRole="RegionType" ToRole="Region" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="principal_id" Nullable="false" />
-          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="version" />
-          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Year">
-          <Key>
-            <PropertyRef Name="YearID" />
-          </Key>
-          <Property Type="Int32" Name="YearID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Description" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
         <Association Name="FK_Candidate_Party">
           <End Type="ElectionMonitoring.Party" Role="Party" Multiplicity="1" />
           <End Type="ElectionMonitoring.Candidate" Role="Candidate" Multiplicity="*" />
@@ -496,6 +556,18 @@
             </Principal>
             <Dependent Role="Category">
               <PropertyRef Name="CategoryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donation_Donor">
+          <End Type="ElectionMonitoring.Donor" Role="Donor" Multiplicity="0..1" />
+          <End Type="ElectionMonitoring.Donation" Role="Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donor">
+              <PropertyRef Name="DonorID" />
+            </Principal>
+            <Dependent Role="Donation">
+              <PropertyRef Name="DonorID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -547,26 +619,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="AggregatedRaceResult">
-          <Property Type="Int32" Name="RaceID" Nullable="true" />
-          <Property Type="Int32" Name="CandidateId" Nullable="true" />
-          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="LastName" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="PartyName" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="PartyAcronym" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="PartyColor" Nullable="true" MaxLength="30" />
-          <Property Type="Int32" Name="RegionID" Nullable="true" />
-          <Property Type="String" Name="RegionName" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="RegionCode" Nullable="true" MaxLength="32" />
-          <Property Type="Int32" Name="TotalVotes" Nullable="true" />
-        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ElectionMonitoringStoreContainer" CdmEntityContainer="ElectionMonitoringEntities">
+          <FunctionImportMapping FunctionImportName="GetAggregatedRaceResult" FunctionName="ElectionMonitoring.Store.GetRaceResult">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ElectionMonitoring.AggregatedRaceResult">
+                <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+                <ScalarProperty Name="PartyAcronym" ColumnName="PartyAcronym" />
+                <ScalarProperty Name="PartyColor" ColumnName="PartyColor" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="RegionCode" ColumnName="RegionCode" />
+                <ScalarProperty Name="TotalVotes" ColumnName="TotalVotes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <EntitySetMapping Name="Candidates">
             <EntityTypeMapping TypeName="ElectionMonitoring.Candidate">
               <MappingFragment StoreEntitySet="Candidate">
@@ -601,6 +677,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Donations">
+            <EntityTypeMapping TypeName="ElectionMonitoring.Donation">
+              <MappingFragment StoreEntitySet="Donation">
+                <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="DonorID" ColumnName="DonorID" />
+                <ScalarProperty Name="DonationID" ColumnName="DonationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donors">
+            <EntityTypeMapping TypeName="ElectionMonitoring.Donor">
+              <MappingFragment StoreEntitySet="Donor">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="DonorID" ColumnName="DonorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Parties">
             <EntityTypeMapping TypeName="ElectionMonitoring.Party">
               <MappingFragment StoreEntitySet="Party">
@@ -609,6 +706,16 @@
                 <ScalarProperty Name="Acronym" ColumnName="Acronym" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PartyID" ColumnName="PartyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ElectionMonitoring.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -670,43 +777,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ElectionMonitoring.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Years">
-            <EntityTypeMapping TypeName="ElectionMonitoring.Year">
-              <MappingFragment StoreEntitySet="Year">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="YearID" ColumnName="YearID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="GetAggregatedRaceResult" FunctionName="ElectionMonitoring.Store.GetRaceResult">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ElectionMonitoring.AggregatedRaceResult">
-                <ScalarProperty Name="RaceID" ColumnName="RaceID" />
-                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
-                <ScalarProperty Name="PartyAcronym" ColumnName="PartyAcronym" />
-                <ScalarProperty Name="PartyColor" ColumnName="PartyColor" />
-                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
-                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
-                <ScalarProperty Name="RegionCode" ColumnName="RegionCode" />
-                <ScalarProperty Name="TotalVotes" ColumnName="TotalVotes" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -727,49 +797,54 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ElectionMonitoring">
+      <Diagram Name="ElectionMonitoring" ZoomLevel="89">
         <EntityTypeShape EntityType="ElectionMonitoring.Candidate" Width="1.5" PointX="3" PointY="1.375" Height="2.941793619791667" />
-        <EntityTypeShape EntityType="ElectionMonitoring.Category" Width="1.5" PointX="8" PointY="6" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="ElectionMonitoring.CategoryType" Width="1.5" PointX="5.75" PointY="6.375" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="ElectionMonitoring.Party" Width="1.5" PointX="0.75" PointY="1.875" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="ElectionMonitoring.Category" Width="1.5" PointX="10" PointY="1" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="ElectionMonitoring.CategoryType" Width="1.5" PointX="7.75" PointY="1.375" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="ElectionMonitoring.Donation" Width="1.5" PointX="8" PointY="6" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="ElectionMonitoring.Donor" Width="1.5" PointX="5.75" PointY="5.875" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="ElectionMonitoring.Party" Width="1.5" PointX="0.75" PointY="1.75" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="ElectionMonitoring.Project" Width="1.5" PointX="5.75" PointY="9.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="ElectionMonitoring.Race" Width="1.5" PointX="3" PointY="5.75" Height="2.172587890624996" />
-        <EntityTypeShape EntityType="ElectionMonitoring.RaceResult" Width="1.5" PointX="5.25" PointY="1" Height="3.7109993489583388" />
+        <EntityTypeShape EntityType="ElectionMonitoring.RaceResult" Width="1.5" PointX="5.25" PointY="1" Height="3.7109993489583317" />
         <EntityTypeShape EntityType="ElectionMonitoring.RaceType" Width="1.5" PointX="0.75" PointY="6" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="ElectionMonitoring.Region" Width="1.5" PointX="3" PointY="8.75" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="ElectionMonitoring.RegionType" Width="1.5" PointX="0.75" PointY="9.375" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="ElectionMonitoring.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" Height="1.9802864583333388" />
-        <EntityTypeShape EntityType="ElectionMonitoring.Year" Width="1.5" PointX="7.75" PointY="3.75" Height="1.4033821614583282" />
+        <EntityTypeShape EntityType="ElectionMonitoring.RegionType" Width="1.5" PointX="0.75" PointY="9.375" Height="1.595683593749996" />
         <AssociationConnector Association="ElectionMonitoring.FK_Candidate_Party" >
-          <ConnectorPoint PointX="2.25" PointY="2.8651432291666694" />
-          <ConnectorPoint PointX="3" PointY="2.8651432291666694" />
+          <ConnectorPoint PointX="2.25" PointY="2.8362939453125016" />
+          <ConnectorPoint PointX="3" PointY="2.8362939453125016" />
         </AssociationConnector>
         <AssociationConnector Association="ElectionMonitoring.FK_RaceResult_Candidate" >
           <ConnectorPoint PointX="4.5" PointY="2.8458968098958337" />
           <ConnectorPoint PointX="5.25" PointY="2.8458968098958337" />
         </AssociationConnector>
         <AssociationConnector Association="ElectionMonitoring.FK_Category_CategoryType" >
-          <ConnectorPoint PointX="7.25" PointY="7.1728417968750016" />
-          <ConnectorPoint PointX="8" PointY="7.1728417968750016" />
+          <ConnectorPoint PointX="9.25" PointY="2.1728417968750016" />
+          <ConnectorPoint PointX="10" PointY="2.1728417968750016" />
+        </AssociationConnector>
+        <AssociationConnector Association="ElectionMonitoring.FK_Donation_Donor" >
+          <ConnectorPoint PointX="7.25" PointY="6.9901432291666694" />
+          <ConnectorPoint PointX="8" PointY="6.9901432291666694" />
         </AssociationConnector>
         <AssociationConnector Association="ElectionMonitoring.FK_Race_RaceType" >
           <ConnectorPoint PointX="2.25" PointY="6.8939925130208337" />
           <ConnectorPoint PointX="3" PointY="6.8939925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="ElectionMonitoring.FK_RaceResult_Race" >
-          <ConnectorPoint PointX="4.5" PointY="6.03125" />
-          <ConnectorPoint PointX="5.2447891666666671" PointY="6.0312499999999991" />
-          <ConnectorPoint PointX="5.4114558333333331" PointY="6.03125" />
-          <ConnectorPoint PointX="5.46875" PointY="6.03125" />
-          <ConnectorPoint PointX="5.46875" PointY="4.7109993489583388" />
+          <ConnectorPoint PointX="4.5" PointY="5.78125" />
+          <ConnectorPoint PointX="5.2447891666666671" PointY="5.7812499999999991" />
+          <ConnectorPoint PointX="5.4114558333333331" PointY="5.78125" />
+          <ConnectorPoint PointX="5.46875" PointY="5.78125" />
+          <ConnectorPoint PointX="5.46875" PointY="4.7109993489583317" />
         </AssociationConnector>
         <AssociationConnector Association="ElectionMonitoring.FK_RaceResult_Region" >
-          <ConnectorPoint PointX="4.5" PointY="10.220896809895834" />
-          <ConnectorPoint PointX="5.3281225" PointY="10.220896809895834" />
-          <ConnectorPoint PointX="5.3281225" PointY="4.7109993489583388" />
+          <ConnectorPoint PointX="4.5" PointY="9.21875" />
+          <ConnectorPoint PointX="5.3281225" PointY="9.21875" />
+          <ConnectorPoint PointX="5.3281225" PointY="4.7109993489583317" />
         </AssociationConnector>
         <AssociationConnector Association="ElectionMonitoring.FK_Region_RegionType" >
-          <ConnectorPoint PointX="2.25" PointY="10.172841796875002" />
-          <ConnectorPoint PointX="3" PointY="10.172841796875002" />
+          <ConnectorPoint PointX="2.25" PointY="10.172841796874998" />
+          <ConnectorPoint PointX="3" PointY="10.172841796874998" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
