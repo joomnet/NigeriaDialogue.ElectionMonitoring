@@ -76,3 +76,5 @@ C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonito
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Tests\obj\Debug\ElectionMonitoring.Tests.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Tests\obj\Debug\ElectionMonitoring.Tests.pdb
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\nunit.framework.dll
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\nunit.framework.xml

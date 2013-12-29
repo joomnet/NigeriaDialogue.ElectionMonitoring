@@ -1,6 +1,6 @@
 ﻿using System;
 using ElectionMonitoring.Controllers.Api;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace ElectionMonitoring.Tests
 {
@@ -14,7 +14,7 @@ namespace ElectionMonitoring.Tests
     using System.Web.Http.Hosting;
     using System.Web.Http.Dispatcher;
 
-    [TestClass]
+    [TestFixture]
     public class RoutingTableTest
     {
         private RouteCollection routes;
@@ -23,7 +23,7 @@ namespace ElectionMonitoring.Tests
         private string alphanumeric = @"^[a-zA-Z]+[a-zA-Z0-9_]*$";
         private string numeric = @"^\d+$";
 
-        [TestInitialize]
+        [SetUp]
         public void SetUp()
         {
             routes = new RouteCollection();
@@ -37,7 +37,7 @@ namespace ElectionMonitoring.Tests
             webApiConfig.Routes.MapHttpRoute(name: "DefaultApi", routeTemplate: "api/{controller}/{id}", defaults: new { id = RouteParameter.Optional });                                   
         }
 
-        [TestCleanup]
+        [TearDown]
         public void TearDown()
         {
             routes = null;
@@ -45,7 +45,7 @@ namespace ElectionMonitoring.Tests
         }
 
         #region "RouteConfig Test"
-        [TestMethod]
+        [Test]
         public void DefaultRouteConfigTest()
         {
             // Arrange
@@ -67,7 +67,7 @@ namespace ElectionMonitoring.Tests
         
         #region WebApiConfig Tests
 
-        [TestMethod]
+        [Test]
         public void ApiRegionByRegionID()
         {
             // Arrange
@@ -87,7 +87,7 @@ namespace ElectionMonitoring.Tests
 
         }
 
-        [TestMethod]
+        [Test]
         public void ApiRegionByRegionCode()
         {
             // Arrange
@@ -106,7 +106,7 @@ namespace ElectionMonitoring.Tests
             Assert.AreEqual("ct", controllerContext.RouteData.Values["regioncode"].ToString().ToLower(), "Region code should be ct, but is " + controllerContext.RouteData.Values["regioncode"]);            
         }
 
-        [TestMethod]
+        [Test]
         public void ActionApiRouteWithControllerWithActionNoId()
         {
             // Arrange
@@ -128,7 +128,7 @@ namespace ElectionMonitoring.Tests
             //Assert.AreEqual("races", actionDescriptor.ActionName.ToLower(), "ActionName should be Races, but is " + actionDescriptor.ActionName); 
         }
 
-        [TestMethod]
+        [Test]
         public void ActionApiRouteWithControllerWithActionWithId()
         {
             // Arrange
@@ -146,7 +146,7 @@ namespace ElectionMonitoring.Tests
             
         }
 
-        [TestMethod]
+        [Test]
         public void RaceResultsRouteWithRaceIDWithRegionCode()
         {
             // Arrange
@@ -164,7 +164,7 @@ namespace ElectionMonitoring.Tests
             Assert.AreEqual("ab", Convert.ToString(controllerContext.RouteData.Values["regioncode"]).ToLower(), "regioncode should be AB, but is " + controllerContext.RouteData.Values["regioncode"]);            
         }
 
-        [TestMethod]
+        [Test]
         public void RaceResultsRouteWithRaceIDNoRegionCode()
         {
             // Arrange
@@ -183,7 +183,7 @@ namespace ElectionMonitoring.Tests
         }
 
 
-        [TestMethod]
+        [Test]
         public void AboutApi()
         {
             // Arrange

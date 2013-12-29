@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ElectionMonitoring.Controllers.Api;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using Moq;
 using ElectionMonitoring.Models;
 using ElectionMonitoring.Business;
@@ -10,10 +10,11 @@ using System.Web.Http;
 using System.Web.Http.Routing;
 using System.Web.Http.Controllers;
 using System.Web.Http.Hosting;
+using NUnit.Framework;
 
 namespace ElectionMonitoring.Tests.Controllers
 {
-    [TestClass]
+    [TestFixture]
     public class ElectionMonitoringControllerTest
     {
         private IEnumerable<Models.AggregatedRaceResult> raceResults;
@@ -24,7 +25,7 @@ namespace ElectionMonitoring.Tests.Controllers
         private IEnumerable<Race> races;
         private ElectionMonitoringController controller;
 
-        [TestInitialize]
+        [SetUp]
         public void SetUp()
         {
             races = new List<Models.Race>
@@ -63,7 +64,7 @@ namespace ElectionMonitoring.Tests.Controllers
             
         }
 
-        [TestCleanup]
+        [TearDown]
         public void TearDown()
         {
             raceResults = null;
@@ -71,7 +72,7 @@ namespace ElectionMonitoring.Tests.Controllers
         }
 
         #region Election Results
-        [TestMethod]
+        [Test]
         public void GetRaces_Call_Repository()
         {
            // Arrange
@@ -82,11 +83,11 @@ namespace ElectionMonitoring.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(races, "GetRaces() should not be null");
-            Assert.IsInstanceOfType(races, typeof(IEnumerable<Models.Race>), "GetRaces() should return an IEnumerable<Models.Race>");
+            Assert.IsInstanceOfType(typeof(IEnumerable<Models.Race>), races, "GetRaces() should return an IEnumerable<Models.Race>");
             Assert.IsTrue(races.FirstOrDefault().RaceID == 1, "Should return 1 for Race ID ");
         }
 
-        [TestMethod]
+        [Test]
         public void GetRegions_Call_Repository()
         {
             // Arrange
@@ -96,12 +97,12 @@ namespace ElectionMonitoring.Tests.Controllers
             var region = controller.GetRegions();
 
             // Assert
-            Assert.IsInstanceOfType(region, typeof(IEnumerable<Region>), "Should return IEnumerable<Region>");
+            Assert.IsInstanceOfType(typeof(IEnumerable<Region>), region, "Should return IEnumerable<Region>");
             Assert.IsNotNull(region, "Should return a list of region");
             Assert.AreEqual(region.FirstOrDefault().Name, "Abia", "Should return Abia as name of first region");
         }
 
-        [TestMethod]
+        [Test]
         public void GetSubRegions_Call_Repository()
         {
             // Arrange
@@ -111,13 +112,13 @@ namespace ElectionMonitoring.Tests.Controllers
             var region = controller.GetSubRegions(1);
 
             // Assert
-            Assert.IsInstanceOfType(region, typeof(IEnumerable<Region>), "Should return IEnumerable<Region>");
+            Assert.IsInstanceOfType(typeof(IEnumerable<Region>), region, "Should return IEnumerable<Region>");
             //mockRegionRepo.Verify(r => r.GetRegions(It.IsAny<int>()), Times.AtLeastOnce(), "Should have called GetRegions(1) on RegionRepository");
             Assert.IsNotNull(region, "Should return a list of region");
             Assert.AreEqual(region.FirstOrDefault().Name, "Aba South", "Should return Abia as name of first region");
         }
         
-        //[TestMethod]
+        //[Test]
         //public void GetUsers_Action_Returns_Valid_IEnumerable_Of_Users()
         //{
         //    // Arrange
@@ -136,7 +137,7 @@ namespace ElectionMonitoring.Tests.Controllers
         //        res.Count(), users.Count()));
         //}
 
-        //[TestMethod]
+        //[Test]
         //public void GetUser_Action_Returns_Valid_User_Object()
         //{
         //    // Arrange
