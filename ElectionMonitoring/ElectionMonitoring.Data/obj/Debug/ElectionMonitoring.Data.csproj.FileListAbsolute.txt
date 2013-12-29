@@ -13,3 +13,10 @@ C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Data.pdb
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.dll
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.pdb
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\obj\Debug\ElectionMonitoring.Data.csprojResolveAssemblyReference.cache
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Models.dll
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\EntityFramework.dll
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\ElectionMonitoring.Models.pdb
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\EntityFramework.xml
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\Newtonsoft.Json.dll
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Data\bin\Debug\Newtonsoft.Json.xml

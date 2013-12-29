@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using ElectionMonitoring.Models;
 
 namespace ElectionMonitoring.Business
 {
     public interface IRaceRepository
     {
-        IEnumerable<Models.Race> GetRaces();
-        Models.Race GetRace(int raceID);
-        int CreateRace(Models.Race race);
-        bool UpdateRace(Models.Race race);
-        bool DeleteRace(int raceID);
+        IEnumerable<Race> GetRaces();
+        Race GetRace(int raceId);
+        int CreateRace(Race race);
+        bool UpdateRace(Race race);
+        bool DeleteRace(int raceId);
     }
 }

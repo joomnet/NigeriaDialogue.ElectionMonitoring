@@ -8,6 +8,7 @@ using ElectionMonitoring.Business;
 using AutoMapper;
 using System.Text;
 using System.Reflection;
+using ElectionMonitoring.Models;
 
 namespace ElectionMonitoring.Controllers.Api
 {
@@ -63,7 +64,7 @@ namespace ElectionMonitoring.Controllers.Api
         // GET api/donationmanagement/donations/5
         [HttpGet]
         [ActionName("Donations")]
-        public Models.Donation GetDonation(int id)
+        public Donation GetDonation(int id)
         {
             var donation = _donationRepository.GetDonation(id);
             if (donation == null)
@@ -77,26 +78,23 @@ namespace ElectionMonitoring.Controllers.Api
         // POST api/donationmanagement/donations
         [HttpPost]
         [ActionName("Donations")]
-        public HttpResponseMessage Post(DTO.Donation donation)
+        public HttpResponseMessage Post(Donation donation)
         {
             if ((ModelState.IsValid) && (donation != null))
             {
                 // check if known donor otherwise create new donor
-                var donor = _donorRepository.GetDonor(donation.DonorID);
+                var donor = _donorRepository.GetDonor(donation.DonorID.Value);
                 if (donor == null)
                 {
-                    Mapper.CreateMap<DTO.Donor, Models.Donor>();
-                    donor = _donorRepository.CreateDonor(Mapper.Map<DTO.Donor, Models.Donor>(donation.Donor));
+                    donor = _donorRepository.CreateDonor(donation.Donor);
                 }
 
                 if (donation.Amount == 0)
                     return Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, " Error Creating donation");
-                Mapper.CreateMap<DTO.Donation, Models.Donation>();
-                var modelDonation = Mapper.Map<DTO.Donation, Models.Donation>(donation);
 
-                modelDonation.DonorID = donor.DonorID;
-                modelDonation.Donor = null;
-                var created = _donationRepository.CreateDonation(modelDonation);
+                donation.DonorID = donor.DonorID;
+                donation.Donor = null;
+                var created = _donationRepository.CreateDonation(donation);
                 if ((created !=null) && (created.DonationID  > 0))
                 {
                     var response = Request.CreateResponse(HttpStatusCode.Created, donation);

@@ -94,7 +94,7 @@ function initializeLists() {
         url: window.location.origin + '/ElectionResult/GetLists',
         //data: vm,
         success: function (lists) {
-            //console.log(lists);
+            console.log(lists);
             if ( lists.Message >0 )
             {
                 msg = "ERROR!!!";

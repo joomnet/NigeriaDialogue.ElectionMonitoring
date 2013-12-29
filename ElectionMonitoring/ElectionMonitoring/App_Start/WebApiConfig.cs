@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Routing;
 using System.Net.Http;
@@ -60,9 +61,25 @@ namespace ElectionMonitoring
              * (You can configure the XML formatter to preserve object references, 
              * but it's a little more work, and we only need JSON for this application. For more information, 
              * see Handling Circular Object References [http://www.asp.net/web-api/overview/formats-and-model-binding/json-and-xml-serialization#handling_circular_object_references].) */
-            var json = config.Formatters.JsonFormatter;
-            json.SerializerSettings.PreserveReferencesHandling =
-                Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            //var json = config.Formatters.JsonFormatter;
+            //json.SerializerSettings.PreserveReferencesHandling =
+            //    Newtonsoft.Json.PreserveReferencesHandling.Objects;
+
+            //var json = config.Formatters.JsonFormatter;
+            //json.SerializerSettings.PreserveReferencesHandling =
+            //    Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+            config.Formatters.JsonFormatter.SerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
+                {
+                    PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects
+                    , ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize
+                    , 
+                };
+
+
+            //config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = new Newtonsoft.Json.ReferenceLoopHandling.Serialize;
+            //config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            //  config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 
             // when using the next line, it is best to install a json formatter plug-in in the browser.
             config.Formatters.Remove(config.Formatters.XmlFormatter);

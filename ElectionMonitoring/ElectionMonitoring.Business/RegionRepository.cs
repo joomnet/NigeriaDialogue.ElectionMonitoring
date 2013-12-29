@@ -1,38 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using ElectionMonitoring.Data;
+using ElectionMonitoring.Models;
 
 namespace ElectionMonitoring.Business
 {
-    using AutoMapper;
-
     public class RegionRepository : IRegionRepository
     {
-        private Data.ElectionMonitoringEntities entities = new Data.ElectionMonitoringEntities();
-        public RegionRepository()
+        private readonly ElectionMonitoringEntities entities = new ElectionMonitoringEntities();
+
+        public IEnumerable<Region> GetRegions()
         {
+            return entities.Regions.ToArray();
         }
 
-        public IEnumerable<Models.Region> GetRegions()
-        {
-            var dataRegions = entities.Regions;
-            Mapper.CreateMap<Data.Region, Models.Region>();
-            var modelRegions = Mapper.Map<IEnumerable<Data.Region>, IEnumerable<Models.Region>>(dataRegions);
-            return modelRegions;
-        }
-
-        public IEnumerable<Models.Region> GetRegions(int regionID)
+        public IEnumerable<Region> GetRegions(int regionID)
         {
             return GetRegions().Where(r => r.RegionID == regionID).ToList();
         }
 
-        public int CreateRegion(Models.Region region)
+        public int CreateRegion(Region region)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateRegion(Models.Region region)
+        public bool UpdateRegion(Region region)
         {
             throw new NotImplementedException();
         }

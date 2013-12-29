@@ -85,27 +85,27 @@ namespace ElectionMonitoring.Tests.Controllers
             mockDonationRepo = new Mock<IDonationRepository>();
             mockDonationRepo.Setup(d => d.GetDonations()).Returns(donations);
             mockDonationRepo.Setup(d => d.GetDonation(It.IsAny<int>()))
-                            .Returns(donations.Where(don => don.DonorID == 2).FirstOrDefault());
+                            .Returns(donations.FirstOrDefault(don => don.DonorID == 2));
             mockDonationRepo.Setup(d => d.GetDonation(It.IsAny<int>()))
-                            .Returns(donations.Where(don => don.DonorID == 2).FirstOrDefault());
+                            .Returns(donations.FirstOrDefault(don => don.DonorID == 2));
             mockDonationRepo.Setup(d => d.CreateDonation(It.IsAny<Donation>()))
-                            .Returns(donations.Where(don => don.DonorID == 2).FirstOrDefault());
+                            .Returns(donations.FirstOrDefault(don => don.DonorID == 2));
             mockDonationRepo.Setup(d => d.UpdateDonation(It.IsAny<Donation>())).Returns(true);
             mockDonationRepo.Setup(d => d.DeleteDonation(It.IsAny<int>())).Returns(true);
 
             mockDonorRepo = new Mock<IDonorRepository>();
             mockDonorRepo.Setup(d => d.GetDonors()).Returns(donors);
             mockDonorRepo.Setup(d => d.GetDonor(It.IsAny<int>()))
-                         .Returns(donors.Where(don => don.DonorID == 1).FirstOrDefault());
+                         .Returns(donors.FirstOrDefault(don => don.DonorID == 1));
             mockDonorRepo.Setup(d => d.CreateDonor(It.IsAny<Donor>()))
-                         .Returns(donors.Where(don => don.DonorID == 1).FirstOrDefault());
+                         .Returns(donors.FirstOrDefault(don => don.DonorID == 1));
             mockDonorRepo.Setup(d => d.UpdateDonor(It.IsAny<Donor>())).Returns(true);
             mockDonorRepo.Setup(d => d.DeleteDonor(It.IsAny<int>())).Returns(true);
 
             mockProjectRepo = new Mock<IProjectRepository>();
             mockProjectRepo.Setup(d => d.GetProjects()).Returns(projects);
             mockProjectRepo.Setup(d => d.GetProject(It.IsAny<int>()))
-                           .Returns(projects.Where(prj => prj.ProjectID == 1).FirstOrDefault());
+                           .Returns(projects.FirstOrDefault(prj => prj.ProjectID == 1));
             mockProjectRepo.Setup(d => d.CreateProject(It.IsAny<Project>())).Returns(1);
             mockProjectRepo.Setup(d => d.UpdateProject(It.IsAny<Project>())).Returns(true);
             mockProjectRepo.Setup(d => d.DeleteProject(It.IsAny<int>())).Returns(true);
@@ -235,16 +235,16 @@ namespace ElectionMonitoring.Tests.Controllers
                                                                               mockProjectRepo);
 
             // Act
-            IEnumerable<Donor> result = controller.GetDonors();
-            List<Donor> res = result.ToList();
+            IEnumerable<Donor> result = controller.GetDonors().ToArray();
+
 
             // Assert
-            Assert.IsInstanceOfType(typeof (IEnumerable<Donor>), result,
-                                    "The Controller.GetDonors() return is not of type IEnumerable<Donor>");
-            Assert.IsNotNull(result, "The Controller.GetDonors() return is null");
-            Assert.AreEqual(donors.Count(), res.Count(), string.Format(
+            //Assert.IsInstanceOfType(typeof (IEnumerable<Donor>), result,
+            //                        "The Controller.GetDonors() return is not of type IEnumerable<Donor>");
+            //Assert.IsNotNull(result, "The Controller.GetDonors() return is null");
+            Assert.AreEqual(donors.Count(), result.Count(), string.Format(
                 "The Controller.GetDonors() return count is {0} it's supposed to be {1} (not correct)",
-                res.Count(), donors.Count()));
+                result.Count(), donors.Count()));
         }
 
         [Test]
@@ -283,7 +283,7 @@ namespace ElectionMonitoring.Tests.Controllers
                 res.Count(), projects.Count()));
         }
 
-        [Test]
+        [TearDown]
         public void SetDown()
         {
             donors = null;
@@ -301,13 +301,9 @@ namespace ElectionMonitoring.Tests.Controllers
             DonationManagementController controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo,
                                                                               mockProjectRepo);
 
-            // Act
-            Mapper.CreateMap<Donation, DTO.Donation>();
-            Mapper.CreateMap<Donor, DTO.Donor>();
-            IEnumerable<DTO.Donation> dtoDonations =
-                Mapper.Map<IEnumerable<Donation>, IEnumerable<DTO.Donation>>(donations);
 
-            HttpResponseMessage result = controller.Post(dtoDonations.SingleOrDefault(u => u.DonationID == 1));
+
+            HttpResponseMessage result = controller.Post(donations.SingleOrDefault(u => u.DonationID == 1));
 
             // Assert
             Assert.IsNotNull(result, "Should have returned a HttpResponseMessage");
@@ -323,11 +319,7 @@ namespace ElectionMonitoring.Tests.Controllers
                                                                               mockProjectRepo);
 
             // Act
-            Mapper.CreateMap<Donation, DTO.Donation>();
-            Mapper.CreateMap<Donor, DTO.Donor>();
-            IEnumerable<DTO.Donation> dtoDonations =
-                Mapper.Map<IEnumerable<Donation>, IEnumerable<DTO.Donation>>(donations);
-            HttpResponseMessage result = controller.Post(dtoDonations.SingleOrDefault(u => u.DonorID == 1));
+            HttpResponseMessage result = controller.Post(donations.SingleOrDefault(u => u.DonorID == 1));
 
             // Assert
             Assert.IsNotNull(result, "Should have returned a HttpResponseMessage");

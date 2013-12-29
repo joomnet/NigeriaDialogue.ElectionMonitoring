@@ -1,44 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using ElectionMonitoring.Data;
+using ElectionMonitoring.Models;
 
 namespace ElectionMonitoring.Business
 {
-    using AutoMapper;
-
     public class RaceRepository : IRaceRepository
     {
-        Data.ElectionMonitoringEntities entities = new Data.ElectionMonitoringEntities();
+        private readonly ElectionMonitoringEntities entities = new ElectionMonitoringEntities();
 
-        public IEnumerable<Models.Race> GetRaces()
+        public IEnumerable<Race> GetRaces()
         {
-            var dataRaces = entities.Races;
-            Mapper.CreateMap<Data.Race, Models.Race>();
-            var modelRaces = Mapper.Map<IEnumerable<Data.Race>, IEnumerable<Models.Race>>(dataRaces);
-            return modelRaces;
+            return entities.Races.ToArray();
         }
 
-        public Models.Race GetRace(int raceID)
+        public Race GetRace(int raceId)
         {
-            return GetRaces().Where(r => r.RaceID == raceID).FirstOrDefault();
+            return GetRaces().FirstOrDefault(r => r.RaceID == raceId);
         }
 
-        public int CreateRace(Models.Race race)
-        {
-            Mapper.CreateMap<Models.Race, Data.Race>();
-            var dataRace = Mapper.Map<Models.Race, Data.Race>(race);
-            entities.AddToRaces(dataRace);
-            var created = entities.SaveChanges();
-            return dataRace.RaceID;
-        }
-
-        public bool UpdateRace(Models.Race race)
+        public int CreateRace(Race race)
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteRace(int raceID)
+        public bool UpdateRace(Race race)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteRace(int raceId)
         {
             throw new NotImplementedException();
         }

@@ -183,7 +183,7 @@ namespace ElectionMonitoring.Controllers.Api
                                                 RegionCode = "ALL",
                                                 //RegionName = r.FirstOrDefault().RegionName,
                                                 RaceID = r.FirstOrDefault().RaceID,
-                                                CandidateID = r.FirstOrDefault().CandidateID,
+                                                CandidateId = r.FirstOrDefault().CandidateId,
                                                 FirstName = r.FirstOrDefault().FirstName,
                                                 LastName = r.FirstOrDefault().LastName,
                                                 MiddleName = r.FirstOrDefault().MiddleName,

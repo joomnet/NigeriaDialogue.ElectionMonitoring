@@ -10,6 +10,7 @@ using Microsoft.Practices.Unity;
 using ElectionMonitoring.Business;
 using ElectionMonitoring.Helpers;
 using ElectionMonitoring.Controllers.Api;
+using Newtonsoft.Json;
 
 namespace ElectionMonitoring
 {
@@ -30,6 +31,15 @@ namespace ElectionMonitoring
             // for some weird reason Unity doesn't seem to work well with Mvc4 WEBAPI controller 
             // (Helpers.IocContainer to the rescue);
             ConfigureApi(GlobalConfiguration.Configuration);
+
+            //var jsonSerializerSettings = new JsonSerializerSettings
+            //{
+            //    PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            //};
+
+            //GlobalConfiguration.Configuration.Formatters.Clear();
+            //GlobalConfiguration.Configuration.Formatters.Add(new JsonNetFormatter(jsonSerializerSettings));
+
             Bootstrapper.Initialise();
         }
 

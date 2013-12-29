@@ -1,56 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using ElectionMonitoring.Data;
+using ElectionMonitoring.Models;
 
 namespace ElectionMonitoring.Business
 {
-    using ElectionMonitoring.Models;
-    using AutoMapper;
-
     public class DonorRepository : IDonorRepository
     {
-        private readonly Data.ElectionMonitoringEntities entities = new Data.ElectionMonitoringEntities();
+        private readonly ElectionMonitoringEntities entities = new ElectionMonitoringEntities();
 
         public IEnumerable<Donor> GetDonors()
         {
-            var dataDonors = entities.Donors;
-            Mapper.CreateMap<Data.Donor, Models.Donor>();
-            var modelDonors = Mapper.Map<IEnumerable<Data.Donor>, IEnumerable<Models.Donor>>(dataDonors);
-            return modelDonors;
+            return entities.Donors;
         }
 
-        public Models.Donor GetDonor(int DonorID)
+        public Donor GetDonor(int donorId)
         {
-            var dataDonor = entities.Donors.SingleOrDefault(d => d.DonorID == DonorID);
-            Mapper.CreateMap<Data.Donor, Models.Donor>();
-            var modelDonor = Mapper.Map<Data.Donor, Models.Donor>(dataDonor);
-            return modelDonor;
+            return entities.Donors.FirstOrDefault(d => d.DonorID == donorId);
         }
 
-        public Models.Donor CreateDonor(Models.Donor donor)
+        public Donor CreateDonor(Donor donor)
         {
-            Mapper.CreateMap<Models.Donor, Data.Donor>();
-            var dataDonor = Mapper.Map<Models.Donor, Data.Donor>(donor);
-            entities.AddToDonors(dataDonor);
-            var newID = entities.SaveChanges();
-            var dw = entities.Donors.Where(d => d.DonorID == newID).FirstOrDefault();
-            var de = dw;
-            Mapper.CreateMap<Data.Donor, Models.Donor>();
-            donor = Mapper.Map<Data.Donor, Models.Donor>(dataDonor);
+            entities.Donors.Add(donor);
+            int newID = entities.SaveChanges();
             return donor;
         }
 
-        public bool UpdateDonor(Models.Donor donor)
+        public bool UpdateDonor(Donor donor)
         {
-            var dataDonor = entities.Donors.SingleOrDefault(d => d.DonorID == donor.DonorID);
+            Donor dataDonor = entities.Donors.SingleOrDefault(d => d.DonorID == donor.DonorID);
             if (dataDonor != null)
             {
                 dataDonor.Email = donor.Email;
                 dataDonor.FirstName = donor.FirstName;
                 dataDonor.LastName = donor.LastName;
 
-                var updated = entities.SaveChanges();
+                int updated = entities.SaveChanges();
                 return (updated > 0);
             }
             return false;
@@ -58,10 +43,11 @@ namespace ElectionMonitoring.Business
 
         public bool DeleteDonor(int DonorID)
         {
-            var dataDonor = entities.Donors.SingleOrDefault(d => d.DonorID == DonorID);
+            Donor dataDonor = entities.Donors.SingleOrDefault(d => d.DonorID == DonorID);
             if (dataDonor != null)
             {
-                entities.Donors.DeleteObject(dataDonor);
+                entities.Donors.Remove(dataDonor);
+                entities.SaveChanges();
                 return true;
             }
             return false;

@@ -6,6 +6,7 @@ using ElectionMonitoring.ViewModels;
 using ElectionMonitoring.Business;
 using ElectionMonitoring.Models;
 using AutoMapper;
+using Newtonsoft.Json;
 
 namespace ElectionMonitoring.Controllers
 {
@@ -53,20 +54,18 @@ namespace ElectionMonitoring.Controllers
                 // aggregate for all regions
                 var aggResults = allRegionsResults.GroupBy(r => r.PartyAcronym)
                                     .Select(r =>
-                                        new
                                         {
-                                            PartyAcronym = r.Key,
-                                            RegionID = r.FirstOrDefault().RegionID,
-                                            RegionCode = r.FirstOrDefault().RegionCode,
-                                            RegionName = r.FirstOrDefault().RegionName,
-                                            RaceID = r.FirstOrDefault().RaceID,
-                                            CandidateID = r.FirstOrDefault().CandidateID,
-                                            FirstName = r.FirstOrDefault().FirstName,
-                                            LastName = r.FirstOrDefault().LastName,
-                                            MiddleName = r.FirstOrDefault().MiddleName,
-                                            PartyName = r.FirstOrDefault().PartyName,
-                                            PartyColor = r.FirstOrDefault().PartyColor,
-                                            TotalVotes = r.Sum(p => p.TotalVotes),
+                                            AggregatedRaceResult aggregatedRaceResult = r.FirstOrDefault();
+                                            return new
+                                                         {
+                                                             PartyAcronym = r.Key
+                                                             , aggregatedRaceResult.RegionID
+                                                             , aggregatedRaceResult.RegionCode
+                                                             , aggregatedRaceResult.RegionName
+                                                             , aggregatedRaceResult.RaceID,
+                                                             CandidateID = aggregatedRaceResult.CandidateId, aggregatedRaceResult.FirstName, aggregatedRaceResult.LastName, aggregatedRaceResult.MiddleName, aggregatedRaceResult.PartyName, aggregatedRaceResult.PartyColor,
+                                                             TotalVotes = r.Sum(p => p.TotalVotes),
+                                                         };
                                         }).ToList();
 
                 overallResults.Results = new List<AggregatedRaceResultViewModel>();
@@ -80,7 +79,7 @@ namespace ElectionMonitoring.Controllers
                         RegionName = aggResult.RegionName,
                         RaceID = aggResult.RaceID,
                         CandidateID = aggResult.CandidateID,
-                        TotalVotes = aggResult.TotalVotes,
+                        TotalVotes = aggResult.TotalVotes.Value,
                         FirstName = aggResult.FirstName,
                         LastName = aggResult.LastName,
                         MiddleName = aggResult.MiddleName,
@@ -94,7 +93,7 @@ namespace ElectionMonitoring.Controllers
                     RegionalResults = regionalResults,
                     SelectedRegionResults = string.IsNullOrEmpty(viewModel.RegionCode)
                                             ? overallResults
-                                            : regionalResults.Where(rr => rr.Region.RegionCode == viewModel.RegionCode).FirstOrDefault()
+                                            : regionalResults.FirstOrDefault(rr => rr.Region.RegionCode == viewModel.RegionCode)
                 };
 
 
@@ -184,7 +183,7 @@ namespace ElectionMonitoring.Controllers
             try
             {
                 var regions = service.GetRegions().ToList();
-                regions = regions.Where(r => r.TopLevel == true).ToList();
+                regions = regions.Where(r => r.TopLevel.HasValue && r.TopLevel == true).ToList();
                 var raceTypes = service.GetRaceTypes().ToList();
                 var raceid = 1; //for now
                 var candidates = service.GetCandidates().Where(c => c.RaceID == raceid).ToList();
@@ -192,9 +191,11 @@ namespace ElectionMonitoring.Controllers
                 var parties = new List<Party>();
                 foreach (var candidate in candidates)
                 {
-                    parties.Add(allparties.Where(p => p.PartyID == candidate.PartyID).FirstOrDefault());
+                    parties.Add(allparties.FirstOrDefault(p => p.PartyID == candidate.PartyID));
                 }
-                return Json(new { Regions = regions, RaceTypes = raceTypes, Candidates = candidates, Parties = parties }, JsonRequestBehavior.AllowGet);
+                return Json(new { Regikcons = regions, RaceTypes = raceTypes, Candidates = candidates, Parties = parties }, JsonRequestBehavior.AllowGet);
+                //var data = JsonConvert.SerializeObject(new { Regions = regions, RaceTypes = raceTypes, Candidates = candidates, Parties = parties }, Formatting.Indented, new JsonSerializerSettings() );
+                //return new ContentResult { Content = data, ContentType = "application/json" };
             }
             catch (Exception ex)
             {

@@ -9,7 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.Models",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.Business", "ElectionMonitoring.Business\ElectionMonitoring.Business.csproj", "{E174D299-2B9A-403E-844E-2C049A179E17}"
 EndProject
-
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AE21CE88-33FE-4AAC-93AA-0EF307E4E50D}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -19,7 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AE21CE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.UnitTests", "ElectionMonitoring.UnitTests\ElectionMonitoring.UnitTests.csproj", "{5CAE8C29-98A1-427E-96D2-9A3C7387101C}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.Tests", "ElectionMonitoring.Tests\ElectionMonitoring.Tests.csproj", "{E5B9B26A-8976-4588-A1E3-A4BB8F55DA73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1DFC46B5-7543-4DDB-9B0B-D3A19E3F0E0B}"
@@ -29,7 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionMonitoring.Repository", "ElectionMonitoring.Repository\ElectionMonitoring.Repository.csproj", "{B762199B-69A3-4E54-9BA5-D6A6CEE22F62}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ElectionMonitoring.vsmdi
@@ -55,17 +54,18 @@ Global
 		{E174D299-2B9A-403E-844E-2C049A179E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E174D299-2B9A-403E-844E-2C049A179E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E174D299-2B9A-403E-844E-2C049A179E17}.Release|Any CPU.Build.0 = Release|Any CPU
-
 		{5CAE8C29-98A1-427E-96D2-9A3C7387101C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5CAE8C29-98A1-427E-96D2-9A3C7387101C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CAE8C29-98A1-427E-96D2-9A3C7387101C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CAE8C29-98A1-427E-96D2-9A3C7387101C}.Release|Any CPU.Build.0 = Release|Any CPU
-
 		{E5B9B26A-8976-4588-A1E3-A4BB8F55DA73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E5B9B26A-8976-4588-A1E3-A4BB8F55DA73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5B9B26A-8976-4588-A1E3-A4BB8F55DA73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5B9B26A-8976-4588-A1E3-A4BB8F55DA73}.Release|Any CPU.Build.0 = Release|Any CPU
-
+		{B762199B-69A3-4E54-9BA5-D6A6CEE22F62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B762199B-69A3-4E54-9BA5-D6A6CEE22F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B762199B-69A3-4E54-9BA5-D6A6CEE22F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B762199B-69A3-4E54-9BA5-D6A6CEE22F62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

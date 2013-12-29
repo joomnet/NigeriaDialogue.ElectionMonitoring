@@ -1,52 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
+using ElectionMonitoring.Data;
+using ElectionMonitoring.Models;
 
 namespace ElectionMonitoring.Business
 {
-    using ElectionMonitoring.Models;
-    using AutoMapper;
     public class ProjectRepository : IProjectRepository
     {
-        private Data.ElectionMonitoringEntities entities = new Data.ElectionMonitoringEntities();
+        private readonly ElectionMonitoringEntities entities = new ElectionMonitoringEntities();
 
-        public IEnumerable<Models.Project> GetProjects()
+        public IEnumerable<Project> GetProjects()
         {
-            var dataProjects = entities.Projects;
-            Mapper.CreateMap<Data.Project, Models.Project>();
-            var modelProjects = Mapper.Map<IEnumerable<Data.Project>, IEnumerable<Models.Project>>(dataProjects);
-            return modelProjects;
+            return entities.Projects.ToArray();
         }
 
-        public Models.Project GetProject(int ProjectID)
+        public Project GetProject(int projectId)
         {
-            var dataProject = entities.Projects.SingleOrDefault(p => p.ProjectID == ProjectID);
-            Mapper.CreateMap<Data.Project, Models.Project>();
-            var modelProject = Mapper.Map<Data.Project, Models.Project>(dataProject);
-            return modelProject;
+            return entities.Projects.FirstOrDefault(p => p.ProjectID == projectId);
         }
 
-        public int CreateProject(Models.Project project)
+        public int CreateProject(Project project)
         {
-            Mapper.CreateMap<Models.Project, Data.Project>();
-            var dataProject = Mapper.Map<Models.Project, Data.Project>(project);
-            entities.AddToProjects(dataProject);
-            var newID = entities.SaveChanges();
+            entities.Projects.Add(project);
+            int newID = entities.SaveChanges();
             return newID;
         }
 
-        public bool UpdateProject(Models.Project project)
+        public bool UpdateProject(Project project)
         {
-            var dataProject = entities.Projects.SingleOrDefault(p => p.ProjectID == project.ProjectID);
+            Project dataProject = entities.Projects.SingleOrDefault(p => p.ProjectID == project.ProjectID);
             if (dataProject != null)
             {
                 dataProject.Title = project.Title;
                 dataProject.Description = project.Description;
                 dataProject.Budget = project.Budget;
 
-                var updated = entities.SaveChanges();
+                int updated = entities.SaveChanges();
                 return (updated > 0);
             }
             return false;
@@ -54,10 +43,10 @@ namespace ElectionMonitoring.Business
 
         public bool DeleteProject(int projectID)
         {
-            var dataProject = entities.Projects.SingleOrDefault(p => p.ProjectID == projectID);
+            Project dataProject = entities.Projects.SingleOrDefault(p => p.ProjectID == projectID);
             if (dataProject != null)
             {
-                entities.Projects.DeleteObject(dataProject);
+                entities.Projects.Remove(dataProject);
                 return true;
             }
             return false;

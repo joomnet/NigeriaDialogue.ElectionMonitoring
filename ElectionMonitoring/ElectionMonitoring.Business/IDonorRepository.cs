@@ -9,7 +9,7 @@ namespace ElectionMonitoring.Business
     public interface IDonorRepository
     {
         IEnumerable<Models.Donor> GetDonors();
-        Models.Donor GetDonor(int DonorID);
+        Models.Donor GetDonor(int donorId);
         Models.Donor CreateDonor(Models.Donor donor);
         bool UpdateDonor(Models.Donor donor);
         bool DeleteDonor(int DonorID);

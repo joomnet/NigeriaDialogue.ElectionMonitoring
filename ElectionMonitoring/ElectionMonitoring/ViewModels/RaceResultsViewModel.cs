@@ -11,7 +11,7 @@ namespace ElectionMonitoring.ViewModels
         public List<Region> Regions {
             get
             {
-                return new RaceResultService().GetRegions().Where(r => r.TopLevel).ToList();
+                return new RaceResultService().GetRegions().Where(r => r.TopLevel.Value).ToList();
             }
         }
 

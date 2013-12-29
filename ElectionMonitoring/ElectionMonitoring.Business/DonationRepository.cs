@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Data.Objects;
 using System.Linq;
-using AutoMapper;
 using ElectionMonitoring.Data;
-using Donation = ElectionMonitoring.Models.Donation;
+using ElectionMonitoring.Models;
+
 
 namespace ElectionMonitoring.Business
 {
@@ -13,37 +12,24 @@ namespace ElectionMonitoring.Business
 
         public IEnumerable<Donation> GetDonations()
         {
-            ObjectSet<Data.Donation> dataDonations = entities.Donations;
-            Mapper.CreateMap<Data.Donation, Donation>();
-            IEnumerable<Donation> modelDonations =
-                Mapper.Map<IEnumerable<Data.Donation>, IEnumerable<Donation>>(dataDonations);
-            return modelDonations;
+            return entities.Donations.ToArray();
         }
 
-        public Donation GetDonation(int DonationID)
+        public Donation GetDonation(int donationId)
         {
-            Data.Donation dataDonation = entities.Donations.Where(d => d.DonationID == DonationID).FirstOrDefault();
-            Mapper.CreateMap<Data.Donation, Donation>();
-            Donation modelDonation = Mapper.Map<Data.Donation, Donation>(dataDonation);
-            return modelDonation;
+            return entities.Donations.FirstOrDefault(x => x.DonationID == donationId);
         }
 
         public Donation CreateDonation(Donation donation)
         {
-            Mapper.CreateMap<Donation, Data.Donation>();
-            Data.Donation dataDonation = Mapper.Map<Donation, Data.Donation>(donation);
-            entities.AddToDonations(dataDonation);
-            int newID = entities.SaveChanges();
-            Data.Donation dw = entities.Donations.Where(d => d.DonationID == newID).FirstOrDefault();
-            Data.Donation don = dw;
-            Mapper.CreateMap<Data.Donation, Donation>();
-            donation = Mapper.Map<Data.Donation, Donation>(dataDonation);
+            entities.Donations.Add(donation);
+            entities.SaveChanges();
             return donation;
         }
 
         public bool UpdateDonation(Donation donation)
         {
-            Data.Donation dataDonation = entities.Donations.SingleOrDefault(d => d.DonationID == donation.DonationID);
+            Donation dataDonation = entities.Donations.SingleOrDefault(d => d.DonationID == donation.DonationID);
             if (dataDonation != null)
             {
                 dataDonation.Amount = donation.Amount;
@@ -57,10 +43,10 @@ namespace ElectionMonitoring.Business
 
         public bool DeleteDonation(int DonationID)
         {
-            Data.Donation dataDonation = entities.Donations.SingleOrDefault(d => d.DonationID == DonationID);
+            Donation dataDonation = entities.Donations.SingleOrDefault(d => d.DonationID == DonationID);
             if (dataDonation != null)
             {
-                entities.Donations.DeleteObject(dataDonation);
+                entities.Donations.Remove(dataDonation);
                 return true;
             }
             return false;

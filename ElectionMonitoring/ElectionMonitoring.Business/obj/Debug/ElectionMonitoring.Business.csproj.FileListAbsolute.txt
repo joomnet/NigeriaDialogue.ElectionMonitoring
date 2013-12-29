@@ -12,13 +12,10 @@ C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\Electio
 C:\Users\Musterion\Desktop\ElectionMonitoring_code\ElectionMonitoring_v3\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.pdb
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Business.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Business.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\AutoMapper.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\AutoMapper.Net4.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Data.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Models.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Data.pdb
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Models.pdb
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\AutoMapper.xml
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.csprojResolveAssemblyReference.cache
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.pdb
@@ -37,3 +34,7 @@ C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\De
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.csprojResolveAssemblyReference.cache
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.dll
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.pdb
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\EntityFramework.dll
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\EntityFramework.xml
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\Newtonsoft.Json.dll
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\Newtonsoft.Json.xml
