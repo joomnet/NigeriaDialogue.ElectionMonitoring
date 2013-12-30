@@ -158,6 +158,8 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\Api\DonationManagementController.cs" />
     <Compile Include="Controllers\Api\ElectionMonitoringController.cs" />
+    <Compile Include="DTO\Candidate.cs" />
+    <Compile Include="DTO\Party.cs" />
     <Compile Include="ViewModels\DonationViewModel.cs" />
     <Compile Include="Controllers\ElectionResultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

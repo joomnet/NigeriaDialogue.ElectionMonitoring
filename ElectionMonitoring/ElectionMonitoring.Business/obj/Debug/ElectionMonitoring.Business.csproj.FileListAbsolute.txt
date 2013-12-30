@@ -36,5 +36,3 @@ C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\De
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\obj\Debug\ElectionMonitoring.Business.pdb
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\EntityFramework.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\EntityFramework.xml
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\Newtonsoft.Json.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\Newtonsoft.Json.xml

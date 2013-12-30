@@ -7,13 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using ElectionMonitoring.Models;
-
 namespace ElectionMonitoring.Data
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using ElectionMonitoring.Models;
     using System.Data.Objects;
     using System.Data.Objects.DataClasses;
     using System.Linq;
@@ -23,7 +22,7 @@ namespace ElectionMonitoring.Data
         public ElectionMonitoringEntities()
             : base("name=ElectionMonitoringEntities")
         {
-            this.Configuration.ProxyCreationEnabled = false;
+    		this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

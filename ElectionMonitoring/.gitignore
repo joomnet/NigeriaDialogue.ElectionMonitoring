@@ -13,6 +13,8 @@ packages/
 _ReSharper*
 obj/
 bin/
+obj/Debug/
+Release/
 
 
 

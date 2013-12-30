@@ -7,6 +7,7 @@ using ElectionMonitoring.Business;
 using ElectionMonitoring.Models;
 using AutoMapper;
 using Newtonsoft.Json;
+using Candidate = ElectionMonitoring.DTO.Candidate;
 
 namespace ElectionMonitoring.Controllers
 {
@@ -187,13 +188,22 @@ namespace ElectionMonitoring.Controllers
                 var raceTypes = service.GetRaceTypes().ToList();
                 var raceid = 1; //for now
                 var candidates = service.GetCandidates().Where(c => c.RaceID == raceid).ToList();
+
+                Mapper.CreateMap<Models.Candidate, Candidate>();
+                List<Candidate> dtoCandidates = candidates.Select(Mapper.Map<Models.Candidate, Candidate>).ToList();
+
                 var allparties = service.GetParties();
                 var parties = new List<Party>();
+
+                Mapper.CreateMap<Models.Party, DTO.Party>();
+                List<DTO.Party> dtoParty = candidates.Select(candidate => Mapper.Map < Party, DTO.Party >(allparties.FirstOrDefault(p => p.PartyID == candidate.PartyID))).ToList();
+
                 foreach (var candidate in candidates)
                 {
                     parties.Add(allparties.FirstOrDefault(p => p.PartyID == candidate.PartyID));
                 }
-                return Json(new { Regikcons = regions, RaceTypes = raceTypes, Candidates = candidates, Parties = parties }, JsonRequestBehavior.AllowGet);
+
+                return Json(new { Regions = regions, RaceTypes = raceTypes, Candidates = dtoCandidates, Parties = dtoParty }, JsonRequestBehavior.AllowGet);
                 //var data = JsonConvert.SerializeObject(new { Regions = regions, RaceTypes = raceTypes, Candidates = candidates, Parties = parties }, Formatting.Indented, new JsonSerializerSettings() );
                 //return new ContentResult { Content = data, ContentType = "application/json" };
             }

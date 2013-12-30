@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
-
 namespace ElectionMonitoring.Models
 {
     using System;
@@ -26,7 +24,7 @@ namespace ElectionMonitoring.Models
         public string Acronym { get; set; }
         public string LogoFile { get; set; }
         public string Color { get; set; }
-
+    
         public virtual ICollection<Candidate> Candidates { get; set; }
     }
 }

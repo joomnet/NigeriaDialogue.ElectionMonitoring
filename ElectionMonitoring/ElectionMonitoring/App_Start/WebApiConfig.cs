@@ -71,7 +71,7 @@ namespace ElectionMonitoring
             config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
             config.Formatters.JsonFormatter.SerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
                 {
-                    PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects
+                    PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.All
                     , ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize
                     , 
                 };

@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
-
 namespace ElectionMonitoring.Models
 {
     using System;
@@ -31,7 +29,6 @@ namespace ElectionMonitoring.Models
         public string Gender { get; set; }
     
         public virtual Party Party { get; set; }
-
         public virtual ICollection<RaceResult> RaceResults { get; set; }
     }
 }

@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
-
 namespace ElectionMonitoring.Models
 {
     using System;
@@ -28,7 +26,6 @@ namespace ElectionMonitoring.Models
         public Nullable<int> ApprovedBy { get; set; }
         public Nullable<System.DateTime> ApprovedOn { get; set; }
     
-        [JsonIgnore]
         public virtual Candidate Candidate { get; set; }
         public virtual Race Race { get; set; }
         public virtual Region Region { get; set; }
