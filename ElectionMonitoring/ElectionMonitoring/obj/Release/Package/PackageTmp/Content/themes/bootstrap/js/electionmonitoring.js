@@ -94,7 +94,7 @@ function initializeLists() {
         url: window.location.origin + '/ElectionResult/GetLists',
         //data: vm,
         success: function (lists) {
-            //console.log(lists);
+            console.log(lists);
             if ( lists.Message >0 )
             {
                 msg = "ERROR!!!";
@@ -172,43 +172,8 @@ function UpdateScreen() {
 }
 
 
-function UpdateScreen() {
-    // Get data
-    var selectedregion = $('#region option:selected');
-    Announce('Retrieving data for ' + selectedregion.text() + " state(s) ...", 'center', 'information', false);
-    var vm = { "RaceID": 1, "RegionCode": selectedregion.val() };
-    $.ajax({
-        type: 'POST',
-        url: window.location.origin + '/ElectionResult/RaceResults',
-        data: vm,
-        success: function (result) {
-            console.log('printing result');
-            console.log(result);
-            initializeMap(result.RegionalResults);
-            populateResultTable(result.SelectedRegionResults.Results);
-            getResultAnalysis(result.SelectedRegionResults.Results);
-            drawCharts(result.SelectedRegionResults.Results);
-        }
-    });
-    
-//    regionItem = {};
-//    regionItem['name'] = $('#region option:selected').text();
-//    regionItem['regioncode'] = $('#region').val();
-//    Announce('Retrieving data for ' + regionItem.name + " state(s) ...", 'center', 'information', false);
-//    drawCharts(regionItem);
-//    var timeStr = getDateTime();
-//    htmlStr = "<center>This page refreshes automatically every 2 minutes ";
-//    htmlStr += " (Last refresh at " + timeStr + ")";
-//    htmlStr += "</center>";
-//    $('#refreshnotice').html(htmlStr);
-}
-
-
-
-
 function initializeMap(regionalResults) {
     //console.log('Map is getting reintialise');
-
     var center = new google.maps.LatLng(9.568251, 8.644524);
     map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: center,
@@ -231,11 +196,9 @@ function initializeMap(regionalResults) {
         var color = winner.PartyColor;
         var regionPoly = new google.maps.Polygon({
             paths: polyPaths,
-
             strokeColor: '#000000',
             strokeOpacity: 1,
             strokeWeight: 1.5,
-
             fillColor: getColor(winner), //getColor(i),
             fillOpacity: 0.5,
             map: map,
@@ -249,9 +212,7 @@ function initializeMap(regionalResults) {
         });
 
         google.maps.event.addListener(regionPoly, "mouseout", function (e) {
-
             var polyOptions = { strokeWeight: 1.5, fillOpacity: 0.5, fillColor: getColor(winner) };
-
             regionPoly.setOptions(polyOptions);
             toggleInfobox(regionItem, event, false);
         });
@@ -280,20 +241,6 @@ function drawCharts(selectedRegionResult) {
         $('#columnchart').hide();
     }
     var totVotes = 0;
-    var columndata = []; //holds series for column chart
-    var piedata = []; // holds series for piechart
-    for (var index in selectedRegionResult) {
-        var resultItem = selectedRegionResult[index];
-        totVotes += resultItem.TotalVotes;
-        //categories.push(resultItem["FirstName"]);
-        console.log(resultItem);
-
-        var columnitem = {}
-        columnitem['type'] = 'column';
-        columnitem['name'] = resultItem.PartyAcronym;
-        columnitem['data'] = [{ y: (resultItem.TotalVotes) / 1000, color: resultItem.PartyColor}];        
-        columndata.push(columnitem);
-
     var piedata = []; // holds series for piechart
     var categories = [];
     var coldata = []; //holds series for column chart
@@ -312,15 +259,9 @@ function drawCharts(selectedRegionResult) {
                             [1, '#000']
                         ]});
 
-
         var pieitem = {};
         pieitem['name'] = resultItem.PartyAcronym;
         pieitem['y'] = parseFloat(resultItem.TotalVotes);
-        pieitem['color'] = resultItem.PartyColor;  //Highcharts.getOptions().colors[index];
-        piedata.push(pieitem);
-    }
-    console.log(columndata);
-
         pieitem['color'] = {
                             radialGradient:{ cx: 0.5, cy: 0.3, r: 0.7 },
                             stops: [
@@ -330,7 +271,6 @@ function drawCharts(selectedRegionResult) {
         piedata.push(pieitem);
     }
     //console.log(columndata);
-
     var title = getTitle();
     // Draw column chart
     chartsubtitle = "Correct as at " + getDateTime();
@@ -344,7 +284,6 @@ function drawCharts(selectedRegionResult) {
         subtitle: {
             text: 'Real time data'
         },
-
         series: [{ data : coldata }], //columndata,
         xAxis: {
             title: { text: 'Parties' },
@@ -355,16 +294,6 @@ function drawCharts(selectedRegionResult) {
             title: { text: 'Votes (thousands)' }
         },
         tooltip: {
-
-            formatter: function () {
-                var s;
-                if (this.point.name) {
-                    return '' + this.point.name + ': ' + (this.y).toLocaleString() + ' votes';
-                } else {
-                    return '' + (this.y * 1000).toLocaleString() + ' votes';
-                }
-                //return s;
-
             backgroundColor: {
                 linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
                 stops: [
@@ -379,19 +308,11 @@ function drawCharts(selectedRegionResult) {
             formatter: function () {
                 return 'Party : <b>'+ this.x +'</b><br/>'+
                         'Votes : '+ (this.y * 1000).toLocaleString();
-
             }
         },
         plotOptions: {
             column: {
                 pointPadding: 0.2,
-
-                borderWidth: 0
-            }
-        },
-        legend: {
-            itemStyle: {
-
                 borderWidth: 0,
                 colorByPoint: true
             }
@@ -407,8 +328,15 @@ function drawCharts(selectedRegionResult) {
             },
         legend: {
              enabled: false
-
-
+            /*itemStyle: {
+                color: '#000'
+            },
+            itemHoverStyle: {
+                color: '#CCC'
+            },
+            itemHiddenStyle: {
+                color: '#333'
+            }*/
         }
     });
 
@@ -433,23 +361,7 @@ function drawCharts(selectedRegionResult) {
             shadow: true,
             data: piedata
         }],
-
-        //                yAxis: {
-        //                    title: { text: 'Votes in thousands' }
-        //                },
-        //                xAxis: {
-        //                    title: { text: 'Political Parties' },
-        //                    categories: ['']//categories
-        //                },
-        tooltip: {
-            //pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b> ({point.y})'
-            //pointFormat: '<b>No. of votes :</b>  {point.y} <br/> <b>% of total votes: </b>{point.percentage:.1f}%',
-            //useHTML: true,
-            //headerFormat:'<b>{point.key}</b><hr/>'
-            
-
         tooltip: {            
-
             backgroundColor: {
                 linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
                 stops: [
@@ -462,11 +374,6 @@ function drawCharts(selectedRegionResult) {
                 color: '#FFF'
             },
             formatter: function () {
-                if (this.point.name) { // the pie chart
-                    return '' + this.point.name + ': ' + (this.y).toLocaleString() + ' votes';
-                } else {
-                    return '' + (this.y * 1000).toLocaleString() + ' votes';
-                }
                 /*if (this.point.name) { // the pie chart
                     return '' + this.point.name + ': ' + (this.y).toLocaleString() + ' votes';
                 } else {
@@ -474,7 +381,6 @@ function drawCharts(selectedRegionResult) {
                 }*/
                 return 'Party : <b>'+ this.point.name +'</b><br/>'+
                         'Votes : '+ (this.y).toLocaleString();
-
             }
         },
         plotOptions: {
@@ -482,7 +388,6 @@ function drawCharts(selectedRegionResult) {
                 allowPointSelect: true,
                 cursor: 'pointer',
                 dataLabels: {
-
                     enabled: false,
                     color: '#000000',
                     connectorColor: '#000000',
@@ -511,10 +416,7 @@ function drawCharts(selectedRegionResult) {
     });
 }
 
-   
-
 function getResultAnalysis(selectedRegionResult, selectedregion) {    
-
     var totVotes = 0;
     for (var index in selectedRegionResult) {
         totVotes += selectedRegionResult[index].TotalVotes;
@@ -545,7 +447,6 @@ function populateResultTable(selectedRegionResult)
             { "sTitle": "Votes", "mDataProp": "TotalVotes", "sClass": "alignRight"},
 //            { "sTitle": "Remarks" }
         ],
-
         "aaSorting": [[2, "desc"]], 
         "bRetrieve": true, 
         "bProcessing": true,
@@ -560,6 +461,7 @@ function populateResultTable(selectedRegionResult)
         "bPaginate": false,
         "iDisplayLength": '5'
     });
+    
 }
 
 
@@ -754,6 +656,7 @@ function blink(elem, times, speed) {
         times -= .5;
     }
 }
+
 function Announce(text, layout, type, modal, timeout) {
     var noty_id = noty({
         text: text,

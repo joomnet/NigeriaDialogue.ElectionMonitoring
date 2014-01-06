@@ -386,6 +386,7 @@
     <Content Include="Views\ElectionResult\EnterResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\electionmonitoring.nigeriadialogue.org - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ElectionMonitoring.pubxml" />
     <None Include="Properties\PublishProfiles\ElectionMonitoringTodbitaly.pubxml" />
     <None Include="Properties\PublishProfiles\nigeriadialogue.org - Web Deploy.pubxml" />
