@@ -5,3 +5,7 @@ C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonito
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Repository\obj\Debug\ElectionMonitoring.Repository.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Repository\obj\Debug\ElectionMonitoring.Repository.pdb
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Repository\obj\Debug\ElectionMonitoring.Repository.csprojResolveAssemblyReference.cache
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Repository\bin\Debug\ElectionMonitoring.Data.dll
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Repository\bin\Debug\ElectionMonitoring.Models.dll
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Repository\bin\Debug\ElectionMonitoring.Data.pdb
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.Repository\bin\Debug\ElectionMonitoring.Models.pdb

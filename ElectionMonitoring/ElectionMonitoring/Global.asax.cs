@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ElectionMonitoring.Repository;
 using Microsoft.Practices.Unity;
 using ElectionMonitoring.Business;
 using ElectionMonitoring.Helpers;

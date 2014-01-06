@@ -86,6 +86,10 @@
       <Project>{4293D631-57C7-4996-AE52-73A4585B2EE7}</Project>
       <Name>ElectionMonitoring.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ElectionMonitoring.Repository\ElectionMonitoring.Repository.csproj">
+      <Project>{b762199b-69a3-4e54-9ba5-d6a6cee22f62}</Project>
+      <Name>ElectionMonitoring.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ElectionMonitoring\ElectionMonitoring.csproj">
       <Project>{B3F11DCA-F02E-4A94-8809-D58AF3FCDB72}</Project>
       <Name>ElectionMonitoring</Name>

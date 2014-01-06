@@ -49,18 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DonorRepository.cs" />
-    <Compile Include="DonationRepository.cs" />
     <Compile Include="ElectionMonitoringException.cs" />
-    <Compile Include="IDonationRepository.cs" />
-    <Compile Include="IDonorRepository.cs" />
-    <Compile Include="IProjectRepository.cs" />
-    <Compile Include="IRaceRepository.cs" />
-    <Compile Include="ProjectRepository.cs" />
-    <Compile Include="RaceRepository.cs" />
-    <Compile Include="RegionRepository.cs" />
     <Compile Include="IRaceResultService.cs" />
-    <Compile Include="IRegionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RaceResultService.cs" />
   </ItemGroup>

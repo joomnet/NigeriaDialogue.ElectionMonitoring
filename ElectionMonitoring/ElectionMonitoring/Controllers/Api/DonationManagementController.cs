@@ -9,6 +9,8 @@ using AutoMapper;
 using System.Text;
 using System.Reflection;
 using ElectionMonitoring.Models;
+using ElectionMonitoring.Repository;
+using Microsoft.Practices.Unity.Utility;
 
 namespace ElectionMonitoring.Controllers.Api
 {
@@ -20,12 +22,10 @@ namespace ElectionMonitoring.Controllers.Api
         public DonationManagementController(IDonorRepository donorRepository,
             IDonationRepository donationRepository, IProjectRepository projectRepository)
         {
-            if ((donorRepository == null) ||
-                (donationRepository == null) ||
-                (projectRepository == null))
-            {
-                throw new Exception("Missing repository.");
-            }
+            Guard.ArgumentNotNull(donationRepository, "donationRepository");
+            Guard.ArgumentNotNull(donorRepository, "donorRepository");
+            Guard.ArgumentNotNull(projectRepository, "projectRepository");
+
             _donorRepository = donorRepository;
             _donationRepository = donationRepository;
             _projectRepository = projectRepository;

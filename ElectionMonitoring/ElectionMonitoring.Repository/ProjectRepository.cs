@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using ElectionMonitoring.Data;
 using ElectionMonitoring.Models;
 
-namespace ElectionMonitoring.Business
+namespace ElectionMonitoring.Repository
 {
     public class ProjectRepository : IProjectRepository
     {

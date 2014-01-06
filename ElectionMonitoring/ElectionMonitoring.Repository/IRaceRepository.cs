@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using ElectionMonitoring.Models;
 
-namespace ElectionMonitoring.Business
+namespace ElectionMonitoring.Repository
 {
     public interface IRaceRepository
     {

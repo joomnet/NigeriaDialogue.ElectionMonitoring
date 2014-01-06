@@ -377,6 +377,10 @@
       <Project>{4293D631-57C7-4996-AE52-73A4585B2EE7}</Project>
       <Name>ElectionMonitoring.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ElectionMonitoring.Repository\ElectionMonitoring.Repository.csproj">
+      <Project>{b762199b-69a3-4e54-9ba5-d6a6cee22f62}</Project>
+      <Name>ElectionMonitoring.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ElectionResult\EnterResults.cshtml" />

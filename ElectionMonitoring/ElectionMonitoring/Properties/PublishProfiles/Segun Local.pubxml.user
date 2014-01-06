@@ -14,34 +14,40 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2013 21:28:52</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
-      <publishTime>11/17/2013 21:28:49</publishTime>
+      <publishTime>12/26/2013 15:22:08</publishTime>
     </File>
     <File Include="bin/AutoMapper.Net4.dll">
-      <publishTime>11/17/2013 21:28:49</publishTime>
+      <publishTime>12/26/2013 15:22:08</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.Business.dll">
-      <publishTime>11/20/2013 22:21:34</publishTime>
+      <publishTime>12/30/2013 20:00:56</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.Business.pdb">
-      <publishTime>11/20/2013 22:21:34</publishTime>
+      <publishTime>12/30/2013 20:00:56</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.Data.dll">
-      <publishTime>11/20/2013 22:21:33</publishTime>
+      <publishTime>12/30/2013 20:00:55</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.Data.pdb">
-      <publishTime>11/20/2013 22:21:32</publishTime>
+      <publishTime>12/30/2013 20:00:55</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.dll">
-      <publishTime>11/20/2013 22:56:06</publishTime>
+      <publishTime>01/02/2014 18:23:57</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.Models.dll">
-      <publishTime>11/20/2013 22:21:32</publishTime>
+      <publishTime>12/30/2013 20:00:53</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.Models.pdb">
-      <publishTime>11/20/2013 22:21:32</publishTime>
+      <publishTime>12/30/2013 20:00:51</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.pdb">
-      <publishTime>11/20/2013 22:56:06</publishTime>
+      <publishTime>01/02/2014 18:23:55</publishTime>
+    </File>
+    <File Include="bin/ElectionMonitoring.Repository.dll">
+      <publishTime>12/30/2013 20:02:36</publishTime>
+    </File>
+    <File Include="bin/ElectionMonitoring.Repository.pdb">
+      <publishTime>12/30/2013 20:02:33</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>11/17/2013 21:28:49</publishTime>
@@ -62,7 +68,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2013 21:28:51</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>11/17/2013 21:28:52</publishTime>
+      <publishTime>12/29/2013 23:12:32</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>11/17/2013 21:28:51</publishTime>
@@ -77,7 +83,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/18/2010 19:31:26</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>11/17/2013 21:59:50</publishTime>
+      <publishTime>12/26/2013 15:21:48</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
       <publishTime>11/17/2013 21:28:51</publishTime>
@@ -86,7 +92,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2013 21:28:51</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>11/17/2013 21:59:50</publishTime>
+      <publishTime>12/26/2013 15:21:47</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
       <publishTime>11/17/2013 21:28:50</publishTime>
@@ -95,19 +101,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2013 21:28:50</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>11/17/2013 21:59:50</publishTime>
+      <publishTime>12/26/2013 15:21:48</publishTime>
     </File>
     <File Include="bin/System.Web.Routing.dll">
       <publishTime>03/18/2010 19:31:26</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>11/17/2013 21:59:50</publishTime>
+      <publishTime>12/26/2013 15:21:48</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>11/17/2013 21:59:50</publishTime>
+      <publishTime>12/26/2013 15:21:48</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>11/17/2013 21:59:50</publishTime>
+      <publishTime>12/26/2013 15:21:48</publishTime>
     </File>
     <File Include="bin/Unity.Mvc4.dll">
       <publishTime>11/17/2013 21:59:51</publishTime>
@@ -296,7 +302,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2013 21:28:42</publishTime>
     </File>
     <File Include="Content/themes/bootstrap/css/electionmonitoring.css">
-      <publishTime>11/17/2013 21:28:42</publishTime>
+      <publishTime>12/26/2013 15:22:06</publishTime>
     </File>
     <File Include="Content/themes/bootstrap/css/jquery-ui-1.8.21.custom.css">
       <publishTime>11/17/2013 21:28:42</publishTime>
@@ -359,7 +365,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2013 21:28:42</publishTime>
     </File>
     <File Include="Content/themes/bootstrap/js/electionmonitoring.js">
-      <publishTime>11/17/2013 21:28:42</publishTime>
+      <publishTime>12/29/2013 19:35:59</publishTime>
     </File>
     <File Include="Content/themes/bootstrap/js/excanvas.js">
       <publishTime>11/17/2013 21:28:42</publishTime>
@@ -436,8 +442,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/orderedList9.png">
       <publishTime>11/17/2013 21:28:42</publishTime>
     </File>
+    <File Include="Images/thumbnails/electionmonitoring_50_x_50.png">
+      <publishTime>12/26/2013 15:22:06</publishTime>
+    </File>
+    <File Include="Images/thumbnails/home.png">
+      <publishTime>12/26/2013 15:22:06</publishTime>
+    </File>
+    <File Include="Images/thumbnails/my_computer.png">
+      <publishTime>12/26/2013 15:22:06</publishTime>
+    </File>
+    <File Include="Images/thumbnails/nigeria.png">
+      <publishTime>12/26/2013 15:22:06</publishTime>
+    </File>
     <File Include="packages.config">
-      <publishTime>11/17/2013 22:00:06</publishTime>
+      <publishTime>12/29/2013 23:12:38</publishTime>
     </File>
     <File Include="Scripts/highcharts/adapters/mootools-adapter.js">
       <publishTime>11/17/2013 21:28:43</publishTime>
@@ -592,11 +610,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Unity.Mvc4.README.txt">
       <publishTime>11/17/2013 22:00:05</publishTime>
     </File>
+    <File Include="Views/ElectionResult/Donation.cshtml">
+      <publishTime>12/26/2013 15:22:06</publishTime>
+    </File>
     <File Include="Views/ElectionResult/EnterResults.cshtml">
-      <publishTime>11/17/2013 21:28:43</publishTime>
+      <publishTime>12/26/2013 15:22:06</publishTime>
     </File>
     <File Include="Views/ElectionResult/RaceResults.cshtml">
-      <publishTime>11/17/2013 21:28:43</publishTime>
+      <publishTime>12/29/2013 19:30:40</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>11/17/2013 21:28:43</publishTime>
@@ -605,7 +626,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2013 21:28:43</publishTime>
     </File>
     <File Include="Views/Shared/_Bootstrap.cshtml">
-      <publishTime>11/17/2013 21:28:43</publishTime>
+      <publishTime>12/26/2013 15:22:06</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>11/17/2013 21:28:43</publishTime>
@@ -617,7 +638,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2013 21:28:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/20/2013 23:18:30</publishTime>
+      <publishTime>01/02/2014 18:24:00</publishTime>
     </File>
   </ItemGroup>
 </Project>

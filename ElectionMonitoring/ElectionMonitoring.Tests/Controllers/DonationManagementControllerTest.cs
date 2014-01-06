@@ -11,6 +11,7 @@ using AutoMapper;
 using ElectionMonitoring.Business;
 using ElectionMonitoring.Controllers.Api;
 using ElectionMonitoring.Models;
+using ElectionMonitoring.Repository;
 using Moq;
 using NUnit.Framework;
 

@@ -152,3 +152,5 @@ C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring\bin\ElectionMon
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring\obj\Debug\ElectionMonitoring.csprojResolveAssemblyReference.cache
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring\obj\Debug\ElectionMonitoring.dll
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring\obj\Debug\ElectionMonitoring.pdb
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring\bin\ElectionMonitoring.Repository.dll
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring\bin\ElectionMonitoring.Repository.pdb

@@ -1,11 +1,7 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ElectionMonitoring.Data;
 using ElectionMonitoring.Models;
 
-namespace ElectionMonitoring.Business
+namespace ElectionMonitoring.Repository
 {
     public interface IDonationRepository
     {
