@@ -144,8 +144,12 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\Api\DonationManagementController.cs" />
     <Compile Include="Controllers\Api\ElectionMonitoringController.cs" />
+    <Compile Include="DTO\AggregatedDonation.cs" />
+    <Compile Include="DTO\Budget.cs" />
     <Compile Include="DTO\Donation.cs" />
     <Compile Include="DTO\Donor.cs" />
+    <Compile Include="DTO\ProjectBudget.cs" />
+    <Compile Include="DTO\ProjectDonation.cs" />
     <Compile Include="ViewModels\DonationViewModel.cs" />
     <Compile Include="Controllers\ElectionResultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -231,6 +235,7 @@
     <Content Include="Content\themes\bootstrap\js\bootstrap-modal.js" />
     <Content Include="Content\themes\bootstrap\js\bootstrap-scrollspy.js" />
     <Content Include="Content\themes\bootstrap\js\bootstrap-tab.js" />
+    <Content Include="Content\themes\bootstrap\js\DT_bootstrap.js" />
     <Content Include="Content\themes\bootstrap\js\excanvas.js" />
     <Content Include="Content\themes\bootstrap\img\glyphicons-halflings-white.png" />
     <Content Include="Content\themes\bootstrap\img\glyphicons-halflings.png" />
@@ -366,6 +371,7 @@
     <None Include="Properties\PublishProfiles\ElectionMonitoring.pubxml" />
     <None Include="Properties\PublishProfiles\ElectionMonitoringTodbitaly.pubxml" />
     <Content Include="Views\ElectionResult\Donation.cshtml" />
+    <Content Include="Views\ElectionResult\Projects.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

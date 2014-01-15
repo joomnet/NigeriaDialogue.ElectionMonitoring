@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b373cb99-b43b-42fd-bf1c-8f08c9524fa8" name="$soderind@WGC1W79KCR65J 2013-11-29 16:54:43" runUser="FORDEU1\$soderind" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="89ca1d8f-b6a1-478b-a970-ecbb27e75554">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="$soderind_WGC1W79KCR65J 2013-11-29 16_54_43">
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\packages\AutoMapper.3.1.0\lib\net40\AutoMapper.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring\bin\ElectionMonitoring.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.Formatting.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\packages\Moq.4.1.1311.0615\lib\net40\Moq.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\packages\AutoMapper.3.1.0\lib\net40\AutoMapper.Net4.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.WebRequest.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\bin\Debug\ElectionMonitoring.Models.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Business.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-11-29T16:54:43.6394194+00:00" queuing="2013-11-29T16:54:45.3575912+00:00" start="2013-11-29T16:54:45.5036058+00:00" finish="2013-11-29T16:55:42.7773326+00:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="WGC1W79KCR65J" outcome="Error" timestamp="2013-11-29T16:55:42.7773326+00:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="The_PostDonor_Action_returns_created_statuscode" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="64d792df-a24a-5789-132c-4457503d92af">
+      <Execution id="433c2e05-603a-4a39-a58d-1e6509d87a56" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="The_PostDonor_Action_returns_created_statuscode" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="64d792df-a24a-5789-132c-4457503d92af" executionId="433c2e05-603a-4a39-a58d-1e6509d87a56" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="433c2e05-603a-4a39-a58d-1e6509d87a56" testId="64d792df-a24a-5789-132c-4457503d92af" testName="The_PostDonor_Action_returns_created_statuscode" computerName="WGC1W79KCR65J" duration="00:00:57.1457140" startTime="2013-11-29T16:54:45.6316186+00:00" endTime="2013-11-29T16:55:42.7773326+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="433c2e05-603a-4a39-a58d-1e6509d87a56">
+    </UnitTestResult>
+  </Results>
+</TestRun>

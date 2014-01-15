@@ -88,6 +88,13 @@ $(document).ready(function () {
 
 });
 
+
+function getAPIURL()
+{
+    return window.location.origin + "/api";
+    //return  'http://www.roastthatmeat.co.uk/';
+}
+
 function initializeLists() {
     $.ajax({
         type: 'POST',
@@ -428,11 +435,12 @@ function getResultAnalysis(selectedRegionResult, selectedregion) {
     $('#result-analysis-header').html(title);
 
     if (selectedRegionResult.length > 0) {
-        $('#result-analysis-comments').html("<br/>With <strong>" + winner.TotalVotes.toLocaleString() + "</strong> votes <strong> <span id='candidatename'>" + winner.FirstName + ' ' + winner.LastName + "<span></strong> of <strong>" + winner.PartyAcronym + "</strong> has a <strong>" + ((winner.TotalVotes / totVotes) * 100).toFixed(2) + "%</strong> majority of a total of <strong>" + totVotes.toLocaleString() + " votes</strong>. More gibberish can be added here.. something like '... There were a total of x registered voters...  ");
+        $('#result-analysis-comments').html("<br/>With <strong>" + winner.TotalVotes.toLocaleString() + "</strong> votes <strong> <span id='candidatename'>" + winner.FirstName + ' ' + winner.LastName + "<span></strong> of <strong>" + winner.PartyAcronym + "</strong> has a <strong>" + ((winner.TotalVotes / totVotes) * 100).toFixed(2) + "%</strong> majority of a total of <strong>" + totVotes.toLocaleString() + " votes</strong>. ");
     } else {
         $('#result-analysis-comments').html("<br/><br/><br/><strong>Data currently not available for " + selectedregion.text() + "</strong>");
     }
 }
+
 
 function populateResultTable(selectedRegionResult)
 {
@@ -452,17 +460,18 @@ function populateResultTable(selectedRegionResult)
         "bProcessing": true,
         "bDestroy": true,
         "bFilter": false,
-		"bInfo" : false,
+		//"bInfo" : false,
 		"bLengthChange" : false,
         "sSortAsc": "header headerSortDown",
         "sSortDesc": "header headerSortUp",
         "sSortable": "header",
-        //"sDom": "<'row-fluid'<'span6'l><'span6'f><'span12 center'>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
-        "bPaginate": false,
+        //"sDom": "<'row-fluid'<'span4'l><'span4 center'>r><'row-fluid'<'span12 center't>><'row-fluid'<'span12 center'i>><'row-fluid'<'span12 center'p>>",
+		//"sDom": "<'row-fluid'<'span4'l><'span4 center'>r>t<'row-fluid'<'span8 center'i>><'row-fluid'<'span8 center'p>>",
+        "sDom": "<'row-fluid center'rtip>",
         "iDisplayLength": '5'
-    });
-    
+    });        
 }
+
 
 
 function getRegionalResult(regioncode, result) {
@@ -589,23 +598,23 @@ function docReady() {
         var mm = today.getMonth()+1; //January is 0!
         //alert('hre');
         var url =  window.location.origin + '/api/donationmanagement/donations';
-        Announce('Processing request', 'center', 'information',  false);
-        var yyyy = today.getFullYear();
-        if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = yyyy+'-'+mm+'-'+dd;
+        Announce(url, 'center', 'success', true, false);
         var donation = {
             Donor: {'FirstName' : $('#firstname').val(), 'LastName' : $('#lastname').val(), 'Gender' : $('#gender').val(), 'Email' : $('#email').val()  },
             'Amount' : $('#amount').val(), 'DonationDate' : today
             };
+        var yyyy = today.getFullYear();
+        if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = yyyy+'-'+mm+'-'+dd;
 	    $.ajax ({
             type: 'POST',
             url: url,
             data: donation,
             success: function (response) {
                 console.log(response);
-                 Announce('Request processed successfully', 'center', 'success', false);
+                 Announce('Request processed successfully', 'center', 'success', true, false);
             },
             error : function () {
-                Announce('Error processing request result', 'center', 'error', false);
+                Announce('Error processing request result', 'center', 'error', true, false);
             },
             dataType: 'json'
         });

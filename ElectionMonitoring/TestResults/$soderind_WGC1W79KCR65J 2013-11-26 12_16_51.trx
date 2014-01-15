@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e9c8ab34-0cb7-4388-ae2d-a85d69c6e68a" name="$soderind@WGC1W79KCR65J 2013-11-26 12:16:51" runUser="FORDEU1\$soderind" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="89ca1d8f-b6a1-478b-a970-ecbb27e75554">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="$soderind_WGC1W79KCR65J 2013-11-26 12_16_51">
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\packages\AutoMapper.3.1.0\lib\net40\AutoMapper.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring\bin\ElectionMonitoring.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.Formatting.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\packages\Moq.4.1.1311.0615\lib\net40\Moq.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\packages\AutoMapper.3.1.0\lib\net40\AutoMapper.Net4.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.WebRequest.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\bin\Debug\ElectionMonitoring.Models.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Business.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-11-26T12:16:51.0238682+00:00" queuing="2013-11-26T12:16:51.9178682+00:00" start="2013-11-26T12:16:51.9758682+00:00" finish="2013-11-26T12:16:53.3148682+00:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="AboutApi" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="da711f7c-1243-e35e-80c6-034a98df079e">
+      <Execution id="0c1e53ff-851c-49ac-9807-f35c744cf99a" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests" name="AboutApi" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="da711f7c-1243-e35e-80c6-034a98df079e" executionId="0c1e53ff-851c-49ac-9807-f35c744cf99a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="0c1e53ff-851c-49ac-9807-f35c744cf99a" testId="da711f7c-1243-e35e-80c6-034a98df079e" testName="AboutApi" computerName="WGC1W79KCR65J" duration="00:00:00.6264986" startTime="2013-11-26T12:16:52.0208682+00:00" endTime="2013-11-26T12:16:53.2578682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0c1e53ff-851c-49ac-9807-f35c744cf99a">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;api/electionmonitoring/&gt;. Actual:&lt;api/electionmonitoring&gt;. </Message>
+          <StackTrace>   at ElectionMonitoring.Tests.RoutingTableTest.AboutApi() in C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\RoutingTableTest.cs:line 204
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

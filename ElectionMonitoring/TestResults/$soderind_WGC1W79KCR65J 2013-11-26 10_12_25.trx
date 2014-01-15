@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="81c0db98-5ecd-4240-af52-fed0149e15c6" name="$soderind@WGC1W79KCR65J 2013-11-26 10:12:25" runUser="FORDEU1\$soderind" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="89ca1d8f-b6a1-478b-a970-ecbb27e75554">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="$soderind_WGC1W79KCR65J 2013-11-26 10_12_25">
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\packages\AutoMapper.3.1.0\lib\net40\AutoMapper.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring\bin\ElectionMonitoring.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.Formatting.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\packages\Moq.4.1.1311.0615\lib\net40\Moq.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\packages\AutoMapper.3.1.0\lib\net40\AutoMapper.Net4.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.WebRequest.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Models\bin\Debug\ElectionMonitoring.Models.dll" />
+      <DeploymentItem filename="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Business.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-11-26T10:12:25.4938682+00:00" queuing="2013-11-26T10:12:25.6908682+00:00" start="2013-11-26T10:12:25.6978682+00:00" finish="2013-11-26T10:12:26.9958682+00:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="22" executed="22" passed="22" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="ActionApiRouteWithControllerWithActionWithId" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="7c3783ce-a97d-490a-a12f-d8d8ce510f38">
+      <Execution id="57e2e2a2-c798-43d9-86b0-8de5caf415cb" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests" name="ActionApiRouteWithControllerWithActionWithId" />
+    </UnitTest>
+    <UnitTest name="GetSubRegions_Call_Repository" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="c3279829-ee3c-ba3c-8526-47c144a3e824">
+      <Execution id="4cf0e5c6-858f-4e1a-8e2f-07e2baacfe3a" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.ElectionMonitoringControllerTest, ElectionMonitoring.Tests" name="GetSubRegions_Call_Repository" />
+    </UnitTest>
+    <UnitTest name="GetDonation_Action_Returns_Valid_Donation_Object" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="65df5bb9-4dd4-1645-21c7-17ac35e234c8">
+      <Execution id="fcb0077c-81da-4748-8fd1-9a6250092bd7" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="GetDonation_Action_Returns_Valid_Donation_Object" />
+    </UnitTest>
+    <UnitTest name="GetDonor_Action_Returns_Valid_Donor_Object" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="7dd265f7-9d07-8ade-0348-2149d46dc9d5">
+      <Execution id="a58666ed-82fb-4303-8694-efa5f7bf119b" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="GetDonor_Action_Returns_Valid_Donor_Object" />
+    </UnitTest>
+    <UnitTest name="DeleteDonation_Calls_Repository_Delete" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="1c44bc22-b59f-f539-ec19-5fd2120db422">
+      <Execution id="fdcefbb9-30b1-4867-ba1c-d8302127e18a" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="DeleteDonation_Calls_Repository_Delete" />
+    </UnitTest>
+    <UnitTest name="GetDonors_Action_Returns_Valid_IEnumerable_Of_Donors" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="68e8d230-911d-2bcc-fc59-a44ca32e2df4">
+      <Execution id="693f528b-b62a-4452-9bb6-daa608c3f048" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="GetDonors_Action_Returns_Valid_IEnumerable_Of_Donors" />
+    </UnitTest>
+    <UnitTest name="ApiRegionByRegionCode" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="4445be88-fb8c-c60a-2eaa-87da02bd474a">
+      <Execution id="0c5c6a3f-f85f-4c0a-abc9-3d518820c710" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests" name="ApiRegionByRegionCode" />
+    </UnitTest>
+    <UnitTest name="GetDonations_Action_Returns_Valid_IEnumerable_Of_Donations" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="8c893d5b-e235-59f6-ab6a-ee1ad82644dc">
+      <Execution id="40c8f8d7-7dd4-4513-881b-5a176808397c" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="GetDonations_Action_Returns_Valid_IEnumerable_Of_Donations" />
+    </UnitTest>
+    <UnitTest name="The_PutDonation_Action_returns_NotFound_statuscode_When_The_Donation_Does_NOT_Exists" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="ee0a6863-be1b-85c8-bc2f-6f867fd6b733">
+      <Execution id="16842db0-ffba-4dea-8d81-b4af269f08af" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="The_PutDonation_Action_returns_NotFound_statuscode_When_The_Donation_Does_NOT_Exists" />
+    </UnitTest>
+    <UnitTest name="GetRegions_Call_Repository" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="d5569fc8-9dc8-fb53-b363-b33a833a4ebe">
+      <Execution id="8d54f62d-2c30-45d0-91b9-7b11860850ff" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.ElectionMonitoringControllerTest, ElectionMonitoring.Tests" name="GetRegions_Call_Repository" />
+    </UnitTest>
+    <UnitTest name="The_PutDonor_Action_returns_NotFound_statuscode_When_The_Donor_Does_NOT_Exists" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="c1675eff-1027-225e-4797-052da164c009">
+      <Execution id="7109e2c9-67c7-4865-b0ac-81ade185c658" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="The_PutDonor_Action_returns_NotFound_statuscode_When_The_Donor_Does_NOT_Exists" />
+    </UnitTest>
+    <UnitTest name="DefaultRouteConfigTest" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="f0bc23ef-7129-c10c-aafa-81af67c2e566">
+      <Execution id="4edf7a83-ed45-431c-86c0-8f44e7357c16" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests" name="DefaultRouteConfigTest" />
+    </UnitTest>
+    <UnitTest name="The_PostDonor_Action_returns_created_statuscode" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="64d792df-a24a-5789-132c-4457503d92af">
+      <Execution id="d4370d5b-7dc9-431a-90d0-fec0c6f3d687" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="The_PostDonor_Action_returns_created_statuscode" />
+    </UnitTest>
+    <UnitTest name="ApiRegionByRegionID" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="9971ac9b-8af4-4322-6175-426f299a2445">
+      <Execution id="281a5399-ae7f-4cb9-973b-7738e2f516e1" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests" name="ApiRegionByRegionID" />
+    </UnitTest>
+    <UnitTest name="DeleteDonor_Calls_Repository_Delete" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="48b32990-b6f6-c4e2-d159-89a1d8ae6010">
+      <Execution id="deb3bffc-e83c-4a52-abf8-f041e92bdeeb" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="DeleteDonor_Calls_Repository_Delete" />
+    </UnitTest>
+    <UnitTest name="RaceResultsRouteWithRaceIDNoRegionCode" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="ff470440-325c-eac0-2dea-bc76ebb70ee8">
+      <Execution id="6cee0345-6ef4-4310-99f7-3b7b20885dad" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests" name="RaceResultsRouteWithRaceIDNoRegionCode" />
+    </UnitTest>
+    <UnitTest name="GetRaces_Call_Repository" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="707aa8b8-620b-08fb-f2d9-b1bafaf0e5dc">
+      <Execution id="99bcc910-f49f-440a-b558-d839f93154ec" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.ElectionMonitoringControllerTest, ElectionMonitoring.Tests" name="GetRaces_Call_Repository" />
+    </UnitTest>
+    <UnitTest name="ActionApiRouteWithControllerWithActionNoId" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="b8e6b3d3-519a-f501-1bfa-73a460c9d52a">
+      <Execution id="064bbb9e-ea0c-4e98-b79c-2e83285ae7fc" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests" name="ActionApiRouteWithControllerWithActionNoId" />
+    </UnitTest>
+    <UnitTest name="The_PutDonor_Action_returns_Ok_statuscode_When_The_Donor_Exists" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="5e06bedb-74cb-cfdf-fdc3-bcf4ff14a610">
+      <Execution id="b3e58140-6eba-4cb5-acb0-960d8a57f914" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="The_PutDonor_Action_returns_Ok_statuscode_When_The_Donor_Exists" />
+    </UnitTest>
+    <UnitTest name="RaceResultsRouteWithRaceIDWithRegionCode" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="159b4dab-a820-ef8b-03e3-e166bb7aa697">
+      <Execution id="d2b29ca8-f953-4d2a-9cf5-b28507e21e03" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests" name="RaceResultsRouteWithRaceIDWithRegionCode" />
+    </UnitTest>
+    <UnitTest name="The_PutDonation_Action_returns_Ok_statuscode_When_The_Donation_Exists" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="7d8fc65f-f4a6-b1a3-7b47-e43f33a92562">
+      <Execution id="18135401-365a-49fd-a04a-136ef9e09730" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="The_PutDonation_Action_returns_Ok_statuscode_When_The_Donation_Exists" />
+    </UnitTest>
+    <UnitTest name="The_PostDonation_Action_returns_created_statuscode" storage="c:\users\$soderind\desktop\electionmonitoring\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="a22ad01c-c920-2e3c-d112-b54a814be347">
+      <Execution id="e1f1e3da-0d9e-4185-9a03-1752bb408431" />
+      <TestMethod codeBase="C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring.Tests\bin\Debug\ElectionMonitoring.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests" name="The_PostDonation_Action_returns_created_statuscode" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="159b4dab-a820-ef8b-03e3-e166bb7aa697" executionId="d2b29ca8-f953-4d2a-9cf5-b28507e21e03" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1c44bc22-b59f-f539-ec19-5fd2120db422" executionId="fdcefbb9-30b1-4867-ba1c-d8302127e18a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4445be88-fb8c-c60a-2eaa-87da02bd474a" executionId="0c5c6a3f-f85f-4c0a-abc9-3d518820c710" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="48b32990-b6f6-c4e2-d159-89a1d8ae6010" executionId="deb3bffc-e83c-4a52-abf8-f041e92bdeeb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5e06bedb-74cb-cfdf-fdc3-bcf4ff14a610" executionId="b3e58140-6eba-4cb5-acb0-960d8a57f914" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="64d792df-a24a-5789-132c-4457503d92af" executionId="d4370d5b-7dc9-431a-90d0-fec0c6f3d687" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="65df5bb9-4dd4-1645-21c7-17ac35e234c8" executionId="fcb0077c-81da-4748-8fd1-9a6250092bd7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="68e8d230-911d-2bcc-fc59-a44ca32e2df4" executionId="693f528b-b62a-4452-9bb6-daa608c3f048" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="707aa8b8-620b-08fb-f2d9-b1bafaf0e5dc" executionId="99bcc910-f49f-440a-b558-d839f93154ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7c3783ce-a97d-490a-a12f-d8d8ce510f38" executionId="57e2e2a2-c798-43d9-86b0-8de5caf415cb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d8fc65f-f4a6-b1a3-7b47-e43f33a92562" executionId="18135401-365a-49fd-a04a-136ef9e09730" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7dd265f7-9d07-8ade-0348-2149d46dc9d5" executionId="a58666ed-82fb-4303-8694-efa5f7bf119b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8c893d5b-e235-59f6-ab6a-ee1ad82644dc" executionId="40c8f8d7-7dd4-4513-881b-5a176808397c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9971ac9b-8af4-4322-6175-426f299a2445" executionId="281a5399-ae7f-4cb9-973b-7738e2f516e1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a22ad01c-c920-2e3c-d112-b54a814be347" executionId="e1f1e3da-0d9e-4185-9a03-1752bb408431" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b8e6b3d3-519a-f501-1bfa-73a460c9d52a" executionId="064bbb9e-ea0c-4e98-b79c-2e83285ae7fc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c1675eff-1027-225e-4797-052da164c009" executionId="7109e2c9-67c7-4865-b0ac-81ade185c658" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c3279829-ee3c-ba3c-8526-47c144a3e824" executionId="4cf0e5c6-858f-4e1a-8e2f-07e2baacfe3a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d5569fc8-9dc8-fb53-b363-b33a833a4ebe" executionId="8d54f62d-2c30-45d0-91b9-7b11860850ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee0a6863-be1b-85c8-bc2f-6f867fd6b733" executionId="16842db0-ffba-4dea-8d81-b4af269f08af" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f0bc23ef-7129-c10c-aafa-81af67c2e566" executionId="4edf7a83-ed45-431c-86c0-8f44e7357c16" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ff470440-325c-eac0-2dea-bc76ebb70ee8" executionId="6cee0345-6ef4-4310-99f7-3b7b20885dad" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d2b29ca8-f953-4d2a-9cf5-b28507e21e03" testId="159b4dab-a820-ef8b-03e3-e166bb7aa697" testName="RaceResultsRouteWithRaceIDWithRegionCode" computerName="WGC1W79KCR65J" duration="00:00:00.1527898" startTime="2013-11-26T10:12:25.7018682+00:00" endTime="2013-11-26T10:12:26.3358682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d2b29ca8-f953-4d2a-9cf5-b28507e21e03">
+    </UnitTestResult>
+    <UnitTestResult executionId="fdcefbb9-30b1-4867-ba1c-d8302127e18a" testId="1c44bc22-b59f-f539-ec19-5fd2120db422" testName="DeleteDonation_Calls_Repository_Delete" computerName="WGC1W79KCR65J" duration="00:00:00.1844741" startTime="2013-11-26T10:12:26.3368682+00:00" endTime="2013-11-26T10:12:26.5238682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fdcefbb9-30b1-4867-ba1c-d8302127e18a">
+    </UnitTestResult>
+    <UnitTestResult executionId="0c5c6a3f-f85f-4c0a-abc9-3d518820c710" testId="4445be88-fb8c-c60a-2eaa-87da02bd474a" testName="ApiRegionByRegionCode" computerName="WGC1W79KCR65J" duration="00:00:00.1336217" startTime="2013-11-26T10:12:26.5248682+00:00" endTime="2013-11-26T10:12:26.6608682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0c5c6a3f-f85f-4c0a-abc9-3d518820c710">
+    </UnitTestResult>
+    <UnitTestResult executionId="deb3bffc-e83c-4a52-abf8-f041e92bdeeb" testId="48b32990-b6f6-c4e2-d159-89a1d8ae6010" testName="DeleteDonor_Calls_Repository_Delete" computerName="WGC1W79KCR65J" duration="00:00:00.0064445" startTime="2013-11-26T10:12:26.6628682+00:00" endTime="2013-11-26T10:12:26.6708682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="deb3bffc-e83c-4a52-abf8-f041e92bdeeb">
+    </UnitTestResult>
+    <UnitTestResult executionId="b3e58140-6eba-4cb5-acb0-960d8a57f914" testId="5e06bedb-74cb-cfdf-fdc3-bcf4ff14a610" testName="The_PutDonor_Action_returns_Ok_statuscode_When_The_Donor_Exists" computerName="WGC1W79KCR65J" duration="00:00:00.0071715" startTime="2013-11-26T10:12:26.6718682+00:00" endTime="2013-11-26T10:12:26.6808682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b3e58140-6eba-4cb5-acb0-960d8a57f914">
+    </UnitTestResult>
+    <UnitTestResult executionId="d4370d5b-7dc9-431a-90d0-fec0c6f3d687" testId="64d792df-a24a-5789-132c-4457503d92af" testName="The_PostDonor_Action_returns_created_statuscode" computerName="WGC1W79KCR65J" duration="00:00:00.0278352" startTime="2013-11-26T10:12:26.6818682+00:00" endTime="2013-11-26T10:12:26.7108682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d4370d5b-7dc9-431a-90d0-fec0c6f3d687">
+    </UnitTestResult>
+    <UnitTestResult executionId="fcb0077c-81da-4748-8fd1-9a6250092bd7" testId="65df5bb9-4dd4-1645-21c7-17ac35e234c8" testName="GetDonation_Action_Returns_Valid_Donation_Object" computerName="WGC1W79KCR65J" duration="00:00:00.0054864" startTime="2013-11-26T10:12:26.7128682+00:00" endTime="2013-11-26T10:12:26.7198682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fcb0077c-81da-4748-8fd1-9a6250092bd7">
+    </UnitTestResult>
+    <UnitTestResult executionId="693f528b-b62a-4452-9bb6-daa608c3f048" testId="68e8d230-911d-2bcc-fc59-a44ca32e2df4" testName="GetDonors_Action_Returns_Valid_IEnumerable_Of_Donors" computerName="WGC1W79KCR65J" duration="00:00:00.0055543" startTime="2013-11-26T10:12:26.7208682+00:00" endTime="2013-11-26T10:12:26.7278682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="693f528b-b62a-4452-9bb6-daa608c3f048">
+    </UnitTestResult>
+    <UnitTestResult executionId="99bcc910-f49f-440a-b558-d839f93154ec" testId="707aa8b8-620b-08fb-f2d9-b1bafaf0e5dc" testName="GetRaces_Call_Repository" computerName="WGC1W79KCR65J" duration="00:00:00.0242917" startTime="2013-11-26T10:12:26.7288682+00:00" endTime="2013-11-26T10:12:26.7548682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="99bcc910-f49f-440a-b558-d839f93154ec">
+    </UnitTestResult>
+    <UnitTestResult executionId="57e2e2a2-c798-43d9-86b0-8de5caf415cb" testId="7c3783ce-a97d-490a-a12f-d8d8ce510f38" testName="ActionApiRouteWithControllerWithActionWithId" computerName="WGC1W79KCR65J" duration="00:00:00.0006068" startTime="2013-11-26T10:12:26.7628682+00:00" endTime="2013-11-26T10:12:26.7668682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="57e2e2a2-c798-43d9-86b0-8de5caf415cb">
+    </UnitTestResult>
+    <UnitTestResult executionId="18135401-365a-49fd-a04a-136ef9e09730" testId="7d8fc65f-f4a6-b1a3-7b47-e43f33a92562" testName="The_PutDonation_Action_returns_Ok_statuscode_When_The_Donation_Exists" computerName="WGC1W79KCR65J" duration="00:00:00.0059526" startTime="2013-11-26T10:12:26.7678682+00:00" endTime="2013-11-26T10:12:26.7748682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="18135401-365a-49fd-a04a-136ef9e09730">
+    </UnitTestResult>
+    <UnitTestResult executionId="a58666ed-82fb-4303-8694-efa5f7bf119b" testId="7dd265f7-9d07-8ade-0348-2149d46dc9d5" testName="GetDonor_Action_Returns_Valid_Donor_Object" computerName="WGC1W79KCR65J" duration="00:00:00.0054788" startTime="2013-11-26T10:12:26.7768682+00:00" endTime="2013-11-26T10:12:26.7848682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a58666ed-82fb-4303-8694-efa5f7bf119b">
+    </UnitTestResult>
+    <UnitTestResult executionId="40c8f8d7-7dd4-4513-881b-5a176808397c" testId="8c893d5b-e235-59f6-ab6a-ee1ad82644dc" testName="GetDonations_Action_Returns_Valid_IEnumerable_Of_Donations" computerName="WGC1W79KCR65J" duration="00:00:00.0054202" startTime="2013-11-26T10:12:26.7848682+00:00" endTime="2013-11-26T10:12:26.7928682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="40c8f8d7-7dd4-4513-881b-5a176808397c">
+    </UnitTestResult>
+    <UnitTestResult executionId="281a5399-ae7f-4cb9-973b-7738e2f516e1" testId="9971ac9b-8af4-4322-6175-426f299a2445" testName="ApiRegionByRegionID" computerName="WGC1W79KCR65J" duration="00:00:00.0056155" startTime="2013-11-26T10:12:26.7938682+00:00" endTime="2013-11-26T10:12:26.8008682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="281a5399-ae7f-4cb9-973b-7738e2f516e1">
+    </UnitTestResult>
+    <UnitTestResult executionId="e1f1e3da-0d9e-4185-9a03-1752bb408431" testId="a22ad01c-c920-2e3c-d112-b54a814be347" testName="The_PostDonation_Action_returns_created_statuscode" computerName="WGC1W79KCR65J" duration="00:00:00.0051828" startTime="2013-11-26T10:12:26.8018682+00:00" endTime="2013-11-26T10:12:26.8088682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e1f1e3da-0d9e-4185-9a03-1752bb408431">
+    </UnitTestResult>
+    <UnitTestResult executionId="064bbb9e-ea0c-4e98-b79c-2e83285ae7fc" testId="b8e6b3d3-519a-f501-1bfa-73a460c9d52a" testName="ActionApiRouteWithControllerWithActionNoId" computerName="WGC1W79KCR65J" duration="00:00:00.0056308" startTime="2013-11-26T10:12:26.8108682+00:00" endTime="2013-11-26T10:12:26.8188682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="064bbb9e-ea0c-4e98-b79c-2e83285ae7fc">
+    </UnitTestResult>
+    <UnitTestResult executionId="7109e2c9-67c7-4865-b0ac-81ade185c658" testId="c1675eff-1027-225e-4797-052da164c009" testName="The_PutDonor_Action_returns_NotFound_statuscode_When_The_Donor_Does_NOT_Exists" computerName="WGC1W79KCR65J" duration="00:00:00.0072056" startTime="2013-11-26T10:12:26.8208682+00:00" endTime="2013-11-26T10:12:26.8298682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7109e2c9-67c7-4865-b0ac-81ade185c658">
+    </UnitTestResult>
+    <UnitTestResult executionId="4cf0e5c6-858f-4e1a-8e2f-07e2baacfe3a" testId="c3279829-ee3c-ba3c-8526-47c144a3e824" testName="GetSubRegions_Call_Repository" computerName="WGC1W79KCR65J" duration="00:00:00.0028541" startTime="2013-11-26T10:12:26.8308682+00:00" endTime="2013-11-26T10:12:26.8348682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4cf0e5c6-858f-4e1a-8e2f-07e2baacfe3a">
+    </UnitTestResult>
+    <UnitTestResult executionId="8d54f62d-2c30-45d0-91b9-7b11860850ff" testId="d5569fc8-9dc8-fb53-b363-b33a833a4ebe" testName="GetRegions_Call_Repository" computerName="WGC1W79KCR65J" duration="00:00:00.0023727" startTime="2013-11-26T10:12:26.8358682+00:00" endTime="2013-11-26T10:12:26.8398682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d54f62d-2c30-45d0-91b9-7b11860850ff">
+    </UnitTestResult>
+    <UnitTestResult executionId="16842db0-ffba-4dea-8d81-b4af269f08af" testId="ee0a6863-be1b-85c8-bc2f-6f867fd6b733" testName="The_PutDonation_Action_returns_NotFound_statuscode_When_The_Donation_Does_NOT_Exists" computerName="WGC1W79KCR65J" duration="00:00:00.0053262" startTime="2013-11-26T10:12:26.8408682+00:00" endTime="2013-11-26T10:12:26.8478682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="16842db0-ffba-4dea-8d81-b4af269f08af">
+    </UnitTestResult>
+    <UnitTestResult executionId="4edf7a83-ed45-431c-86c0-8f44e7357c16" testId="f0bc23ef-7129-c10c-aafa-81af67c2e566" testName="DefaultRouteConfigTest" computerName="WGC1W79KCR65J" duration="00:00:00.1055819" startTime="2013-11-26T10:12:26.8488682+00:00" endTime="2013-11-26T10:12:26.9568682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4edf7a83-ed45-431c-86c0-8f44e7357c16">
+    </UnitTestResult>
+    <UnitTestResult executionId="6cee0345-6ef4-4310-99f7-3b7b20885dad" testId="ff470440-325c-eac0-2dea-bc76ebb70ee8" testName="RaceResultsRouteWithRaceIDNoRegionCode" computerName="WGC1W79KCR65J" duration="00:00:00.0007899" startTime="2013-11-26T10:12:26.9578682+00:00" endTime="2013-11-26T10:12:26.9618682+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6cee0345-6ef4-4310-99f7-3b7b20885dad">
+    </UnitTestResult>
+  </Results>
+</TestRun>

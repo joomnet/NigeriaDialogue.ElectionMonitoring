@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ec393b05-8488-4ba8-8aee-2fb12cbb812e" name="Musterion@SOCX02 2014-01-10 14:32:24" runUser="Socx02\Musterion" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="89ca1d8f-b6a1-478b-a970-ecbb27e75554">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Musterion_SOCX02 2014-01-10 14_32_24">
+      <DeploymentItem filename="C:\Program Files\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.WebRequest.dll" />
+      <DeploymentItem filename="C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring\bin\ElectionMonitoring.dll" />
+      <DeploymentItem filename="C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\packages\AutoMapper.3.1.0\lib\net40\AutoMapper.Net4.dll" />
+      <DeploymentItem filename="C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\packages\Moq.4.1.1311.0615\lib\net40\Moq.dll" />
+      <DeploymentItem filename="C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Business\bin\Debug\ElectionMonitoring.Business.dll" />
+      <DeploymentItem filename="C:\Program Files\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.Formatting.dll" />
+      <DeploymentItem filename="C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Models\bin\Debug\ElectionMonitoring.Models.dll" />
+      <DeploymentItem filename="C:\Program Files\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.dll" />
+      <DeploymentItem filename="C:\Program Files\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll" />
+      <DeploymentItem filename="C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\packages\AutoMapper.3.1.0\lib\net40\AutoMapper.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-01-10T14:32:24.2950436+00:00" queuing="2014-01-10T14:32:29.1543215+00:00" start="2014-01-10T14:32:29.2103247+00:00" finish="2014-01-10T14:32:32.3985071+00:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="29" executed="29" passed="11" error="0" failed="18" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="The_PostDonor_Action_returns_created_statuscode" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="64d792df-a24a-5789-132c-4457503d92af">
+      <Execution id="80d1d251-6acc-4d3d-9a73-25f907902f6d" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="The_PostDonor_Action_returns_created_statuscode" />
+    </UnitTest>
+    <UnitTest name="DeleteDonor_Calls_Repository_Delete" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="48b32990-b6f6-c4e2-d159-89a1d8ae6010">
+      <Execution id="2eefc430-f6f7-41a0-84f1-afad20758a40" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeleteDonor_Calls_Repository_Delete" />
+    </UnitTest>
+    <UnitTest name="The_PutDonor_Action_returns_Ok_statuscode_When_The_Donor_Exists" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="5e06bedb-74cb-cfdf-fdc3-bcf4ff14a610">
+      <Execution id="cb28f670-68a9-46d5-be0d-a4f0af9ac0bf" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="The_PutDonor_Action_returns_Ok_statuscode_When_The_Donor_Exists" />
+    </UnitTest>
+    <UnitTest name="ActionApiRouteWithControllerWithActionNoId" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="b8e6b3d3-519a-f501-1bfa-73a460c9d52a">
+      <Execution id="812a2eee-a90a-4950-b998-4fccd1f0cd2f" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ActionApiRouteWithControllerWithActionNoId" />
+    </UnitTest>
+    <UnitTest name="The_PostProject_Action_returns_created_statuscode" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="c30bd61f-af43-d801-0b27-45522346d753">
+      <Execution id="7a9f3152-18ef-472c-a37f-2475453e020a" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="The_PostProject_Action_returns_created_statuscode" />
+    </UnitTest>
+    <UnitTest name="GetDonation_Action_Returns_Valid_Donation_Object" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="65df5bb9-4dd4-1645-21c7-17ac35e234c8">
+      <Execution id="bba42bcc-891f-41b5-932d-c4cc998ef20d" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetDonation_Action_Returns_Valid_Donation_Object" />
+    </UnitTest>
+    <UnitTest name="GetSubRegions_Call_Repository" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="c3279829-ee3c-ba3c-8526-47c144a3e824">
+      <Execution id="f2857abb-eb15-4eb7-9227-4157fdee91e0" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.ElectionMonitoringControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetSubRegions_Call_Repository" />
+    </UnitTest>
+    <UnitTest name="GetDonor_Action_Returns_Valid_Donor_Object" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="7dd265f7-9d07-8ade-0348-2149d46dc9d5">
+      <Execution id="ee8b02f5-ff0e-4a5e-9732-3fbd5db7ed26" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetDonor_Action_Returns_Valid_Donor_Object" />
+    </UnitTest>
+    <UnitTest name="ApiRegionByRegionID" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="9971ac9b-8af4-4322-6175-426f299a2445">
+      <Execution id="eb4d683c-9078-476c-a853-c51fdaba3c15" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ApiRegionByRegionID" />
+    </UnitTest>
+    <UnitTest name="The_PutDonation_Action_returns_Ok_statuscode_When_The_Donation_Exists" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="7d8fc65f-f4a6-b1a3-7b47-e43f33a92562">
+      <Execution id="17250a2c-eec0-47ec-b684-717ff1a6a0ac" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="The_PutDonation_Action_returns_Ok_statuscode_When_The_Donation_Exists" />
+    </UnitTest>
+    <UnitTest name="DeleteDonation_Calls_Repository_Delete" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="1c44bc22-b59f-f539-ec19-5fd2120db422">
+      <Execution id="ccfa3820-be98-462d-b2a1-b8ad474d7423" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeleteDonation_Calls_Repository_Delete" />
+    </UnitTest>
+    <UnitTest name="GetDonors_Action_Returns_Valid_IEnumerable_Of_Donors" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="68e8d230-911d-2bcc-fc59-a44ca32e2df4">
+      <Execution id="c0aba6cf-02d5-4e46-8268-445bc3e780db" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetDonors_Action_Returns_Valid_IEnumerable_Of_Donors" />
+    </UnitTest>
+    <UnitTest name="The_PutProject_Action_returns_Ok_statuscode_When_The_Project_Exists" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="ef0d621c-d01b-c22b-9aed-7fcbcdac42a0">
+      <Execution id="5e3d9c5b-6d50-4e68-8f66-7e5b3ae3cef6" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="The_PutProject_Action_returns_Ok_statuscode_When_The_Project_Exists" />
+    </UnitTest>
+    <UnitTest name="RaceResultsRouteWithRaceIDNoRegionCode" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="ff470440-325c-eac0-2dea-bc76ebb70ee8">
+      <Execution id="7d99e883-b1b7-41f7-b336-673a45e0453a" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RaceResultsRouteWithRaceIDNoRegionCode" />
+    </UnitTest>
+    <UnitTest name="The_PuProject_Action_returns_NotFound_statuscode_When_The_Project_Does_NOT_Exists" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="b3ef6052-309d-ade2-08ad-e479135668de">
+      <Execution id="eda19657-acb3-42ae-b537-3725af0c008f" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="The_PuProject_Action_returns_NotFound_statuscode_When_The_Project_Does_NOT_Exists" />
+    </UnitTest>
+    <UnitTest name="GetDonations_Action_Returns_Valid_IEnumerable_Of_Donations" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="8c893d5b-e235-59f6-ab6a-ee1ad82644dc">
+      <Execution id="d3c65a73-2c86-4b92-bed6-63c3644bbb63" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetDonations_Action_Returns_Valid_IEnumerable_Of_Donations" />
+    </UnitTest>
+    <UnitTest name="GetProjects_Action_Returns_Valid_IEnumerable_Of_Projects" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="865ac6eb-d460-2fd1-936b-453d007f3019">
+      <Execution id="368c0cfa-f05a-4425-b1dc-8ee22a798a1c" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetProjects_Action_Returns_Valid_IEnumerable_Of_Projects" />
+    </UnitTest>
+    <UnitTest name="GetProject_Action_Returns_Valid_Project_Object" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="c56c1a40-dc8f-ca75-4fff-47c61774a542">
+      <Execution id="2193bee1-bc58-46e9-b78a-0b79b5ecd934" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetProject_Action_Returns_Valid_Project_Object" />
+    </UnitTest>
+    <UnitTest name="RaceResultsRouteWithRaceIDWithRegionCode" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="159b4dab-a820-ef8b-03e3-e166bb7aa697">
+      <Execution id="8aa738c4-a885-4125-90fb-315730ae07c3" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RaceResultsRouteWithRaceIDWithRegionCode" />
+    </UnitTest>
+    <UnitTest name="GetRegions_Call_Repository" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="d5569fc8-9dc8-fb53-b363-b33a833a4ebe">
+      <Execution id="7d8b505e-22c3-43ff-bd54-7f1860507b31" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.ElectionMonitoringControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRegions_Call_Repository" />
+    </UnitTest>
+    <UnitTest name="The_PutDonation_Action_returns_NotFound_statuscode_When_The_Donation_Does_NOT_Exists" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="ee0a6863-be1b-85c8-bc2f-6f867fd6b733">
+      <Execution id="0e52bf4e-b03c-4571-8984-39252b120be5" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="The_PutDonation_Action_returns_NotFound_statuscode_When_The_Donation_Does_NOT_Exists" />
+    </UnitTest>
+    <UnitTest name="The_PutDonor_Action_returns_NotFound_statuscode_When_The_Donor_Does_NOT_Exists" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="c1675eff-1027-225e-4797-052da164c009">
+      <Execution id="b3139bcc-9e2c-4c9d-ab0f-c583a0a734d6" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="The_PutDonor_Action_returns_NotFound_statuscode_When_The_Donor_Does_NOT_Exists" />
+    </UnitTest>
+    <UnitTest name="AboutApi" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="da711f7c-1243-e35e-80c6-034a98df079e">
+      <Execution id="1aae36a3-a891-4ede-832b-81c756d4c710" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AboutApi" />
+    </UnitTest>
+    <UnitTest name="DeleteProject_Calls_Repository_Delete" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="f3aa8643-ca1d-3a9a-dada-708561fc7822">
+      <Execution id="9705867d-baf9-41da-b5d6-9128899a7696" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeleteProject_Calls_Repository_Delete" />
+    </UnitTest>
+    <UnitTest name="GetRaces_Call_Repository" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="707aa8b8-620b-08fb-f2d9-b1bafaf0e5dc">
+      <Execution id="5feb7688-e551-4d7e-9bd1-ce6a7479093c" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.ElectionMonitoringControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRaces_Call_Repository" />
+    </UnitTest>
+    <UnitTest name="ApiRegionByRegionCode" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="4445be88-fb8c-c60a-2eaa-87da02bd474a">
+      <Execution id="88d0908e-7251-424d-b670-16912d0880c9" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ApiRegionByRegionCode" />
+    </UnitTest>
+    <UnitTest name="The_PostDonation_Action_returns_created_statuscode" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="a22ad01c-c920-2e3c-d112-b54a814be347">
+      <Execution id="ce4bb0e3-580e-420a-9160-c3eb037741e2" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="The_PostDonation_Action_returns_created_statuscode" />
+    </UnitTest>
+    <UnitTest name="DefaultRouteConfigTest" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="f0bc23ef-7129-c10c-aafa-81af67c2e566">
+      <Execution id="91c48093-3c98-4373-83b4-b1453c47add6" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DefaultRouteConfigTest" />
+    </UnitTest>
+    <UnitTest name="ActionApiRouteWithControllerWithActionWithId" storage="c:\users\musterion\desktop\nd\electionmonitoring_code\electionmonitoring_v5\electionmonitoring.tests\bin\debug\electionmonitoring.tests.dll" id="7c3783ce-a97d-490a-a12f-d8d8ce510f38">
+      <Execution id="0751e4b1-1855-4adb-a89c-5f6bf667f3c0" />
+      <TestMethod codeBase="C:/Users/Musterion/Desktop/ND/ElectionMonitoring_code/ElectionMonitoring_v5/ElectionMonitoring.Tests/bin/Debug/ElectionMonitoring.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ElectionMonitoring.Tests.RoutingTableTest, ElectionMonitoring.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ActionApiRouteWithControllerWithActionWithId" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="159b4dab-a820-ef8b-03e3-e166bb7aa697" executionId="8aa738c4-a885-4125-90fb-315730ae07c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1c44bc22-b59f-f539-ec19-5fd2120db422" executionId="ccfa3820-be98-462d-b2a1-b8ad474d7423" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4445be88-fb8c-c60a-2eaa-87da02bd474a" executionId="88d0908e-7251-424d-b670-16912d0880c9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="48b32990-b6f6-c4e2-d159-89a1d8ae6010" executionId="2eefc430-f6f7-41a0-84f1-afad20758a40" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5e06bedb-74cb-cfdf-fdc3-bcf4ff14a610" executionId="cb28f670-68a9-46d5-be0d-a4f0af9ac0bf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="64d792df-a24a-5789-132c-4457503d92af" executionId="80d1d251-6acc-4d3d-9a73-25f907902f6d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="65df5bb9-4dd4-1645-21c7-17ac35e234c8" executionId="bba42bcc-891f-41b5-932d-c4cc998ef20d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="68e8d230-911d-2bcc-fc59-a44ca32e2df4" executionId="c0aba6cf-02d5-4e46-8268-445bc3e780db" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="707aa8b8-620b-08fb-f2d9-b1bafaf0e5dc" executionId="5feb7688-e551-4d7e-9bd1-ce6a7479093c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7c3783ce-a97d-490a-a12f-d8d8ce510f38" executionId="0751e4b1-1855-4adb-a89c-5f6bf667f3c0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d8fc65f-f4a6-b1a3-7b47-e43f33a92562" executionId="17250a2c-eec0-47ec-b684-717ff1a6a0ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7dd265f7-9d07-8ade-0348-2149d46dc9d5" executionId="ee8b02f5-ff0e-4a5e-9732-3fbd5db7ed26" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="865ac6eb-d460-2fd1-936b-453d007f3019" executionId="368c0cfa-f05a-4425-b1dc-8ee22a798a1c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8c893d5b-e235-59f6-ab6a-ee1ad82644dc" executionId="d3c65a73-2c86-4b92-bed6-63c3644bbb63" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9971ac9b-8af4-4322-6175-426f299a2445" executionId="eb4d683c-9078-476c-a853-c51fdaba3c15" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a22ad01c-c920-2e3c-d112-b54a814be347" executionId="ce4bb0e3-580e-420a-9160-c3eb037741e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b3ef6052-309d-ade2-08ad-e479135668de" executionId="eda19657-acb3-42ae-b537-3725af0c008f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b8e6b3d3-519a-f501-1bfa-73a460c9d52a" executionId="812a2eee-a90a-4950-b998-4fccd1f0cd2f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c1675eff-1027-225e-4797-052da164c009" executionId="b3139bcc-9e2c-4c9d-ab0f-c583a0a734d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c30bd61f-af43-d801-0b27-45522346d753" executionId="7a9f3152-18ef-472c-a37f-2475453e020a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c3279829-ee3c-ba3c-8526-47c144a3e824" executionId="f2857abb-eb15-4eb7-9227-4157fdee91e0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c56c1a40-dc8f-ca75-4fff-47c61774a542" executionId="2193bee1-bc58-46e9-b78a-0b79b5ecd934" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d5569fc8-9dc8-fb53-b363-b33a833a4ebe" executionId="7d8b505e-22c3-43ff-bd54-7f1860507b31" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da711f7c-1243-e35e-80c6-034a98df079e" executionId="1aae36a3-a891-4ede-832b-81c756d4c710" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee0a6863-be1b-85c8-bc2f-6f867fd6b733" executionId="0e52bf4e-b03c-4571-8984-39252b120be5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ef0d621c-d01b-c22b-9aed-7fcbcdac42a0" executionId="5e3d9c5b-6d50-4e68-8f66-7e5b3ae3cef6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f0bc23ef-7129-c10c-aafa-81af67c2e566" executionId="91c48093-3c98-4373-83b4-b1453c47add6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f3aa8643-ca1d-3a9a-dada-708561fc7822" executionId="9705867d-baf9-41da-b5d6-9128899a7696" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ff470440-325c-eac0-2dea-bc76ebb70ee8" executionId="7d99e883-b1b7-41f7-b336-673a45e0453a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="8aa738c4-a885-4125-90fb-315730ae07c3" testId="159b4dab-a820-ef8b-03e3-e166bb7aa697" testName="RaceResultsRouteWithRaceIDWithRegionCode" computerName="SOCX02" duration="00:00:00.1674487" startTime="2014-01-10T14:32:29.2623277+00:00" endTime="2014-01-10T14:32:29.8883635+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8aa738c4-a885-4125-90fb-315730ae07c3">
+    </UnitTestResult>
+    <UnitTestResult executionId="ccfa3820-be98-462d-b2a1-b8ad474d7423" testId="1c44bc22-b59f-f539-ec19-5fd2120db422" testName="DeleteDonation_Calls_Repository_Delete" computerName="SOCX02" duration="00:00:00.4077585" startTime="2014-01-10T14:32:29.8923637+00:00" endTime="2014-01-10T14:32:30.3213882+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ccfa3820-be98-462d-b2a1-b8ad474d7423">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="88d0908e-7251-424d-b670-16912d0880c9" testId="4445be88-fb8c-c60a-2eaa-87da02bd474a" testName="ApiRegionByRegionCode" computerName="SOCX02" duration="00:00:00.1944295" startTime="2014-01-10T14:32:30.3473897+00:00" endTime="2014-01-10T14:32:30.5514014+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="88d0908e-7251-424d-b670-16912d0880c9">
+    </UnitTestResult>
+    <UnitTestResult executionId="2eefc430-f6f7-41a0-84f1-afad20758a40" testId="48b32990-b6f6-c4e2-d159-89a1d8ae6010" testName="DeleteDonor_Calls_Repository_Delete" computerName="SOCX02" duration="00:00:00.0485949" startTime="2014-01-10T14:32:30.5564017+00:00" endTime="2014-01-10T14:32:30.6384064+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2eefc430-f6f7-41a0-84f1-afad20758a40">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cb28f670-68a9-46d5-be0d-a4f0af9ac0bf" testId="5e06bedb-74cb-cfdf-fdc3-bcf4ff14a610" testName="The_PutDonor_Action_returns_Ok_statuscode_When_The_Donor_Exists" computerName="SOCX02" duration="00:00:00.0339961" startTime="2014-01-10T14:32:30.6604076+00:00" endTime="2014-01-10T14:32:30.7314117+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb28f670-68a9-46d5-be0d-a4f0af9ac0bf">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="80d1d251-6acc-4d3d-9a73-25f907902f6d" testId="64d792df-a24a-5789-132c-4457503d92af" testName="The_PostDonor_Action_returns_created_statuscode" computerName="SOCX02" duration="00:00:00.0289507" startTime="2014-01-10T14:32:30.7364120+00:00" endTime="2014-01-10T14:32:30.7764143+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="80d1d251-6acc-4d3d-9a73-25f907902f6d">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bba42bcc-891f-41b5-932d-c4cc998ef20d" testId="65df5bb9-4dd4-1645-21c7-17ac35e234c8" testName="GetDonation_Action_Returns_Valid_Donation_Object" computerName="SOCX02" duration="00:00:00.0450143" startTime="2014-01-10T14:32:30.8294173+00:00" endTime="2014-01-10T14:32:30.9064217+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bba42bcc-891f-41b5-932d-c4cc998ef20d">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c0aba6cf-02d5-4e46-8268-445bc3e780db" testId="68e8d230-911d-2bcc-fc59-a44ca32e2df4" testName="GetDonors_Action_Returns_Valid_IEnumerable_Of_Donors" computerName="SOCX02" duration="00:00:00.0178985" startTime="2014-01-10T14:32:30.9334233+00:00" endTime="2014-01-10T14:32:30.9684253+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c0aba6cf-02d5-4e46-8268-445bc3e780db">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5feb7688-e551-4d7e-9bd1-ce6a7479093c" testId="707aa8b8-620b-08fb-f2d9-b1bafaf0e5dc" testName="GetRaces_Call_Repository" computerName="SOCX02" duration="00:00:00.4006687" startTime="2014-01-10T14:32:30.9834261+00:00" endTime="2014-01-10T14:32:31.3894493+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5feb7688-e551-4d7e-9bd1-ce6a7479093c">
+    </UnitTestResult>
+    <UnitTestResult executionId="0751e4b1-1855-4adb-a89c-5f6bf667f3c0" testId="7c3783ce-a97d-490a-a12f-d8d8ce510f38" testName="ActionApiRouteWithControllerWithActionWithId" computerName="SOCX02" duration="00:00:00.0017902" startTime="2014-01-10T14:32:31.3914495+00:00" endTime="2014-01-10T14:32:31.4044502+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0751e4b1-1855-4adb-a89c-5f6bf667f3c0">
+    </UnitTestResult>
+    <UnitTestResult executionId="17250a2c-eec0-47ec-b684-717ff1a6a0ac" testId="7d8fc65f-f4a6-b1a3-7b47-e43f33a92562" testName="The_PutDonation_Action_returns_Ok_statuscode_When_The_Donation_Exists" computerName="SOCX02" duration="00:00:00.0172996" startTime="2014-01-10T14:32:31.4104505+00:00" endTime="2014-01-10T14:32:31.4324518+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="17250a2c-eec0-47ec-b684-717ff1a6a0ac">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ee8b02f5-ff0e-4a5e-9732-3fbd5db7ed26" testId="7dd265f7-9d07-8ade-0348-2149d46dc9d5" testName="GetDonor_Action_Returns_Valid_Donor_Object" computerName="SOCX02" duration="00:00:00.0171415" startTime="2014-01-10T14:32:31.4374521+00:00" endTime="2014-01-10T14:32:31.4674538+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ee8b02f5-ff0e-4a5e-9732-3fbd5db7ed26">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="368c0cfa-f05a-4425-b1dc-8ee22a798a1c" testId="865ac6eb-d460-2fd1-936b-453d007f3019" testName="GetProjects_Action_Returns_Valid_IEnumerable_Of_Projects" computerName="SOCX02" duration="00:00:00.0185427" startTime="2014-01-10T14:32:31.5244571+00:00" endTime="2014-01-10T14:32:31.5484584+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="368c0cfa-f05a-4425-b1dc-8ee22a798a1c">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d3c65a73-2c86-4b92-bed6-63c3644bbb63" testId="8c893d5b-e235-59f6-ab6a-ee1ad82644dc" testName="GetDonations_Action_Returns_Valid_IEnumerable_Of_Donations" computerName="SOCX02" duration="00:00:00.0184790" startTime="2014-01-10T14:32:31.5514586+00:00" endTime="2014-01-10T14:32:31.5864606+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d3c65a73-2c86-4b92-bed6-63c3644bbb63">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="eb4d683c-9078-476c-a853-c51fdaba3c15" testId="9971ac9b-8af4-4322-6175-426f299a2445" testName="ApiRegionByRegionID" computerName="SOCX02" duration="00:00:00.0163079" startTime="2014-01-10T14:32:31.5934610+00:00" endTime="2014-01-10T14:32:31.6274630+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eb4d683c-9078-476c-a853-c51fdaba3c15">
+    </UnitTestResult>
+    <UnitTestResult executionId="ce4bb0e3-580e-420a-9160-c3eb037741e2" testId="a22ad01c-c920-2e3c-d112-b54a814be347" testName="The_PostDonation_Action_returns_created_statuscode" computerName="SOCX02" duration="00:00:00.0211044" startTime="2014-01-10T14:32:31.6304631+00:00" endTime="2014-01-10T14:32:31.6984670+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ce4bb0e3-580e-420a-9160-c3eb037741e2">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="eda19657-acb3-42ae-b537-3725af0c008f" testId="b3ef6052-309d-ade2-08ad-e479135668de" testName="The_PuProject_Action_returns_NotFound_statuscode_When_The_Project_Does_NOT_Exists" computerName="SOCX02" duration="00:00:00.0180084" startTime="2014-01-10T14:32:31.7064675+00:00" endTime="2014-01-10T14:32:31.7384693+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eda19657-acb3-42ae-b537-3725af0c008f">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="812a2eee-a90a-4950-b998-4fccd1f0cd2f" testId="b8e6b3d3-519a-f501-1bfa-73a460c9d52a" testName="ActionApiRouteWithControllerWithActionNoId" computerName="SOCX02" duration="00:00:00.0219092" startTime="2014-01-10T14:32:31.7484699+00:00" endTime="2014-01-10T14:32:31.7754714+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="812a2eee-a90a-4950-b998-4fccd1f0cd2f">
+    </UnitTestResult>
+    <UnitTestResult executionId="b3139bcc-9e2c-4c9d-ab0f-c583a0a734d6" testId="c1675eff-1027-225e-4797-052da164c009" testName="The_PutDonor_Action_returns_NotFound_statuscode_When_The_Donor_Does_NOT_Exists" computerName="SOCX02" duration="00:00:00.0179904" startTime="2014-01-10T14:32:31.7914723+00:00" endTime="2014-01-10T14:32:31.8154737+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b3139bcc-9e2c-4c9d-ab0f-c583a0a734d6">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7a9f3152-18ef-472c-a37f-2475453e020a" testId="c30bd61f-af43-d801-0b27-45522346d753" testName="The_PostProject_Action_returns_created_statuscode" computerName="SOCX02" duration="00:00:00.0135409" startTime="2014-01-10T14:32:31.8254743+00:00" endTime="2014-01-10T14:32:31.8444754+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7a9f3152-18ef-472c-a37f-2475453e020a">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f2857abb-eb15-4eb7-9227-4157fdee91e0" testId="c3279829-ee3c-ba3c-8526-47c144a3e824" testName="GetSubRegions_Call_Repository" computerName="SOCX02" duration="00:00:00.0055822" startTime="2014-01-10T14:32:31.8524758+00:00" endTime="2014-01-10T14:32:31.8644765+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f2857abb-eb15-4eb7-9227-4157fdee91e0">
+    </UnitTestResult>
+    <UnitTestResult executionId="2193bee1-bc58-46e9-b78a-0b79b5ecd934" testId="c56c1a40-dc8f-ca75-4fff-47c61774a542" testName="GetProject_Action_Returns_Valid_Project_Object" computerName="SOCX02" duration="00:00:00.0129963" startTime="2014-01-10T14:32:31.8674767+00:00" endTime="2014-01-10T14:32:31.8854777+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2193bee1-bc58-46e9-b78a-0b79b5ecd934">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7d8b505e-22c3-43ff-bd54-7f1860507b31" testId="d5569fc8-9dc8-fb53-b363-b33a833a4ebe" testName="GetRegions_Call_Repository" computerName="SOCX02" duration="00:00:00.0043047" startTime="2014-01-10T14:32:31.8974784+00:00" endTime="2014-01-10T14:32:31.9054789+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7d8b505e-22c3-43ff-bd54-7f1860507b31">
+    </UnitTestResult>
+    <UnitTestResult executionId="1aae36a3-a891-4ede-832b-81c756d4c710" testId="da711f7c-1243-e35e-80c6-034a98df079e" testName="AboutApi" computerName="SOCX02" duration="00:00:00.0013011" startTime="2014-01-10T14:32:31.9084790+00:00" endTime="2014-01-10T14:32:31.9144794+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1aae36a3-a891-4ede-832b-81c756d4c710">
+    </UnitTestResult>
+    <UnitTestResult executionId="0e52bf4e-b03c-4571-8984-39252b120be5" testId="ee0a6863-be1b-85c8-bc2f-6f867fd6b733" testName="The_PutDonation_Action_returns_NotFound_statuscode_When_The_Donation_Does_NOT_Exists" computerName="SOCX02" duration="00:00:00.0133541" startTime="2014-01-10T14:32:31.9244799+00:00" endTime="2014-01-10T14:32:31.9444811+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0e52bf4e-b03c-4571-8984-39252b120be5">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5e3d9c5b-6d50-4e68-8f66-7e5b3ae3cef6" testId="ef0d621c-d01b-c22b-9aed-7fcbcdac42a0" testName="The_PutProject_Action_returns_Ok_statuscode_When_The_Project_Exists" computerName="SOCX02" duration="00:00:00.0134044" startTime="2014-01-10T14:32:31.9464812+00:00" endTime="2014-01-10T14:32:31.9734827+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5e3d9c5b-6d50-4e68-8f66-7e5b3ae3cef6">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="91c48093-3c98-4373-83b4-b1453c47add6" testId="f0bc23ef-7129-c10c-aafa-81af67c2e566" testName="DefaultRouteConfigTest" computerName="SOCX02" duration="00:00:00.3116126" startTime="2014-01-10T14:32:31.9874835+00:00" endTime="2014-01-10T14:32:32.3095020+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="91c48093-3c98-4373-83b4-b1453c47add6">
+    </UnitTestResult>
+    <UnitTestResult executionId="9705867d-baf9-41da-b5d6-9128899a7696" testId="f3aa8643-ca1d-3a9a-dada-708561fc7822" testName="DeleteProject_Calls_Repository_Delete" computerName="SOCX02" duration="00:00:00.0131898" startTime="2014-01-10T14:32:32.3135022+00:00" endTime="2014-01-10T14:32:32.3335033+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9705867d-baf9-41da-b5d6-9128899a7696">
+      <Output>
+        <ErrorInfo>
+          <Message>Initialization method ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp threw exception. System.ArgumentNullException: System.ArgumentNullException: Value cannot be null.
+Parameter name: source.</Message>
+          <StackTrace>    at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ElectionMonitoring.Tests.Controllers.DonationManagementControllerTest.SetUp() in C:\Users\Musterion\Desktop\ND\ElectionMonitoring_code\ElectionMonitoring_v5\ElectionMonitoring.Tests\Controllers\DonationManagementControllerTest.cs:line 82
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7d99e883-b1b7-41f7-b336-673a45e0453a" testId="ff470440-325c-eac0-2dea-bc76ebb70ee8" testName="RaceResultsRouteWithRaceIDNoRegionCode" computerName="SOCX02" duration="00:00:00.0011841" startTime="2014-01-10T14:32:32.3385036+00:00" endTime="2014-01-10T14:32:32.3495042+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7d99e883-b1b7-41f7-b336-673a45e0453a">
+    </UnitTestResult>
+  </Results>
+</TestRun>

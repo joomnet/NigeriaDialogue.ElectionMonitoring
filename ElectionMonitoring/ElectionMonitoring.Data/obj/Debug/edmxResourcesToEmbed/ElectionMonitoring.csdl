@@ -5,6 +5,7 @@
       <Parameter Name="RaceID" Mode="In" Type="Int32" />
       <Parameter Name="RegionCode" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="Budgets" EntityType="ElectionMonitoring.Budget" />
     <EntitySet Name="Candidates" EntityType="ElectionMonitoring.Candidate" />
     <EntitySet Name="Categories" EntityType="ElectionMonitoring.Category" />
     <EntitySet Name="CategoryTypes" EntityType="ElectionMonitoring.CategoryType" />
@@ -17,6 +18,11 @@
     <EntitySet Name="RaceTypes" EntityType="ElectionMonitoring.RaceType" />
     <EntitySet Name="Regions" EntityType="ElectionMonitoring.Region" />
     <EntitySet Name="RegionTypes" EntityType="ElectionMonitoring.RegionType" />
+    <EntitySet Name="Years" EntityType="ElectionMonitoring.Year" />
+    <AssociationSet Name="FK_Project_Budget" Association="ElectionMonitoring.FK_Project_Budget">
+      <End Role="Budget" EntitySet="Budgets" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
     <AssociationSet Name="FK_Candidate_Party" Association="ElectionMonitoring.FK_Candidate_Party">
       <End Role="Party" EntitySet="Parties" />
       <End Role="Candidate" EntitySet="Candidates" />
@@ -31,6 +37,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Donation_Donor" Association="ElectionMonitoring.FK_Donation_Donor">
       <End Role="Donor" EntitySet="Donors" />
+      <End Role="Donation" EntitySet="Donations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Donation_Project" Association="ElectionMonitoring.FK_Donation_Project">
+      <End Role="Project" EntitySet="Projects" />
       <End Role="Donation" EntitySet="Donations" />
     </AssociationSet>
     <AssociationSet Name="FK_Race_RaceType" Association="ElectionMonitoring.FK_Race_RaceType">
@@ -73,6 +83,16 @@
     <Property Type="String" Name="RegionCode" Nullable="true" MaxLength="32" />
     <Property Type="Int32" Name="TotalVotes" Nullable="true" />
   </ComplexType>
+  <EntityType Name="Budget">
+    <Key>
+      <PropertyRef Name="BudgetID" />
+    </Key>
+    <Property Type="Int32" Name="BudgetID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="BudgetItem" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <NavigationProperty Name="Project" Relationship="ElectionMonitoring.FK_Project_Budget" FromRole="Budget" ToRole="Project" />
+  </EntityType>
   <EntityType Name="Candidate">
     <Key>
       <PropertyRef Name="CandidateID" />
@@ -116,16 +136,19 @@
     <Property Type="Int32" Name="DonorID" />
     <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
     <Property Type="DateTime" Name="DonationDate" />
+    <Property Type="String" Name="Currency" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
     <NavigationProperty Name="Donor" Relationship="ElectionMonitoring.FK_Donation_Donor" FromRole="Donation" ToRole="Donor" />
+    <NavigationProperty Name="Project" Relationship="ElectionMonitoring.FK_Donation_Project" FromRole="Donation" ToRole="Project" />
   </EntityType>
   <EntityType Name="Donor">
     <Key>
       <PropertyRef Name="DonorID" />
     </Key>
     <Property Type="Int32" Name="DonorID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="FirstName" MaxLength="80" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="LastName" MaxLength="80" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Gender" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FirstName" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gender" MaxLength="7" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Donations" Relationship="ElectionMonitoring.FK_Donation_Donor" FromRole="Donor" ToRole="Donation" />
   </EntityType>
@@ -147,7 +170,9 @@
     <Property Type="Int32" Name="ProjectID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="Title" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Type="Decimal" Name="Budget" Precision="19" Scale="4" />
+    <Property Type="String" Name="Status" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Budget" Relationship="ElectionMonitoring.FK_Project_Budget" FromRole="Project" ToRole="Budget" />
+    <NavigationProperty Name="Donations" Relationship="ElectionMonitoring.FK_Donation_Project" FromRole="Project" ToRole="Donation" />
   </EntityType>
   <EntityType Name="Race">
     <Key>
@@ -211,6 +236,25 @@
     <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Regions" Relationship="ElectionMonitoring.FK_Region_RegionType" FromRole="RegionType" ToRole="Region" />
   </EntityType>
+  <EntityType Name="Year">
+    <Key>
+      <PropertyRef Name="YearID" />
+    </Key>
+    <Property Type="Int32" Name="YearID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Description" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Project_Budget">
+    <End Type="ElectionMonitoring.Budget" Role="Budget" Multiplicity="1" />
+    <End Type="ElectionMonitoring.Project" Role="Project" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Budget">
+        <PropertyRef Name="BudgetID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Candidate_Party">
     <End Type="ElectionMonitoring.Party" Role="Party" Multiplicity="1" />
     <End Type="ElectionMonitoring.Candidate" Role="Candidate" Multiplicity="*" />
@@ -256,6 +300,18 @@
       </Principal>
       <Dependent Role="Donation">
         <PropertyRef Name="DonorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Donation_Project">
+    <End Type="ElectionMonitoring.Project" Role="Project" Multiplicity="1" />
+    <End Type="ElectionMonitoring.Donation" Role="Donation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="Donation">
+        <PropertyRef Name="ProjectID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

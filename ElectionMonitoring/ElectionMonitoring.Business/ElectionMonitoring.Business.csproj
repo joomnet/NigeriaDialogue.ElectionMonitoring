@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BudgetRepository.cs" />
+    <Compile Include="IBudgetRepository.cs" />
     <Compile Include="DonorRepository.cs" />
     <Compile Include="DonationRepository.cs" />
     <Compile Include="ElectionMonitoringException.cs" />

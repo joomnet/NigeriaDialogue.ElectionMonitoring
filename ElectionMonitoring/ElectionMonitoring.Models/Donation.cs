@@ -9,8 +9,9 @@ namespace ElectionMonitoring.Models
     {
         public int DonationID { get; set; }
         public int DonorID { get; set; }
-        public Donor Donor { get; set; }
+        //public Donor Donor { get; set; }
         public decimal Amount { get; set; }
         public DateTime DonationDate { get; set; }
+        public int ProjectID { get; set; }
     }
 }

@@ -13,6 +13,6 @@ namespace ElectionMonitoring.Models
 
         public string Description { get; set; }
 
-        public decimal Budget { get; set; }
+        public string Status { get; set; }
     }
 }

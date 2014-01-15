@@ -44,7 +44,7 @@ namespace ElectionMonitoring.Business
             {
                 dataProject.Title = project.Title;
                 dataProject.Description = project.Description;
-                dataProject.Budget = project.Budget;
+                dataProject.Status = project.Status;
 
                 var updated = entities.SaveChanges();
                 return (updated > 0);

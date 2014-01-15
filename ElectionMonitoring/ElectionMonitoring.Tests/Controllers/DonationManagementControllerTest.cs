@@ -24,9 +24,11 @@ namespace ElectionMonitoring.Tests.Controllers
         private IEnumerable<Models.Donor> donors;
         private IEnumerable<Models.Donation> donations;
         private IEnumerable<Models.Project> projects;
+        private IEnumerable<Models.Budget> budgets;
         private Mock<Business.IDonationRepository> mockDonationRepo;
         private Mock<Business.IDonorRepository> mockDonorRepo;
         private Mock<Business.IProjectRepository> mockProjectRepo;
+        private Mock<Business.IBudgetRepository> mockBudgetRepo;
 
         [TestInitialize]
         public void SetUp()
@@ -47,10 +49,18 @@ namespace ElectionMonitoring.Tests.Controllers
 
             projects = new List<Models.Project>
             {
-                new Project { ProjectID = 1, Title = "ElectionMonitoring Application", Description = "Website shwoing real tiem election results", Budget = 23500.00M },
-                new Project { ProjectID = 2, Title = "Another Project", Description = "Another Project Description", Budget = 13500.00M },
-                new Project { ProjectID = 3, Title = "Yet another project", Description = "Yet another project Description", Budget = 65000.00M },
-                new Project { ProjectID = 4, Title = "Still another project", Description = "Still another project Description", Budget = 10500.00M },
+                new Project { ProjectID = 1, Title = "ElectionMonitoring Application", Description = "Website shwoing real tiem election results", Status ="Done" },
+                new Project { ProjectID = 2, Title = "Another Project", Description = "Another Project Description", Status ="Completed" },
+                new Project { ProjectID = 3, Title = "Yet another project", Description = "Yet another project Description", Status ="Suspended" },
+                new Project { ProjectID = 4, Title = "Still another project", Description = "Still another project Description", Status ="Ongoing" },
+            };
+
+            budgets = new List<Models.Budget>
+            {
+                new Budget { BudgetID = 1, BudgetItem = "Transport", Amount = 23.32M, ProjectID =1 },
+                new Budget { BudgetID = 2, BudgetItem = "Transport", Amount = 200.50M, ProjectID =1 },
+                new Budget { BudgetID = 3, BudgetItem = "Transport", Amount = 35.60M, ProjectID =2 },
+                new Budget { BudgetID = 4, BudgetItem = "Transport", Amount = 102.75M, ProjectID =1 }
             };
 
             mockDonationRepo = new Mock<Business.IDonationRepository>();
@@ -74,6 +84,13 @@ namespace ElectionMonitoring.Tests.Controllers
             mockProjectRepo.Setup(d => d.CreateProject(It.IsAny<Models.Project>())).Returns(1);
             mockProjectRepo.Setup(d => d.UpdateProject(It.IsAny<Models.Project>())).Returns(true);
             mockProjectRepo.Setup(d => d.DeleteProject(It.IsAny<int>())).Returns(true);
+
+            mockBudgetRepo = new Mock<Business.IBudgetRepository>();
+            mockBudgetRepo.Setup(d => d.GetBudgets()).Returns(budgets);
+            mockBudgetRepo.Setup(d => d.GetBudget(It.IsAny<int>())).Returns(budgets.Where(prj => prj.BudgetID == 1).FirstOrDefault());
+            mockBudgetRepo.Setup(d => d.CreateBudget(It.IsAny<Models.Budget>())).Returns(new Models.Budget());
+            mockBudgetRepo.Setup(d => d.UpdateBudget(It.IsAny<Models.Budget>())).Returns(true);
+            mockBudgetRepo.Setup(d => d.DeleteBudget(It.IsAny<int>())).Returns(true);
         }
 
         [TestCleanup]
@@ -88,13 +105,13 @@ namespace ElectionMonitoring.Tests.Controllers
         }
                 
         public DonationManagementController SetupControllerForTests(Mock<IDonorRepository> donorRepo,
-            Mock<IDonationRepository> donationRepo, Mock<IProjectRepository> projectRepo)
+            Mock<IDonationRepository> donationRepo, Mock<IProjectRepository> projectRepo, Mock<IBudgetRepository> budgetRepo)
         {
             var config = new HttpConfiguration();
             var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/api/donationmanagement");
             var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
             var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "controller", "donationmanagement" } });
-            var controller = new DonationManagementController(donorRepo.Object, donationRepo.Object, projectRepo.Object)
+            var controller = new DonationManagementController(donorRepo.Object, donationRepo.Object, projectRepo.Object, budgetRepo.Object)
             {
                 ControllerContext = new HttpControllerContext(config, routeData, request),
                 Request = request
@@ -110,7 +127,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void GetDonations_Action_Returns_Valid_IEnumerable_Of_Donations()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             // Act
             var result = controller.GetDonations();
@@ -129,7 +146,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void GetDonation_Action_Returns_Valid_Donation_Object()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             // Act
             var result = controller.GetDonation(1);
@@ -144,7 +161,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void The_PostDonation_Action_returns_created_statuscode()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             // Act
             Mapper.CreateMap<Models.Donation, DTO.Donation>();
@@ -163,7 +180,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void The_PutDonation_Action_returns_Ok_statuscode_When_The_Donation_Exists()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
             var donation = donations.SingleOrDefault(u => u.DonationID == 2);
 
             // Act
@@ -179,7 +196,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void The_PutDonation_Action_returns_NotFound_statuscode_When_The_Donation_Does_NOT_Exists()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
             var donation = donations.SingleOrDefault(u => u.DonationID == 2);
             int fakeId = 876;
             // Act
@@ -196,7 +213,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void DeleteDonation_Calls_Repository_Delete()
         {
             int itemToDelete = 1;
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             controller.DeleteDonation(itemToDelete);
 
@@ -212,7 +229,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void GetDonors_Action_Returns_Valid_IEnumerable_Of_Donors()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             // Act
             var result = controller.GetDonors();
@@ -231,7 +248,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void GetDonor_Action_Returns_Valid_Donor_Object()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             // Act
             var result = controller.GetDonor(1);
@@ -246,7 +263,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void The_PostDonor_Action_returns_created_statuscode()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             // Act
             Mapper.CreateMap<Models.Donation, DTO.Donation>();
@@ -264,7 +281,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void The_PutDonor_Action_returns_Ok_statuscode_When_The_Donor_Exists()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
             var donor = donors.SingleOrDefault(u => u.DonorID == 2);
 
             // Act
@@ -280,7 +297,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void The_PutDonor_Action_returns_NotFound_statuscode_When_The_Donor_Does_NOT_Exists()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
             var donor = donors.SingleOrDefault(u => u.DonorID == 2);
             int fakeId = 345;
             // Act
@@ -297,7 +314,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void DeleteDonor_Calls_Repository_Delete()
         {
             int itemToDelete = 1;
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             controller.DeleteDonor(itemToDelete);
 
@@ -313,7 +330,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void GetProjects_Action_Returns_Valid_IEnumerable_Of_Projects()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             // Act
             var result = controller.GetProjects();
@@ -332,7 +349,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void GetProject_Action_Returns_Valid_Project_Object()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             // Act
             var result = controller.GetProject(1);
@@ -347,7 +364,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void The_PostProject_Action_returns_created_statuscode()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             // Act
             var result = controller.Post(projects.SingleOrDefault(u => u.ProjectID == 1));
@@ -362,7 +379,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void The_PutProject_Action_returns_Ok_statuscode_When_The_Project_Exists()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
             var project = projects.SingleOrDefault(u => u.ProjectID == 2);
 
             // Act
@@ -378,7 +395,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void The_PuProject_Action_returns_NotFound_statuscode_When_The_Project_Does_NOT_Exists()
         {
             // Arrange
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
             var project = projects.SingleOrDefault(u => u.ProjectID == 2);
             int fakeId = 345;
             // Act
@@ -395,7 +412,7 @@ namespace ElectionMonitoring.Tests.Controllers
         public void DeleteProject_Calls_Repository_Delete()
         {
             int itemToDelete = 1;
-            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo);
+            var controller = SetupControllerForTests(mockDonorRepo, mockDonationRepo, mockProjectRepo, mockBudgetRepo);
 
             controller.DeleteProject(itemToDelete);
 

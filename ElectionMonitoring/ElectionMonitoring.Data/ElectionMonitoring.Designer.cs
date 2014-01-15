@@ -19,10 +19,12 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
+[assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_Project_Budget", "Budget", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ElectionMonitoring.Data.Budget), "Project", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.Project), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_Candidate_Party", "Party", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ElectionMonitoring.Data.Party), "Candidate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.Candidate), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_RaceResult_Candidate", "Candidate", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.Candidate), "RaceResult", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.RaceResult), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_Category_CategoryType", "CategoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.CategoryType), "Category", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.Category), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_Donation_Donor", "Donor", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.Donor), "Donation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.Donation), true)]
+[assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_Donation_Project", "Project", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ElectionMonitoring.Data.Project), "Donation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.Donation), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_Race_RaceType", "RaceType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.RaceType), "Race", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.Race), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_RaceResult_Race", "Race", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.Race), "RaceResult", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.RaceResult), true)]
 [assembly: EdmRelationshipAttribute("ElectionMonitoring", "FK_RaceResult_Region", "Region", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ElectionMonitoring.Data.Region), "RaceResult", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ElectionMonitoring.Data.RaceResult), true)]
@@ -77,6 +79,22 @@ namespace ElectionMonitoring.Data
         #endregion
     
         #region ObjectSet Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Budget> Budgets
+        {
+            get
+            {
+                if ((_Budgets == null))
+                {
+                    _Budgets = base.CreateObjectSet<Budget>("Budgets");
+                }
+                return _Budgets;
+            }
+        }
+        private ObjectSet<Budget> _Budgets;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -269,10 +287,34 @@ namespace ElectionMonitoring.Data
             }
         }
         private ObjectSet<RegionType> _RegionTypes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Year> Years
+        {
+            get
+            {
+                if ((_Years == null))
+                {
+                    _Years = base.CreateObjectSet<Year>("Years");
+                }
+                return _Years;
+            }
+        }
+        private ObjectSet<Year> _Years;
 
         #endregion
 
         #region AddTo Methods
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Budgets EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBudgets(Budget budget)
+        {
+            base.AddObject("Budgets", budget);
+        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the Candidates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -369,6 +411,14 @@ namespace ElectionMonitoring.Data
         {
             base.AddObject("RegionTypes", regionType);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Years EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToYears(Year year)
+        {
+            base.AddObject("Years", year);
+        }
 
         #endregion
 
@@ -411,6 +461,179 @@ namespace ElectionMonitoring.Data
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ElectionMonitoring", Name="Budget")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Budget : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Budget object.
+        /// </summary>
+        /// <param name="budgetID">Initial value of the BudgetID property.</param>
+        /// <param name="projectID">Initial value of the ProjectID property.</param>
+        public static Budget CreateBudget(global::System.Int32 budgetID, global::System.Int32 projectID)
+        {
+            Budget budget = new Budget();
+            budget.BudgetID = budgetID;
+            budget.ProjectID = projectID;
+            return budget;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 BudgetID
+        {
+            get
+            {
+                return _BudgetID;
+            }
+            set
+            {
+                if (_BudgetID != value)
+                {
+                    OnBudgetIDChanging(value);
+                    ReportPropertyChanging("BudgetID");
+                    _BudgetID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("BudgetID");
+                    OnBudgetIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _BudgetID;
+        partial void OnBudgetIDChanging(global::System.Int32 value);
+        partial void OnBudgetIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String BudgetItem
+        {
+            get
+            {
+                return _BudgetItem;
+            }
+            set
+            {
+                OnBudgetItemChanging(value);
+                ReportPropertyChanging("BudgetItem");
+                _BudgetItem = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("BudgetItem");
+                OnBudgetItemChanged();
+            }
+        }
+        private global::System.String _BudgetItem;
+        partial void OnBudgetItemChanging(global::System.String value);
+        partial void OnBudgetItemChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Amount;
+        partial void OnAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ProjectID
+        {
+            get
+            {
+                return _ProjectID;
+            }
+            set
+            {
+                OnProjectIDChanging(value);
+                ReportPropertyChanging("ProjectID");
+                _ProjectID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ProjectID");
+                OnProjectIDChanged();
+            }
+        }
+        private global::System.Int32 _ProjectID;
+        partial void OnProjectIDChanging(global::System.Int32 value);
+        partial void OnProjectIDChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ElectionMonitoring", "FK_Project_Budget", "Project")]
+        public Project Project
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Project>("ElectionMonitoring.FK_Project_Budget", "Project").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Project>("ElectionMonitoring.FK_Project_Budget", "Project").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Project> ProjectReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Project>("ElectionMonitoring.FK_Project_Budget", "Project");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Project>("ElectionMonitoring.FK_Project_Budget", "Project", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -1043,10 +1266,12 @@ namespace ElectionMonitoring.Data
         /// Create a new Donation object.
         /// </summary>
         /// <param name="donationID">Initial value of the DonationID property.</param>
-        public static Donation CreateDonation(global::System.Int32 donationID)
+        /// <param name="projectID">Initial value of the ProjectID property.</param>
+        public static Donation CreateDonation(global::System.Int32 donationID, global::System.Int32 projectID)
         {
             Donation donation = new Donation();
             donation.DonationID = donationID;
+            donation.ProjectID = projectID;
             return donation;
         }
 
@@ -1152,6 +1377,54 @@ namespace ElectionMonitoring.Data
         private Nullable<global::System.DateTime> _DonationDate;
         partial void OnDonationDateChanging(Nullable<global::System.DateTime> value);
         partial void OnDonationDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Currency
+        {
+            get
+            {
+                return _Currency;
+            }
+            set
+            {
+                OnCurrencyChanging(value);
+                ReportPropertyChanging("Currency");
+                _Currency = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Currency");
+                OnCurrencyChanged();
+            }
+        }
+        private global::System.String _Currency;
+        partial void OnCurrencyChanging(global::System.String value);
+        partial void OnCurrencyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ProjectID
+        {
+            get
+            {
+                return _ProjectID;
+            }
+            set
+            {
+                OnProjectIDChanging(value);
+                ReportPropertyChanging("ProjectID");
+                _ProjectID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ProjectID");
+                OnProjectIDChanged();
+            }
+        }
+        private global::System.Int32 _ProjectID;
+        partial void OnProjectIDChanging(global::System.Int32 value);
+        partial void OnProjectIDChanged();
 
         #endregion
 
@@ -1192,6 +1465,44 @@ namespace ElectionMonitoring.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Donor>("ElectionMonitoring.FK_Donation_Donor", "Donor", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ElectionMonitoring", "FK_Donation_Project", "Project")]
+        public Project Project
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Project>("ElectionMonitoring.FK_Donation_Project", "Project").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Project>("ElectionMonitoring.FK_Donation_Project", "Project").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Project> ProjectReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Project>("ElectionMonitoring.FK_Donation_Project", "Project");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Project>("ElectionMonitoring.FK_Donation_Project", "Project", value);
                 }
             }
         }
@@ -1663,28 +1974,92 @@ namespace ElectionMonitoring.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Budget
+        public global::System.String Status
         {
             get
             {
-                return _Budget;
+                return _Status;
             }
             set
             {
-                OnBudgetChanging(value);
-                ReportPropertyChanging("Budget");
-                _Budget = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Budget");
-                OnBudgetChanged();
+                OnStatusChanging(value);
+                ReportPropertyChanging("Status");
+                _Status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Status");
+                OnStatusChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Budget;
-        partial void OnBudgetChanging(Nullable<global::System.Decimal> value);
-        partial void OnBudgetChanged();
+        private global::System.String _Status;
+        partial void OnStatusChanging(global::System.String value);
+        partial void OnStatusChanged();
 
         #endregion
 
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ElectionMonitoring", "FK_Project_Budget", "Budget")]
+        public Budget Budget
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Budget>("ElectionMonitoring.FK_Project_Budget", "Budget").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Budget>("ElectionMonitoring.FK_Project_Budget", "Budget").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Budget> BudgetReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Budget>("ElectionMonitoring.FK_Project_Budget", "Budget");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Budget>("ElectionMonitoring.FK_Project_Budget", "Budget", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ElectionMonitoring", "FK_Donation_Project", "Donation")]
+        public EntityCollection<Donation> Donations
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Donation>("ElectionMonitoring.FK_Donation_Project", "Donation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Donation>("ElectionMonitoring.FK_Donation_Project", "Donation", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -2820,6 +3195,87 @@ namespace ElectionMonitoring.Data
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ElectionMonitoring", Name="Year")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Year : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Year object.
+        /// </summary>
+        /// <param name="yearID">Initial value of the YearID property.</param>
+        public static Year CreateYear(global::System.Int32 yearID)
+        {
+            Year year = new Year();
+            year.YearID = yearID;
+            return year;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 YearID
+        {
+            get
+            {
+                return _YearID;
+            }
+            set
+            {
+                if (_YearID != value)
+                {
+                    OnYearIDChanging(value);
+                    ReportPropertyChanging("YearID");
+                    _YearID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("YearID");
+                    OnYearIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _YearID;
+        partial void OnYearIDChanging(global::System.Int32 value);
+        partial void OnYearIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+
+    
     }
 
     #endregion

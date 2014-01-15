@@ -1,0 +1,203 @@
+﻿@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_Bootstrap.cshtml";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span7">        
+		<div class="box-header well">
+			<h2><i class="icon-th"></i> Projects</h2>
+			<div class="box-icon">
+				@*<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
+				<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+				<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>*@
+			</div>
+		</div>
+        <div class="box-content">
+            <table class="table table-striped table-bordered table-condensed bootstrap-datatable " id= "project-table" >
+                <thead>
+                    <tr>
+                        <th width="5%"></th>
+                        <th width="20%">Title</th>
+                        <th width="40%">Description</th>
+                        @*<th width="5%">Status</th> *@                               
+                        <th width="30%"></th> 
+			        </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="box span5">        
+		<div class="box-header well">
+			<h2 id='details-header'><i class="icon-th"></i> </h2>
+			<div class="box-icon">
+				@*<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
+				<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>	*@			
+			</div>
+		</div>
+        <div class="box-content">
+            <p id='project-summary'></p>
+            <table class="table table-striped table-bordered table-condensed bootstrap-datatable " id= "details-table" >
+                <thead>
+                    <tr>
+                        <th>Description</th>                    
+                        <th>Amount</th>
+			        </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+  @Scripts.Render("~/bundles/jqueryval")
+    <script  type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: getAPIURL() + '/donationmanagement/projects',
+                success: function (response) {
+                    //alert(response);
+                    projTable = $('#project-table').dataTable();
+                    projTable.dataTable().fnDestroy();
+                    //instance of datatable
+                    projTable = $('#project-table').dataTable({
+                        "aaData": response,
+                        "aoColumns": [{ "sTitle": "ProjectID", "mDataProp": "ProjectID", "bVisible": true},
+                                        { "sTitle": "Title", "mDataProp": "Title" },
+                                        { "sTitle": "Description", "mDataProp": "Description" },
+                                        //{ "sTitle": "Status", "mDataProp": "Status" },
+                                        {
+                                            "mDataProp": null,
+                                            "sClass": "center",
+                                            "sDefaultContent": '<button type="submit" href=""  class="btn btn-success project_budget"> Budget </button> <button type="submit" href="" class="btn btn-primary project_donation"> Funding </button>', 
+                                        }
+                                     ],
+                        "bRetrieve": true,
+                        "bProcessing": true,
+                        "bDestroy": true,
+                        "bFilter": false,
+                        "bInfo": false,
+                        "bLengthChange": false,
+                        "sSortAsc": "header headerSortDown",
+                        "sSortDesc": "header headerSortUp",
+                        "sSortable": "header",
+                        "sDom": "<'row-fluid center'rtip>",
+                        "iDisplayLength": '10'
+                    });
+                    console.log(response);
+                    //Announce('Request processed successfully', 'center', 'success', true, false);
+                },
+                error: function () {
+                    Announce('Error processing request result', 'center', 'error', true, false);
+                },
+                dataType: 'json'
+            });
+
+            // budget button click
+            $('#project-table').on('click', 'button.project_budget', function (e) {
+                e.preventDefault();      
+                projID = $(this).parents('tr').find("td:first").html();
+                project = $(this).parents('tr').find("td:nth-child(2)").html();
+                $('#details-header').html("Budget for " + project);
+                url = getAPIURL() + '/donationmanagement/projectbudget?projectid=' +projID;
+                console.log(url);
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    success: function (response) {
+                        //alert(response);
+                        projTable = $('#details-table').dataTable();
+                        projTable.dataTable().fnDestroy();
+                        //instance of datatable
+                        projTable = $('#details-table').dataTable({
+                            "aaData": response.Budget,
+                            "aoColumns": [{ "sTitle": "Description", "mDataProp": "BudgetItem" },
+                                            { "sTitle": "Amount", "mDataProp": "Amount", "sClass": "alignRight" }
+                                         ],
+                            "bRetrieve": true,
+                            "bProcessing": true,
+                            "bDestroy": true,
+                            "bFilter": false,
+                            "bInfo": false,
+                            "bLengthChange": false,
+                            "sSortAsc": "header headerSortDown",
+                            "sSortDesc": "header headerSortUp",
+                            "sSortable": "header",
+                            "sDom": "<'row-fluid center'rtip>",
+                            "iDisplayLength": '10'
+                        });
+                        summary  = 'Budget for <i> ' + project 
+                                    + ' </i>  <br/> <strong> Total Amount = £ ' 
+                                    + response.TotalBudget.toFixed(2) + '</strong>' ;
+                        $('#project-summary').html(summary);
+                        console.log(response);
+                        //Announce('Request processed successfully', 'center', 'success', true, false);
+                    },
+                    error: function () {
+                        Announce('Error processing request result', 'center', 'error', true, false);
+                    },
+                    dataType: 'json'
+                });
+            } );
+
+            // funding button click
+            $('#project-table').on('click', 'button.project_donation', function (e) {
+                e.preventDefault();      
+                projID = $(this).parents('tr').find("td:first").html();
+                project = $(this).parents('tr').find("td:nth-child(2)").html();
+                $('#details-header').html("Funding for " + project);
+                url = getAPIURL() + '/donationmanagement/projectdonations?projectid=' +projID;
+                console.log(url);
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    success: function (response) {
+                        projTable = $('#details-table').dataTable();
+                        projTable.dataTable().fnDestroy();
+                        //instance of datatable
+                        projTable = $('#details-table').dataTable({
+                            "aaData": response.Donations,
+                            "aoColumns": [{ "sTitle": "Donor", "mDataProp": "DonorName" },
+                                            { "sTitle": "Total Donation", "mDataProp": "SumOfDonations", "sClass": "alignRight" }
+                                         ],
+                            "bRetrieve": true,
+                            "bProcessing": true,
+                            "bDestroy": true,
+                            "bFilter": false,
+                            "bInfo": false,
+                            "bLengthChange": false,
+                            "sSortAsc": "header headerSortDown",
+                            "sSortDesc": "header headerSortUp",
+                            "sSortable": "header",
+                            "sDom": "<'row-fluid center'rtip>",
+                            "iDisplayLength": '10'
+                        });
+                        summary  = 'Donations for <i> ' + project 
+                                    + ' </i>  <br/> <strong> Total Amount = £ ' 
+                                    + response.TotalDonations.toFixed(2) + '</strong>' ;
+                        $('#project-summary').html(summary);
+                        console.log(response);
+                    },
+                    error: function () {
+                        Announce('Error processing request result', 'center', 'error', true, false);
+                    },
+                    dataType: 'json'
+                });
+            } );
+            
+            $('#project-table tr').live('click', 'button.project_budget', function() {
+                 //var id = projTable.fnGetData(this)['ProjectID'];
+                 //console.log("budget for " + id);
+            });
+
+            $('#project-table tr').live('click', 'button.project_donation', function() {
+                 //var row = projTable.fnGetData(this);
+                 //id=row['ProjectID'];
+                 //console.log("donations from " + id);
+            });
+        });
+    </script>
+}

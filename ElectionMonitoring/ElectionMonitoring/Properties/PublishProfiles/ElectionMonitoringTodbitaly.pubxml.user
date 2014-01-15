@@ -18,13 +18,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2013 13:41:39</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.Business.dll">
-      <publishTime>12/05/2013 14:20:20</publishTime>
+      <publishTime>11/27/2013 15:52:16</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.Data.dll">
       <publishTime>11/22/2013 16:13:17</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.dll">
-      <publishTime>12/05/2013 14:20:22</publishTime>
+      <publishTime>11/27/2013 15:52:19</publishTime>
     </File>
     <File Include="bin/ElectionMonitoring.Models.dll">
       <publishTime>11/27/2013 15:39:36</publishTime>
@@ -276,7 +276,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/18/2013 14:19:04</publishTime>
     </File>
     <File Include="Content/themes/bootstrap/css/electionmonitoring.css">
-      <publishTime>11/28/2013 10:51:29</publishTime>
+      <publishTime>11/22/2013 13:22:22</publishTime>
     </File>
     <File Include="Content/themes/bootstrap/css/jquery-ui-1.8.21.custom.css">
       <publishTime>11/18/2013 14:19:04</publishTime>
@@ -339,7 +339,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/18/2013 14:19:04</publishTime>
     </File>
     <File Include="Content/themes/bootstrap/js/electionmonitoring.js">
-      <publishTime>02/12/2013 16:13:45</publishTime>
+      <publishTime>11/27/2013 12:01:40</publishTime>
     </File>
     <File Include="Content/themes/bootstrap/js/excanvas.js">
       <publishTime>11/18/2013 14:19:04</publishTime>
@@ -360,7 +360,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/18/2013 14:19:04</publishTime>
     </File>
     <File Include="Content/themes/bootstrap/js/jquery.dataTables.min.js">
-      <publishTime>11/28/2013 11:42:43</publishTime>
+      <publishTime>11/18/2013 14:19:04</publishTime>
     </File>
     <File Include="Content/themes/bootstrap/js/jquery.js">
       <publishTime>11/18/2013 14:19:04</publishTime>
@@ -594,7 +594,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2013 12:35:02</publishTime>
     </File>
     <File Include="Views/ElectionResult/RaceResults.cshtml">
-      <publishTime>11/28/2013 12:10:02</publishTime>
+      <publishTime>11/19/2013 15:59:24</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>11/18/2013 14:19:05</publishTime>

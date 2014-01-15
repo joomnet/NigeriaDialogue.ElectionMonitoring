@@ -447,7 +447,7 @@ function populateResultTable(selectedRegionResult)
             { "sTitle": "Votes", "mDataProp": "TotalVotes", "sClass": "alignRight"},
 //            { "sTitle": "Remarks" }
         ],
-        "aaSorting": [[2, "desc"]], 
+        "aaSorting": [[2, "desc"]],
         "bRetrieve": true, 
         "bProcessing": true,
         "bDestroy": true,
@@ -457,8 +457,7 @@ function populateResultTable(selectedRegionResult)
         "sSortAsc": "header headerSortDown",
         "sSortDesc": "header headerSortUp",
         "sSortable": "header",
-        //"sDom": "<'row-fluid'<'span6'l><'span6'f><'span12 center'>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
-        "bPaginate": false,
+        "sDom": "<'row-fluid'<'span6'l><'span6'f><'span12 center'>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
         "iDisplayLength": '5'
     });
     
@@ -537,19 +536,6 @@ function docReady() {
 	$('a[href="#"][data-top!=true]').click(function(e){
 		e.preventDefault();
 	});
-
-    //datepicker
-	$('.datepicker').datepicker({
-	    showOn: "button",
-	    buttonImage:  "/Content/themes/bootstrap/img/calendar.gif", 
-	});
-	//$.datepicker.setDefaults($.datepicker.regional['en-GB']);
-	$.datepicker.setDefaults(
-      $.extend(
-        { 'dateFormat': 'dd-mm-yy' },
-        $.datepicker.regional['en']
-      )
-    );
     	
 	//notifications
 	$('.noty').click(function(e){
@@ -573,7 +559,6 @@ function docReady() {
 	//popover
 	//$('[rel="popover"],[data-rel="popover"]').popover();
 
-
     //tabs
 	$('#myTab a:first').tab('show');
 	$('#myTab a').click(function (e) {
@@ -589,23 +574,19 @@ function docReady() {
         var mm = today.getMonth()+1; //January is 0!
         //alert('hre');
         var url =  window.location.origin + '/api/donationmanagement/donations';
-        Announce('Processing request', 'center', 'information',  false);
+        Announce(url, 'center', 'success', true, false);
         var yyyy = today.getFullYear();
         if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = yyyy+'-'+mm+'-'+dd;
-        var donation = {
-            Donor: {'FirstName' : $('#firstname').val(), 'LastName' : $('#lastname').val(), 'Gender' : $('#gender').val(), 'Email' : $('#email').val()  },
-            'Amount' : $('#amount').val(), 'DonationDate' : today
-            };
 	    $.ajax ({
             type: 'POST',
             url: url,
-            data: donation,
+            data: {'DonorID' : 1, 'Amount' : $('#amount').val(), 'DonationDate' : today},
             success: function (response) {
                 console.log(response);
-                 Announce('Request processed successfully', 'center', 'success', false);
+                 Announce('Request processed successfully', 'center', 'success', true, false);
             },
             error : function () {
-                Announce('Error processing request result', 'center', 'error', false);
+                Announce('Error processing request result', 'center', 'error', true, false);
             },
             dataType: 'json'
         });
@@ -628,10 +609,6 @@ function docReady() {
 	    }
 	    $target.slideToggle();
 	});
-    $('.btn-refresh').click( function(e){
-        e.preventDefault();
-        window.location = location.href;
-    });
    
    
 }

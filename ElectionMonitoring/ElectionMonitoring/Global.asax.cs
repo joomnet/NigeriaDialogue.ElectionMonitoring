@@ -45,6 +45,7 @@ namespace ElectionMonitoring
             unity.RegisterType<IDonationRepository, DonationRepository>(new HierarchicalLifetimeManager());
             unity.RegisterType<IDonorRepository, DonorRepository>(new HierarchicalLifetimeManager());
             unity.RegisterType<IProjectRepository, ProjectRepository>(new HierarchicalLifetimeManager());
+            unity.RegisterType<IBudgetRepository, BudgetRepository>(new HierarchicalLifetimeManager());
 
             config.DependencyResolver = new IoCContainer(unity);
         }

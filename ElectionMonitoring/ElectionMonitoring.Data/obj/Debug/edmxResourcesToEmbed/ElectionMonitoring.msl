@@ -19,6 +19,16 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="Budgets">
+      <EntityTypeMapping TypeName="ElectionMonitoring.Budget">
+        <MappingFragment StoreEntitySet="Budget">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="BudgetItem" ColumnName="BudgetItem" />
+          <ScalarProperty Name="BudgetID" ColumnName="BudgetID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Candidates">
       <EntityTypeMapping TypeName="ElectionMonitoring.Candidate">
         <MappingFragment StoreEntitySet="Candidate">
@@ -56,6 +66,8 @@
     <EntitySetMapping Name="Donations">
       <EntityTypeMapping TypeName="ElectionMonitoring.Donation">
         <MappingFragment StoreEntitySet="Donation">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
           <ScalarProperty Name="DonationDate" ColumnName="DonationDate" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="DonorID" ColumnName="DonorID" />
@@ -88,7 +100,7 @@
     <EntitySetMapping Name="Projects">
       <EntityTypeMapping TypeName="ElectionMonitoring.Project">
         <MappingFragment StoreEntitySet="Project">
-          <ScalarProperty Name="Budget" ColumnName="Budget" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
@@ -150,6 +162,14 @@
         <MappingFragment StoreEntitySet="RegionType">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="RegionTypeID" ColumnName="RegionTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Years">
+      <EntityTypeMapping TypeName="ElectionMonitoring.Year">
+        <MappingFragment StoreEntitySet="Year">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="YearID" ColumnName="YearID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

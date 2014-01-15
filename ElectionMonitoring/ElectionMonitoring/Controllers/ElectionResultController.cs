@@ -239,5 +239,13 @@ namespace ElectionMonitoring.Controllers
             return View(new ViewModels.DonationViewModel());
         }
 
+
+
+        [HttpGet]
+        public ActionResult Projects()
+        {
+            return View();
+        }
+
     }
 }
