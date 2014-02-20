@@ -8,14 +8,21 @@ using ElectionMonitoring.Models;
 using AutoMapper;
 using Newtonsoft.Json;
 using Candidate = ElectionMonitoring.DTO.Candidate;
+using Microsoft.Practices.Unity.Utility;
 
 namespace ElectionMonitoring.Controllers
 {
     
     public class ElectionResultController : Controller
     {
-        IRaceResultService service = new RaceResultService();
-        
+        private readonly IRaceResultService raceResultsService;
+
+        public ElectionResultController(IRaceResultService raceResultsService)
+        {
+            Guard.ArgumentNotNull(raceResultsService, "raceResultsService");
+            this.raceResultsService = raceResultsService;
+        }
+
         //
         // GET: /ElectionResult/
         [HttpGet]
@@ -37,8 +44,8 @@ namespace ElectionMonitoring.Controllers
                 var overallResults = new RegionResultViewModel();
 
                 //get all results for the given race
-                var allRegionsResults = service.GetAggregatedRaceResults(viewModel.RaceID, null).ToList();
-                var regions = service.GetRegions().Where(r => r.TopLevel == true).ToList(); //get all toplevel regions
+                var allRegionsResults = raceResultsService.GetAggregatedRaceResults(viewModel.RaceID, null).ToList();
+                var regions = raceResultsService.GetRegions().Where(r => r.TopLevel == true).ToList(); //get all toplevel regions
                 Mapper.CreateMap<Models.AggregatedRaceResult, ViewModels.AggregatedRaceResultViewModel>();
                 //get result per region
                 foreach (var region in regions)
@@ -119,12 +126,12 @@ namespace ElectionMonitoring.Controllers
             if ((string.IsNullOrEmpty(regioncode)) || regioncode =="NGA")
             {
                 //get 
-                results = service.GetAggregatedRaceResults(1 , "").ToList();
+                results = raceResultsService.GetAggregatedRaceResults(1 , "").ToList();
                 title = "National results of Presidential Elections";
             }
             else
             {
-                results = service.GetAggregatedRaceResults(1,regioncode).ToList();
+                results = raceResultsService.GetAggregatedRaceResults(1,regioncode).ToList();
                 
                 title = regioncode +" state results of Presidential Elections";
             }
@@ -172,7 +179,7 @@ namespace ElectionMonitoring.Controllers
             raceResult.ApprovedOn = null;
             raceResult.ModifiedBy = null;
             raceResult.ModifiedOn = null;
-            var raceResultID = service.CreateRaceResult(raceResult);
+            var raceResultID = raceResultsService.CreateRaceResult(raceResult);
             if (raceResultID > 0)
                 created = true;
             return Json(new { Created = created }, JsonRequestBehavior.AllowGet);
@@ -183,16 +190,16 @@ namespace ElectionMonitoring.Controllers
         {
             try
             {
-                var regions = service.GetRegions().ToList();
+                var regions = raceResultsService.GetRegions().ToList();
                 regions = regions.Where(r => r.TopLevel.HasValue && r.TopLevel == true).ToList();
-                var raceTypes = service.GetRaceTypes().ToList();
+                var raceTypes = raceResultsService.GetRaceTypes().ToList();
                 var raceid = 1; //for now
-                var candidates = service.GetCandidates().Where(c => c.RaceID == raceid).ToList();
+                var candidates = raceResultsService.GetCandidates().Where(c => c.RaceID == raceid).ToList();
 
                 Mapper.CreateMap<Models.Candidate, Candidate>();
                 List<Candidate> dtoCandidates = candidates.Select(Mapper.Map<Models.Candidate, Candidate>).ToList();
 
-                var allparties = service.GetParties();
+                var allparties = raceResultsService.GetParties();
                 var parties = new List<Party>();
 
                 Mapper.CreateMap<Models.Party, DTO.Party>();
@@ -220,8 +227,8 @@ namespace ElectionMonitoring.Controllers
             if (!string.IsNullOrEmpty (regioncode ))
             {
                 //get region with
-                var selectstate = service.GetRegions().Where(r => r.RegionCode.ToLower() == regioncode.ToLower()).FirstOrDefault();
-                regions = service.GetRegions().ToList();
+                var selectstate = raceResultsService.GetRegions().FirstOrDefault(r => String.Equals(r.RegionCode, regioncode, StringComparison.CurrentCultureIgnoreCase));
+                regions = raceResultsService.GetRegions().ToList();
                 regions = regions.Where(r => r.ParentRegionID == selectstate.RegionID).ToList();
             }
             
@@ -232,14 +239,14 @@ namespace ElectionMonitoring.Controllers
         public ActionResult GetCandidates(int raceid)
         {
             //get region with 
-            var candidates = service.GetCandidates().Where(c =>c.RaceID == raceid ).ToList ();            
+            var candidates = raceResultsService.GetCandidates().Where(c =>c.RaceID == raceid ).ToList ();            
             return Json(new { Candidates = candidates}, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         public ActionResult GetParty(int partyid)
         {
-            var party = service.GetParties().Where(p => p.PartyID == partyid).FirstOrDefault();
+            var party = raceResultsService.GetParties().Where(p => p.PartyID == partyid).FirstOrDefault();
             return Json(party, JsonRequestBehavior.AllowGet);
         }
 

@@ -18,10 +18,6 @@ namespace ElectionMonitoring.Controllers.Api
         private static IRegionRepository _regionRepository; // = new RegionRepository();
         private static IRaceRepository _raceRepository; // = new RaceRepository();
 
-        public ElectionMonitoringController()
-        {
-        }
-
         public ElectionMonitoringController(IRaceResultService raceResultRepository,
                                             IRegionRepository regionRepository, IRaceRepository raceRepository)
         {

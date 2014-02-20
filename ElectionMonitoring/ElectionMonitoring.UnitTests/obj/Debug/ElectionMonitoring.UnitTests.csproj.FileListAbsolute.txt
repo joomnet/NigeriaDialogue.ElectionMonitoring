@@ -7,8 +7,6 @@ C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonito
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.Unity.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.dll
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.Unity.Interception.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Moq.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\nunit.framework.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\System.Web.Optimization.dll
@@ -25,8 +23,6 @@ C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonito
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\ElectionMonitoring.pdb
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.Unity.xml
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.Unity.Interception.xml
-C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.xml
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Moq.pdb
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Moq.xml
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\nunit.framework.xml
@@ -44,3 +40,5 @@ C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonito
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\AutoMapper.xml
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\ElectionMonitoring.Repository.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\ElectionMonitoring.Repository.pdb
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring.UnitTests\bin\Debug\Microsoft.Practices.ServiceLocation.xml

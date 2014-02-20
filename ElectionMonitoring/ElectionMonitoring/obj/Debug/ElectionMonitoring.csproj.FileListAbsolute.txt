@@ -154,3 +154,4 @@ C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring\obj\Debug\Elect
 C:\Users\$soderind\Desktop\ElectionMonitoring\ElectionMonitoring\obj\Debug\ElectionMonitoring.pdb
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring\bin\ElectionMonitoring.Repository.dll
 C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring\bin\ElectionMonitoring.Repository.pdb
+C:\Development\NigeriaDialogue\NigeriaDialogue.ElectionMonitoring\ElectionMonitoring\ElectionMonitoring\bin\ElectionMonitoring.dll.config

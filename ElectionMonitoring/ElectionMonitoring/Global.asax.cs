@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ElectionMonitoring.Controllers;
 using ElectionMonitoring.Repository;
 using Microsoft.Practices.Unity;
 using ElectionMonitoring.Business;
@@ -57,6 +58,7 @@ namespace ElectionMonitoring
             unity.RegisterType<IDonorRepository, DonorRepository>(new HierarchicalLifetimeManager());
             unity.RegisterType<IProjectRepository, ProjectRepository>(new HierarchicalLifetimeManager());
 
+            unity.RegisterType<ElectionResultController>();
             config.DependencyResolver = new IoCContainer(unity);
         }
     }

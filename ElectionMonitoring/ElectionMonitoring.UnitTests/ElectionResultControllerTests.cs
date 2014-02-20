@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using ElectionMonitoring.Business;
 using ElectionMonitoring.Controllers;
 using ElectionMonitoring.ViewModels;
 using Machine.Specifications;
@@ -20,7 +21,7 @@ namespace ElectionMonitoring.UnitTests
         [Test]
         public void When_RaceResults_Are_Requested()
         {
-            Establish context = () => elctionResultController = new ElectionResultController();
+            Establish context = () => elctionResultController = new ElectionResultController(new RaceResultService());
 
             Because of = () => raceResultsPage = elctionResultController.RaceResults();
 
