@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <!-- The styles -->
+    <link id="bs-css" href="@Url.Content("~/Content/themes/alternate/css/bootstrap-main.css")" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+
+        .sidebar-nav {
+            padding: 9px 0;
+        }S
+
+        .alignRight {
+            text-align: right;
+        }
+    </style>
+
+    <link href='@Url.Content("~/Content/themes/alternate/css/bootstrap-main.css")' rel="stylesheet" />
+    <link href='@Url.Content("~/Content/themes/alternate/css/bootstrap-responsive.min.css")' rel="stylesheet" />
+    <link href='@Url.Content("~/Content/themes/alternate/css/jquery.noty.css")' rel='stylesheet' />
+    <link href='@Url.Content("~/Content/themes/alternate/css/noty_theme_default.css")' rel='stylesheet' />
+    <link href='@Url.Content("~/Content/themes/alternate/css/style.css")' rel='stylesheet' type="text/css" />
+    
+
+</head>
+<body>
+
+    <div class="main-div"><span class="mainheader">ELECTION</span> <span class="mainheaderlight">CENTRE</span></div>
+    <div class="main-menu">
+        <a href="../Home/Index" class="button">election results</a>
+        <a href="../Home/EnterResults" class="button">election result entry</a>
+        <a href="../Home/Projects" class="button">Donations & Projects</a>
+    </div>
+    <div class="main-content">
+        <div class="main-content-1"><span class="titleheader">election results</span></div>
+        <div class="main-content-2">
+            <div>
+                @RenderBody()
+            </div>
+            
+        </div>
+    </div>
+    
+    <div id="main-div-footer">
+        <span class="footertext">
+            Nigeria Dialogue Initiative<br />
+            2013, All Rights Reserved.
+        </span>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="/Content/themes/alternate/js/jquery-1.7.2.min.js"></script>
+    <!-- application script for electionmonitoring -->
+    <script type="text/javascript" src="/Content/themes/alternate/js/electionmonitoring.js"></script>
+    <!-- data table plugin -->
+    <script type="text/javascript" src="/Content/themes/alternate/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/Content/themes/alternate/js/DT_bootstrap.js"></script>
+    <!-- chart libraries start -->
+    <script type="text/javascript" src="/Content/themes/alternate/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="/Content/themes/alternate/highcharts/modules/exporting.js"></script>
+    <!-- chart libraries end -->
+    <!-- notification plugin -->
+    <script type="text/javascript" src="/Content/themes/alternate/js/jquery.noty.js"></script>
+    <!-- Google MAP API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+</body>
+</html>

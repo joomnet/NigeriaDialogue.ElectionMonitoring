@@ -12,5 +12,15 @@ namespace ElectionMonitoring.Controllers
         {
             return View();
         }
+
+        public ActionResult EnterResults()
+        {
+            return View();
+        }
+
+        public ActionResult Projects()
+        {
+            return View();
+        }
     }
 }

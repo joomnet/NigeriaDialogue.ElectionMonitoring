@@ -176,6 +176,64 @@
     <Compile Include="ViewModels\RegionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\themes\alternate\css\bootstrap-main.css" />
+    <Content Include="Content\themes\alternate\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\themes\alternate\css\bootstrap-theme.css" />
+    <Content Include="Content\themes\alternate\css\bootstrap-theme.min.css" />
+    <Content Include="Content\themes\alternate\css\bootstrap.css" />
+    <Content Include="Content\themes\alternate\css\bootstrap.min.css" />
+    <Content Include="Content\themes\alternate\css\jquery.noty.css" />
+    <Content Include="Content\themes\alternate\css\noty_theme_default.css" />
+    <Content Include="Content\themes\alternate\css\style.css" />
+    <Content Include="Content\themes\alternate\highcharts\adapters\mootools-adapter.js" />
+    <Content Include="Content\themes\alternate\highcharts\adapters\mootools-adapter.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\adapters\prototype-adapter.js" />
+    <Content Include="Content\themes\alternate\highcharts\adapters\prototype-adapter.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\adapters\standalone-framework.js" />
+    <Content Include="Content\themes\alternate\highcharts\adapters\standalone-framework.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\highcharts-all.js" />
+    <Content Include="Content\themes\alternate\highcharts\highcharts-more.js" />
+    <Content Include="Content\themes\alternate\highcharts\highcharts-more.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\highcharts.js" />
+    <Content Include="Content\themes\alternate\highcharts\highcharts.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\annotations.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\annotations.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\canvas-tools.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\data.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\data.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\drilldown.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\drilldown.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\exporting.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\exporting.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\funnel.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\funnel.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\heatmap.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\heatmap.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\map.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\map.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\no-data-to-display.js" />
+    <Content Include="Content\themes\alternate\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="Content\themes\alternate\highcharts\themes\dark-blue.js" />
+    <Content Include="Content\themes\alternate\highcharts\themes\dark-green.js" />
+    <Content Include="Content\themes\alternate\highcharts\themes\gray.js" />
+    <Content Include="Content\themes\alternate\highcharts\themes\grid.js" />
+    <Content Include="Content\themes\alternate\highcharts\themes\skies.js" />
+    <Content Include="Content\themes\alternate\img\chosen-sprite.png" />
+    <Content Include="Content\themes\alternate\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\themes\alternate\img\glyphicons-halflings.png" />
+    <Content Include="Content\themes\alternate\img\logo.png" />
+    <Content Include="Content\themes\alternate\img\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\alternate\img\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\alternate\img\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\alternate\js\bootstrap-tab.js" />
+    <Content Include="Content\themes\alternate\js\bootstrap.js" />
+    <Content Include="Content\themes\alternate\js\bootstrap.min.js" />
+    <Content Include="Content\themes\alternate\js\DT_bootstrap.js" />
+    <Content Include="Content\themes\alternate\js\electionmonitoring.js" />
+    <Content Include="Content\themes\alternate\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\themes\alternate\js\jquery.dataTables.min.js" />
+    <Content Include="Content\themes\alternate\js\jquery.noty.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -269,6 +327,22 @@
     <Content Include="Content\themes\bootstrap\js\jquery.uniform.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\alternate\ajax-loaders\ajax-loader-1.gif" />
+    <Content Include="Images\alternate\ajax-loaders\ajax-loader-2.gif" />
+    <Content Include="Images\alternate\ajax-loaders\ajax-loader-3.gif" />
+    <Content Include="Images\alternate\ajax-loaders\ajax-loader-4.gif" />
+    <Content Include="Images\alternate\ajax-loaders\ajax-loader-5.gif" />
+    <Content Include="Images\alternate\ajax-loaders\ajax-loader-6.gif" />
+    <Content Include="Images\alternate\ajax-loaders\ajax-loader-7.gif" />
+    <Content Include="Images\alternate\ajax-loaders\ajax-loader-8.gif" />
+    <Content Include="Images\alternate\bg.jpg" />
+    <Content Include="Images\alternate\bg2.jpg" />
+    <Content Include="Images\alternate\footerbg.jpg" />
+    <Content Include="Images\alternate\header.jpg" />
+    <Content Include="Images\alternate\thumbnails\electionmonitoring_50_x_50.png" />
+    <Content Include="Images\alternate\thumbnails\home.png" />
+    <Content Include="Images\alternate\thumbnails\my_computer.png" />
+    <Content Include="Images\alternate\thumbnails\nigeria.png" />
     <Content Include="Images\thumbnails\electionmonitoring_50_x_50.png" />
     <Content Include="Images\thumbnails\home.png" />
     <Content Include="Images\thumbnails\my_computer.png" />
@@ -386,12 +460,16 @@
     <Content Include="Views\ElectionResult\EnterResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\alternate\.DS_Store" />
     <None Include="Properties\PublishProfiles\electionmonitoring.nigeriadialogue.org - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ElectionMonitoring.pubxml" />
     <None Include="Properties\PublishProfiles\ElectionMonitoringTodbitaly.pubxml" />
     <None Include="Properties\PublishProfiles\nigeriadialogue.org - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Segun Local.pubxml" />
     <Content Include="Views\ElectionResult\Donation.cshtml" />
+    <Content Include="Views\Shared\_AlternateLayout.cshtml" />
+    <Content Include="Views\Home\EnterResults.cshtml" />
+    <Content Include="Views\Home\Projects.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
