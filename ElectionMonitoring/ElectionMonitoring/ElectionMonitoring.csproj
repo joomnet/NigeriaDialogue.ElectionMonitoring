@@ -425,7 +425,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
@@ -435,9 +434,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\ElectionResult\RaceResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Bootstrap.cshtml" />
@@ -457,9 +453,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ElectionResult\EnterResults.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Images\alternate\.DS_Store" />
     <None Include="Properties\PublishProfiles\electionmonitoring.nigeriadialogue.org - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ElectionMonitoring.pubxml" />
@@ -468,8 +461,10 @@
     <None Include="Properties\PublishProfiles\Segun Local.pubxml" />
     <Content Include="Views\ElectionResult\Donation.cshtml" />
     <Content Include="Views\Shared\_AlternateLayout.cshtml" />
-    <Content Include="Views\Home\EnterResults.cshtml" />
     <Content Include="Views\Home\Projects.cshtml" />
+    <Content Include="Views\ElectionResult\EnterResults.cshtml" />
+    <Content Include="Views\ElectionResult\RaceResults.cshtml" />
+    <Content Include="Views\ElectionResult\Projects.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

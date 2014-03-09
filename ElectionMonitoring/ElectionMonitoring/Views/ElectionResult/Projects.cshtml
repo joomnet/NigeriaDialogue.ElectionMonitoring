@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_AlternateLayout.cshtml";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span7">
+        <!--<div class="box-header well">
+            <h2><i class="icon-th"></i> Projects</h2>
+            <div class="box-icon">
+            </div>
+        </div> -->
+        <legend>Projects</legend>
+        <div class="box-content">
+            <table class="table table-striped table-bordered table-condensed bootstrap-datatable " id="project-table">
+                <thead>
+                    <tr>
+                        <th width="5%"></th>
+                        <th width="20%">Title</th>
+                        <th width="40%">Description</th>
+                        <th width="30%"></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="box span5">
+        <!--<div class="box-header well">
+            <h2 id='details-header'><i class="icon-th"></i> </h2>
+            <div class="box-icon">
+            </div>
+        </div>-->
+        <legend>Project Finance</legend>
+        <div class="box-content">
+            <p id='project-summary'></p>
+            <table class="table table-striped table-bordered table-condensed bootstrap-datatable " id="details-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
