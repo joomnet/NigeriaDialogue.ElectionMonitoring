@@ -455,10 +455,6 @@
   <ItemGroup>
     <Content Include="Images\alternate\.DS_Store" />
     <None Include="Properties\PublishProfiles\electionmonitoring.nigeriadialogue.org - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\ElectionMonitoring.pubxml" />
-    <None Include="Properties\PublishProfiles\ElectionMonitoringTodbitaly.pubxml" />
-    <None Include="Properties\PublishProfiles\nigeriadialogue.org - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\Segun Local.pubxml" />
     <Content Include="Views\ElectionResult\Donation.cshtml" />
     <Content Include="Views\Shared\_AlternateLayout.cshtml" />
     <Content Include="Views\Home\Projects.cshtml" />
